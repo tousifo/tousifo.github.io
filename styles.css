@@ -36,6 +36,39 @@
     .list { @apply list-disc list-outside space-y-1 pl-4 text-sm; }
 }
 
+/* Timeline Alternating Layout */
+@layer utilities {
+    @media (min-width: 768px) {
+        .timeline article:nth-child(even) { 
+            left: 50%; 
+            padding-left: 24px; 
+            padding-right: 0; 
+        }
+        .timeline article:nth-child(even) .dot { 
+            left: -18px; 
+        }
+        /* Arrow pointers */
+        .timeline article:nth-child(even) .card::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 28px;
+            border-width: 8px 8px 8px 0;
+            border-style: solid;
+            border-color: transparent #16192b transparent transparent;
+        }
+        .timeline article:nth-child(odd) .card::before {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 28px;
+            border-width: 8px 0 8px 8px;
+            border-style: solid;
+            border-color: transparent transparent transparent #16192b;
+        }
+    }
+}
+
 body {
     margin: 0;
     padding: 0;
