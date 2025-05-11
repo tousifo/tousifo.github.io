@@ -39,14 +39,24 @@
 
         <!-- Navigation -->
         <nav class="navbar" data-aos="fade-down">
-            <button onclick="scrollToSection('home')">Home</button>
-            <button onclick="scrollToSection('education')">Education</button>
-            <button onclick="scrollToSection('experience')">Experience</button>
-            <button onclick="scrollToSection('projects')">Projects</button>
-            <button onclick="scrollToSection('achievements')">Achievements</button>
-            <button onclick="scrollToSection('volunteering')">Volunteering</button>
-            <button onclick="scrollToSection('lab')">Tousif Lab</button>
-            <button onclick="scrollToSection('contact')">Contact</button>
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger-menu" id="hamburgerMenu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"/>
+                </svg>
+            </button>
+            
+            <!-- Navigation Links -->
+            <div class="nav-links" id="navLinks">
+                <button onclick="scrollToSection('home')">Home</button>
+                <button onclick="scrollToSection('education')">Education</button>
+                <button onclick="scrollToSection('experience')">Experience</button>
+                <button onclick="scrollToSection('projects')">Projects</button>
+                <button onclick="scrollToSection('achievements')">Achievements</button>
+                <button onclick="scrollToSection('volunteering')">Volunteering</button>
+                <button onclick="scrollToSection('lab')">Tousif Lab</button>
+                <button onclick="scrollToSection('contact')">Contact</button>
+            </div>
         </nav>
 
         <main>
@@ -374,7 +384,26 @@
             // Smooth Scroll
             function scrollToSection(sectionId) {
                 document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu after clicking a link
+                if (window.innerWidth <= 768) {
+                    document.getElementById('navLinks').classList.remove('active');
+                }
             }
+
+            // Mobile Menu Toggle
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navLinks = document.getElementById('navLinks');
+            
+            hamburgerMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
         </script>
     </body>
 
