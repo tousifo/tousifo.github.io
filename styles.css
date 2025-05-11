@@ -829,3 +829,16 @@ html {
     max-width: 600px;
     margin: 0 auto;
 }
+
+/* Only keep this override for the about image: */
+#about img {
+    max-width: 192px !important;
+    max-height: 192px !important;
+    min-width: 120px !important;
+    min-height: 120px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    background: #fff !important;
+    border: 4px solid #3b82f6 !important;
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.17);
+}
