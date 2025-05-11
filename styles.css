@@ -768,3 +768,124 @@ section {
 html {
     scroll-behavior: smooth;
 }
+
+/* About Section */
+.about-section {
+    text-align: left;
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+    border-left: 2px solid var(--border-color);
+    margin-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: -45px;
+    top: 0;
+    background: var(--card-bg);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.timeline-content {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    color: var(--text-color);
+    margin-left: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-content h3 {
+    margin: 0 0 5px;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.timeline-content .date {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.timeline-content h4 {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    opacity: 0.8;
+}
+
+.timeline-content ul {
+    margin: 1rem 0 0;
+    padding-left: 1.5rem;
+}
+
+.timeline-content li {
+    margin: 0.5rem 0;
+    position: relative;
+}
+
+.timeline-content li::before {
+    content: "→";
+    color: var(--secondary-color);
+    position: absolute;
+    left: -1.5rem;
+}
+
+/* Responsive Timeline */
+@media screen and (max-width: 768px) {
+    .timeline {
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .timeline-item {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .timeline-icon {
+        display: none;
+    }
+
+    .timeline-content {
+        margin-left: 0;
+    }
+
+    .about-section {
+        padding: 1rem;
+        text-align: left;
+    }
+}
