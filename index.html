@@ -60,31 +60,47 @@
         </nav>
 
         <main>
-            <section id="home" class="md:flex md:items-center md:gap-12 py-16">
-                <!-- TEXT COLUMN -->
-                <div class="flex-1 text-left">
-                    <h1 class="text-4xl font-extrabold"><b>K.M. Tousif</b> Bin Parves</h1>
-                    <p class="subtitle">
-                        <span class="typing-text" id="typingText"></span>
+            <!-- HERO / ABOUT -->
+            <section id="hero"
+                     class="flex flex-col-reverse md:flex-row items-start md:items-center
+                            gap-10 md:gap-16 py-16 px-4 max-w-6xl mx-auto">
+
+                <!-- ▸ TEXT block -->
+                <div class="flex-1">
+                    <h1 class="text-4xl font-extrabold text-slate-800 dark:text-white">
+                        K.M. Tousif Bin Parves
+                    </h1>
+                    <p class="mt-2 text-blue-600 font-semibold">AI Researcher</p>
+
+                    <p class="mt-8 max-w-2xl leading-relaxed">
+                        I am a recent ICT graduate from Comilla University, deeply passionate about
+                        advancing AI, Robotics, and their transformative applications in education
+                        and healthcare. My research explores Large Language Models,
+                        Retrieval‑Augmented Generation, AI Safety, Medical Image Classification, and Quantum Computing, aiming to bridge theoretical advancements with practical, real-world impact.
                     </p>
-                    <div class="mt-8 max-w-xl leading-relaxed">
-                        <p>
-                            I am a recent ICT graduate from Comilla University, deeply passionate about advancing AI, Robotics, and their transformative applications in education and healthcare. My research explores cutting-edge areas such as Large Language Models, Retrieval-Augmented Generation, AI Safety, Medical Image Classification, and Quantum Computing, aiming to bridge theoretical advancements with practical, real-world impact.
-                        </p>
-                    </div>
+
                     <div class="mt-8 flex gap-4">
-                        <a href="./assets/documents/cv/Resume_tousif_bin_parves.pdf" target="_blank" class="quick-link" rel="noopener noreferrer">Resume →</a>
-                        <a href="./assets/documents/ielts/IELTS.pdf" target="_blank" class="quick-link" rel="noopener noreferrer">IELTS →</a>
+                        <a href="./assets/documents/cv/Resume_tousif_bin_parves.pdf"
+                           class="inline-block rounded-lg bg-blue-600 px-6 py-3 text-white font-medium
+                                  hover:bg-blue-700 transition">
+                            Resume →
+                        </a>
+
+                        <a href="./assets/documents/ielts/IELTS.pdf"
+                           class="inline-block rounded-lg border border-blue-600 px-6 py-3 text-blue-600
+                                  hover:bg-blue-50 dark:hover:bg-slate-800 transition">
+                            IELTS →
+                        </a>
                     </div>
                 </div>
 
-                <!-- PHOTO COLUMN -->
-                <div class="mt-10 md:mt-0">
-                    <img id="profile-picture" src="./assets/images/img-profile.jpg" alt="profile picture" class="w-48 md:w-60 rounded-full ring-4 ring-blue-400">
-                </div>
+                <!-- ▸ PHOTO block -->
+                <img src="./assets/images/img-profile.jpg"
+                     alt="Tousif portrait"
+                     class="w-48 md:w-56 lg:w-64 rounded-full ring-4 ring-blue-400"/>
             </section>
 
-            <section id="education" class="bg-gray-50 dark:bg-[#0f1117] py-20">
+            <section id="education" class="pt-24 pb-20 bg-gray-50 dark:bg-[#0f1117]">
                 <div class="mx-auto max-w-3xl px-4">
                     <h2 class="text-center text-3xl font-bold text-slate-800 dark:text-white">Education</h2>
 
@@ -119,9 +135,18 @@
                             <p class="org">NSDC — CoU Chapter</p>
                             <p class="date">Apr 2024 – Present</p>
                             <ul class="list">
-                                <li>Lead NSDC chapter affiliated with Columbia University.</li>
-                                <li>Empower students in data science & AI.</li>
-                                <li>Skills: Data Science, Teaching, Chapter Management.</li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Lead NSDC chapter affiliated with Columbia University.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Empower students in data science & AI.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Skills: Data Science, Teaching, Chapter Management.</span>
+                                </li>
                             </ul>
                         </div>
                     </article>
@@ -134,8 +159,14 @@
                             <p class="org">RoboICT</p>
                             <p class="date">Dec 2023 – Present</p>
                             <ul class="list">
-                                <li>Built a robotics education lab.</li>
-                                <li>Completed 500+ student projects.</li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Built a robotics education lab.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Completed 500+ student projects.</span>
+                                </li>
                             </ul>
                         </div>
                     </article>
@@ -148,8 +179,14 @@
                             <p class="org">Comilla DC Office</p>
                             <p class="date">2022 – 2023</p>
                             <ul class="list">
-                                <li>Trained 300+ students in Python and robotics across 13 institutions.</li>
-                                <li>Developed comprehensive curriculum for Arduino and programming basics.</li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Trained 300+ students in Python and robotics across 13 institutions.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Developed comprehensive curriculum for Arduino and programming basics.</span>
+                                </li>
                             </ul>
                         </div>
                     </article>
@@ -162,8 +199,14 @@
                             <p class="org">CoU IT Society</p>
                             <p class="date">2024 – Present</p>
                             <ul class="list">
-                                <li>Secured 600 DataCamp scholarships for 100 students.</li>
-                                <li>Organized national IT events and workshops.</li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Secured 600 DataCamp scholarships for 100 students.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Organized national IT events and workshops.</span>
+                                </li>
                             </ul>
                         </div>
                     </article>
@@ -176,10 +219,22 @@
                             <p class="org">TEDx Comilla University</p>
                             <p class="date">Apr 2023 – Sep 2023</p>
                             <ul class="list">
-                                <li>Co-organized the first TEDx event at Comilla University.</li>
-                                <li>Oversaw team coordination, sponsorship, and event execution.</li>
-                                <li>Built relationships with corporate professionals.</li>
-                                <li>Skills: Project Coordination, Sponsorship Management, Team Leadership.</li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Co-organized the first TEDx event at Comilla University.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Oversaw team coordination, sponsorship, and event execution.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Built relationships with corporate professionals.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="pt-[3px] text-blue-500">›</span>
+                                    <span>Skills: Project Coordination, Sponsorship Management, Team Leadership.</span>
+                                </li>
                             </ul>
                         </div>
                     </article>
