@@ -61,57 +61,61 @@
 
         <main>
             <!-- HERO / ABOUT -->
-            <section id="hero"
-                     class="flex flex-col-reverse md:flex-row items-start md:items-center
-                            gap-10 md:gap-16 py-16 px-4 max-w-6xl mx-auto">
+            <section id="hero" class="py-16 px-4">
+                <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 max-w-6xl mx-auto">
+                    <!-- Text Content -->
+                    <div class="md:w-2/3 text-left">
+                        <h1 class="text-4xl font-extrabold text-slate-800 dark:text-white">
+                            K.M. Tousif Bin Parves
+                        </h1>
+                        <p class="mt-2 text-blue-600 font-semibold">AI Researcher</p>
 
-                <!-- ▸ TEXT block -->
-                <div class="flex-1">
-                    <h1 class="text-4xl font-extrabold text-slate-800 dark:text-white">
-                        K.M. Tousif Bin Parves
-                    </h1>
-                    <p class="mt-2 text-blue-600 font-semibold">AI Researcher</p>
+                        <p class="mt-8 max-w-2xl leading-relaxed">
+                            I am a recent ICT graduate from Comilla University, deeply passionate about
+                            advancing AI, Robotics, and their transformative applications in education
+                            and healthcare. My research explores Large Language Models,
+                            Retrieval‑Augmented Generation, AI Safety, Medical Image Classification, and Quantum Computing, aiming to bridge theoretical advancements with practical, real-world impact.
+                        </p>
 
-                    <p class="mt-8 max-w-2xl leading-relaxed">
-                        I am a recent ICT graduate from Comilla University, deeply passionate about
-                        advancing AI, Robotics, and their transformative applications in education
-                        and healthcare. My research explores Large Language Models,
-                        Retrieval‑Augmented Generation, AI Safety, Medical Image Classification, and Quantum Computing, aiming to bridge theoretical advancements with practical, real-world impact.
-                    </p>
+                        <div class="mt-8 flex gap-4">
+                            <a href="./assets/documents/cv/Resume_tousif_bin_parves.pdf"
+                               class="inline-block rounded-lg bg-blue-600 px-6 py-3 text-white font-medium
+                                      hover:bg-blue-700 transition">
+                                Resume →
+                            </a>
 
-                    <div class="mt-8 flex gap-4">
-                        <a href="./assets/documents/cv/Resume_tousif_bin_parves.pdf"
-                           class="inline-block rounded-lg bg-blue-600 px-6 py-3 text-white font-medium
-                                  hover:bg-blue-700 transition">
-                            Resume →
-                        </a>
+                            <a href="./assets/documents/ielts/IELTS.pdf"
+                               class="inline-block rounded-lg border border-blue-600 px-6 py-3 text-blue-600
+                                      hover:bg-blue-50 dark:hover:bg-slate-800 transition">
+                                IELTS →
+                            </a>
+                        </div>
+                    </div>
 
-                        <a href="./assets/documents/ielts/IELTS.pdf"
-                           class="inline-block rounded-lg border border-blue-600 px-6 py-3 text-blue-600
-                                  hover:bg-blue-50 dark:hover:bg-slate-800 transition">
-                            IELTS →
-                        </a>
+                    <!-- Image -->
+                    <div class="md:w-1/3 flex justify-center md:justify-end">
+                        <img src="./assets/images/img-profile.jpg"
+                             alt="Tousif portrait"
+                             class="rounded-full w-[250px] h-[250px] object-cover ring-4 ring-blue-400"/>
                     </div>
                 </div>
-
-                <!-- ▸ PHOTO block -->
-                <img src="./assets/images/img-profile.jpg"
-                     alt="Tousif portrait"
-                     class="w-48 md:w-56 lg:w-64 rounded-full ring-4 ring-blue-400"/>
             </section>
 
             <section id="education" class="pt-24 pb-20 bg-gray-50 dark:bg-[#0f1117]">
                 <div class="mx-auto max-w-3xl px-4">
-                    <h2 class="text-center text-3xl font-bold text-slate-800 dark:text-white">Education</h2>
+                    <h2 class="text-center text-3xl font-bold text-slate-800 dark:text-white mb-12">Education</h2>
 
-                    <div class="relative mt-10 rounded-2xl bg-white dark:bg-[#16192b]
-                                p-8 shadow-lg ring-1 ring-gray-200 dark:ring-0">
-                        <span class="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-blue-500"></span>
-                        <h3 class="text-xl font-semibold">BSc in Information & Communication Technology</h3>
-                        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Comilla University, Bangladesh  |  2020 – 2024</p>
-                        <div class="mt-4">
-                            <p><strong>GPA 3.7/4.0</strong></p>
-                            <p class="mt-2 text-sm leading-relaxed"><strong>Thesis:</strong> Academic Assistant — RAG & fine‑tuned LLMs for interactive learning.</p>
+                    <div class="bg-white dark:bg-[#16192b] p-8 rounded-2xl shadow-lg ring-1 ring-gray-200 dark:ring-0">
+                        <div class="relative">
+                            <span class="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-blue-500"></span>
+                            <h3 class="text-xl font-semibold text-slate-800 dark:text-white">BSc in Information & Communication Technology</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-400">Comilla University, Bangladesh | 2020 – 2024</p>
+                            <div class="mt-6 space-y-4">
+                                <p class="font-semibold text-slate-800 dark:text-white">GPA: 3.7/4.0</p>
+                                <p class="text-gray-700 dark:text-gray-300">
+                                    <span class="font-semibold">Thesis:</span> Academic Assistant — RAG & fine‑tuned LLMs for interactive learning.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
