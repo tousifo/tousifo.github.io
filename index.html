@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+              rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./styles.css">
+        <title>K.M. Tousif Bin Parves - AI & Robotics Researcher</title>
+        <link rel="icon" href="./assets/images/navbar/img-home.png" type="image/png">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    </head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXYB2VFM8B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CXYB2VFM8B');
+    </script>
+
+    <body>
+        <!-- Dark Mode Toggle -->
+        <button class="theme-toggle" id="themeToggle" data-aos="fade-left">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="navbar" data-aos="fade-down">
+            <button onclick="scrollToSection('home')">Home</button>
+            <button onclick="scrollToSection('education')">Education</button>
+            <button onclick="scrollToSection('experience')">Experience</button>
+            <button onclick="scrollToSection('projects')">Projects</button>
+            <button onclick="scrollToSection('achievements')">Achievements</button>
+            <button onclick="scrollToSection('volunteering')">Volunteering</button>
+            <button onclick="scrollToSection('lab')">Tousif Lab</button>
+            <button onclick="scrollToSection('contact')">Contact</button>
+        </nav>
+
+        <main>
+            <section id="home" class="home" data-aos="fade-up">
+                <div class="home-g1">
+                    <h1><b>K.M. Tousif</b> Bin Parves</h1>
+                    <p class="subtitle">
+                        <span class="typing-text" id="typingText"></span>
+                    </p>
+                    <p>
+                        I am a recent ICT graduate from Comilla University, deeply passionate about advancing AI, Robotics, and their transformative applications in education and healthcare. My research explores cutting-edge areas such as Large Language Models, Retrieval-Augmented Generation, AI Safety, Medical Image Classification, and Quantum Computing, aiming to bridge theoretical advancements with practical, real-world impact.
+                    </p>
+                    <div class="quick-links">
+                        <a href="./assets/documents/cv/Resume_Tousif_bin_parves.pdf" target="_blank" class="quick-link" rel="noopener noreferrer">Resume</a>
+                        <a href="./assets/documents/ielts/ielts.pdf" target="_blank" class="quick-link" rel="noopener noreferrer">IELTS</a>
+                    </div>
+                </div>
+
+                <div class="home-g2">
+                    <p><u><b>Research Interests:</b></u></p>
+                    <ul class="interests-list">
+                        <li>Large Language Models (LLMs)</li>
+                        <li>Retrieval-Augmented Generation (RAG)</li>
+                        <li>Instruction-Tuning</li>
+                        <li>Medical Image Classification</li>
+                        <li>AI Safety and Evaluation</li>
+                        <li>Quantum Computing</li>
+                    </ul>
+                </div>
+
+                <div class="home-g3">
+                    <img id="profile-picture" src="./assets/images/img-profile.jpg" alt="profile picture">
+                </div>
+            </section>
+
+            <section id="education" class="section" data-aos="fade-up">
+                <div class="container">
+                    <h2 data-aos="fade-down">Education</h2>
+                    <div class="content-wrapper">
+                        <div class="education-card" data-aos="zoom-in">
+                            <h3>Bachelor of Science in Information and Communication Technology</h3>
+                            <p><strong>Comilla University, Bangladesh</strong> | 2020 — 2024</p>
+                            <p><strong>GPA:</strong> 3.7/4.0</p>
+                            <p><strong>Thesis:</strong> Academic Assistant: A Robotic System Powered by RAG and Fine-Tuned LLMs for Interactive Learning</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="section" data-aos="fade-up">
+                <div class="container">
+                    <h2 data-aos="fade-down">Experience</h2>
+                    <div class="content-wrapper">
+                        <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                            <h3>AI Lead</h3>
+                            <p><strong>National Student Data Corps (NSDC) — CoU Chapter</strong> | Apr 2024 — Present</p>
+                            <p><em>Freelance | Comilla District, Chattogram, Bangladesh</em></p>
+                            <ul>
+                                <li>Lead the NSDC Chapter at Comilla University, affiliated with Columbia University's Big Data Innovation Hub (USA)</li>
+                                <li>Focused on educating and empowering students in data science and AI</li>
+                                <li>Skills: Data Science, Teaching, Chapter Management</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://nebigdatahub.org/nsdc/nsdc-chapters/nsdc-chapter-comilla-university" target="_blank" class="project-link" rel="noopener noreferrer">View Chapter</a>
+                            </div>
+                        </div>
+
+                        <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+                            <h3>Co-Founder</h3>
+                            <p><strong>RoboICT</strong> | Dec 2023 — Present</p>
+                            <p><em>Self-employed | Comilla, Chattogram, Bangladesh</em></p>
+                            <ul>
+                                <li>Co-founded a robotics education lab and launched courses like "Esho Robot Banai" and "Python e Hatekhori"</li>
+                                <li>Completed 500+ student projects within the first six months</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-card" data-aos="fade-up" data-aos-delay="300">
+                            <h3>Programming & Robotics Instructor</h3>
+                            <p><strong>Comilla DC Office</strong> | 2022 — 2023</p>
+                            <ul>
+                                <li>Trained 300+ students in Python and robotics across 13 institutions</li>
+                                <li>Developed comprehensive curriculum for Arduino and programming basics</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-card" data-aos="fade-up" data-aos-delay="400">
+                            <h3>General Secretary</h3>
+                            <p><strong>CoU IT Society</strong> | 2024 — Present</p>
+                            <ul>
+                                <li>Secured 600 DataCamp scholarships for 100 students</li>
+                                <li>Organized national IT events and workshops</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-card" data-aos="fade-up" data-aos-delay="500">
+                            <h3>Co-Organizer</h3>
+                            <p><strong>TEDx Comilla University</strong> | Apr 2023 — Sep 2023</p>
+                            <p><em>Full-time | Comilla District</em></p>
+                            <ul>
+                                <li>Co-organized the first TEDx event at Comilla University</li>
+                                <li>Oversaw team coordination, sponsorship, proposal writing, and event execution</li>
+                                <li>Built relationships with corporate professionals</li>
+                                <li>Skills: Project Coordination, Sponsorship Management, Team Leadership</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section" data-aos="fade-up">
+                <div class="container">
+                    <h2 data-aos="fade-down">Featured Projects</h2>
+                    <div class="content-wrapper">
+                        <div class="projects-grid">
+                            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                                <h3>🤖 Robot NIKO</h3>
+                                <p class="project-date">2022-2023</p>
+                                <p>A 3D-printed humanoid robot with advanced capabilities:</p>
+                                <ul>
+                                    <li>Built using ROS2, MoveIt, and Raspberry Pi</li>
+                                    <li>Implemented joint planning and navigation</li>
+                                    <li>Voice interaction powered by RAG</li>
+                                </ul>
+                                <div class="project-links">
+                                    <a href="https://github.com/tousifo/Robot-Niko" target="_blank" class="project-link" rel="noopener noreferrer">View Code</a>
+                                </div>
+                            </div>
+
+                            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                                <h3>📚 AI Academic Assistant</h3>
+                                <p class="project-date">2023-2024</p>
+                                <p>An intelligent academic assistant system:</p>
+                                <ul>
+                                    <li>Integrated DeepSeek 1.5B with LangChain</li>
+                                    <li>Focus on cultural relevance and Q&A personalization</li>
+                                    <li>Voice-interactive academic Q&A with reinforcement learning</li>
+                                </ul>
+                                <div class="project-links">
+                                    <a href="https://github.com/tousifo/academic_assistant" target="_blank" class="project-link" rel="noopener noreferrer">View Code</a>
+                                </div>
+                            </div>
+
+                            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                                <h3>📦 AI Inventory Management</h3>
+                                <p class="project-date">2023</p>
+                                <p>Real-time inventory management system:</p>
+                                <ul>
+                                    <li>Implemented YOLOv8 for real-time object detection</li>
+                                    <li>Achieved 82% mAP on Daraz inventory</li>
+                                    <li>Python, OpenCV, TensorFlow implementation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="achievements" class="section" data-aos="fade-up">
+                <div class="container">
+                    <h2 data-aos="fade-down">Awards & Achievements</h2>
+                    <div class="content-wrapper">
+                        <div class="achievements-grid">
+                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="100">
+                                <h3>🏆 Innovation Project Showcase Winner</h3>
+                                <p>UGC & Comilla University, 2024</p>
+                                <p>GPS Tracking System</p>
+                            </div>
+                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="200">
+                                <h3>🥈 Hult Prize Runner-up</h3>
+                                <p>Hult Prize CoU, 2020-21</p>
+                                <p>Runner-up for "Team Roofket" - proposed a food security solution</p>
+                            </div>
+                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="300">
+                                <h3>🎖️ Special Mention - Model United Nations</h3>
+                                <p>NSTU MUN, 2020</p>
+                                <p>Represented Spain at IEA Committee</p>
+                            </div>
+                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="400">
+                                <h3>🎓 METLIFE Foundation Pathways Scholarship</h3>
+                                <p>METLIFE, 2019</p>
+                                <p>Merit-based scholarship for academic excellence</p>
+                            </div>
+                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="500">
+                                <h3>🤖 Line Follower Robot Competition</h3>
+                                <p>BAIUST, 2023</p>
+                                <p>Runner-up</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="volunteering" class="section" data-aos="fade-up">
+                <div class="container">
+                    <h2 data-aos="fade-down">Volunteering & Leadership</h2>
+                    <div class="content-wrapper">
+                        <div class="experience-card" data-aos="fade-up">
+                            <h3>President</h3>
+                            <p><strong>Rotaract Club of Cumilla Shining Star</strong> | Jul 2024 — Present</p>
+                            <ul>
+                                <li>Lead the club in organizing community service projects and leadership initiatives</li>
+                                <li>Manage club operations and coordinate with international Rotaract network</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lab" class="lab-section" data-aos="fade-up">
+                <div class="lab-container">
+                    <div class="lab-header">
+                        <h2 data-aos="fade-down">Tousif Lab</h2>
+                        <div class="lab-divider"></div>
+                    </div>
+                    
+                    <div class="resources-grid">
+                        <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
+                            <h3>Git and GitHub</h3>
+                            <p>Master version control and collaborative development with our comprehensive guide.</p>
+                            <a href="https://tousifo.notion.site/Understanding-Git-and-GitHub-A-Comprehensive-Guide-0db63b7b13e541a598faf5f3572e34e7?pvs=4" target="_blank" class="resource-link" rel="noopener noreferrer">
+                                View Resource
+                            </a>
+                        </div>
+
+                        <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
+                            <h3>IELTS Preparation</h3>
+                            <p>Access our curated resources and strategies for IELTS success.</p>
+                            <a href="https://tousifo.notion.site/IELTS-6360fc0ebe3e4a4886a98b4c1e9dfd75?pvs=4" target="_blank" class="resource-link" rel="noopener noreferrer">
+                                View Resource
+                            </a>
+                        </div>
+
+                        <div class="resource-card" data-aos="fade-up" data-aos-delay="300">
+                            <h3>Machine Learning</h3>
+                            <p>Explore practical ML concepts and implementation guides.</p>
+                            <a href="https://tousifo.notion.site/Machine-Learning-RoadMap-61b2823402df4dbdac416ca4dcc89b88?pvs=4" target="_blank" class="resource-link" rel="noopener noreferrer">
+                                View Resource
+                            </a>
+                        </div>
+
+                        <div class="resource-card" data-aos="fade-up" data-aos-delay="400">
+                            <h3>Arduino Programming</h3>
+                            <p>Learn embedded systems and IoT development with Arduino.</p>
+                            <a href="https://tousifo.notion.site/Arduino-from-Basics-31f1f0252afd4bd7a4f81c36157b8baf?pvs=4" target="_blank" class="resource-link" rel="noopener noreferrer">
+                                View Resource
+                            </a>
+                        </div>
+
+                        <div class="resource-card" data-aos="fade-up" data-aos-delay="500">
+                            <h3>C Programming</h3>
+                            <p>Master the fundamentals of C programming language.</p>
+                            <a href="https://tousifo.notion.site/C-programming-1aeb4b406f0280c28596fb903418315d?pvs=4" target="_blank" class="resource-link" rel="noopener noreferrer">
+                                View Resource
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section" data-aos="fade-up">
+                <div class="container">
+                    <h2 data-aos="fade-down">Contact</h2>
+                    <div class="content-wrapper">
+                        <div class="contact-info" data-aos="fade-up">
+                            <p class="home-email">tousifbnn@gmail.com</p>
+                            <p>Phone: +880-162-096-2987</p>
+                            <div class="social-links">
+                                <a href="https://github.com/tousifo" target="_blank">
+                                    <div>
+                                        <img class="img-link" src="./assets/images/img-github.png">
+                                        <span class="src-link">GitHub</span>
+                                    </div>
+                                </a>
+                                <a href="https://www.linkedin.com/in/tousifo" target="_blank">
+                                    <div>
+                                        <img class="img-link" src="./assets/images/img-linkedin.png">
+                                        <span class="src-link">LinkedIn</span>
+                                    </div>
+                                </a>
+                                <a href="https://www.researchgate.net/profile/Km-Tousif-Bin-Parves" target="_blank">
+                                    <div>
+                                        <img class="img-link" src="./assets/images/researchgate.png">
+                                        <span class="src-link">ResearchGate</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="footer" data-aos="fade-up">
+            <div class="copyright">
+                <p>© 2024 K.M. Tousif Bin Parves | All Rights Reserved</p>
+            </div>
+        </div>
+
+        <script>
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                easing: 'ease-in-out'
+            });
+
+            // Typing Animation
+            new Typed('#typingText', {
+                strings: ['AI Researcher', 'LLM Enthusiast', 'Robotics Developer'],
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true
+            });
+
+            // Dark Mode Toggle
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.addEventListener('click', () => {
+                const html = document.documentElement;
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                html.setAttribute('data-theme', newTheme);
+            });
+
+            // Smooth Scroll
+            function scrollToSection(sectionId) {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }
+        </script>
+    </body>
+
+</html>

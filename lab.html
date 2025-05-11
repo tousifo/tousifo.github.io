@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tousif Lab - Learning Resources</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .lab-header {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .lab-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .lab-description {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-color);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resource-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .resource-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            object-fit: contain;
+        }
+
+        .resource-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin: 1rem 0;
+            font-weight: 600;
+        }
+
+        .resource-description {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s;
+            margin-top: auto;
+        }
+
+        .resource-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.2s;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background: var(--light-bg);
+        }
+
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">Tousif</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="lab.html" class="active">Lab</a>
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="lab-header">
+            <h1>Tousif Lab</h1>
+            <p>A curated collection of learning resources and tools to help you on your journey.</p>
+        </section>
+
+        <section class="resources-grid">
+            <div class="resource-card">
+                <i class="fas fa-code fa-3x resource-icon"></i>
+                <h3>LeetCode Solutions</h3>
+                <p>My solutions to LeetCode problems with detailed explanations and optimizations.</p>
+                <a href="https://github.com/mominul-ssv/leetcode-solutions" target="_blank" rel="noopener noreferrer" class="resource-link">View Solutions</a>
+            </div>
+
+            <div class="resource-card">
+                <i class="fas fa-laptop-code fa-3x resource-icon"></i>
+                <h3>Coding Resources</h3>
+                <p>Collection of useful coding resources, tutorials, and learning materials.</p>
+                <a href="https://github.com/mominul-ssv/coding-resources" target="_blank" rel="noopener noreferrer" class="resource-link">Explore Resources</a>
+            </div>
+
+            <div class="resource-card">
+                <i class="fas fa-project-diagram fa-3x resource-icon"></i>
+                <h3>Project Templates</h3>
+                <p>Ready-to-use templates for various web development projects.</p>
+                <a href="https://github.com/mominul-ssv/project-templates" target="_blank" rel="noopener noreferrer" class="resource-link">View Templates</a>
+            </div>
+
+            <div class="resource-card">
+                <i class="fas fa-book fa-3x resource-icon"></i>
+                <h3>Study Materials</h3>
+                <p>Comprehensive study materials for computer science and programming.</p>
+                <a href="https://github.com/mominul-ssv/study-materials" target="_blank" rel="noopener noreferrer" class="resource-link">Access Materials</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="https://github.com/mominul-ssv" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/mominul-ssv" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:mominul.ssv@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="lab.html">Lab</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tousif. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html> 
