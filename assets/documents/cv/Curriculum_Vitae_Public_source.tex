@@ -1,0 +1,115 @@
+% PUBLIC web-friendly CV (redacted): no phone, no home address,
+% no personal-information block, no referee contacts, no declaration/signature.
+% Compile with pdfLaTeX or tectonic (twice).
+% The source, rather than the older bundled PDF, supplies the M.Sc. grade.
+% Work experience is preserved from the PDF supplied in the original archive.
+\documentclass[11pt,a4paper,sans]{moderncv}
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+\usepackage{cv-design}
+\firstname{K.M. Tousif}
+\familyname{Bin Parves}
+\title{Curriculum Vitae}
+
+\begin{document}
+\begin{minipage}[c]{0.81\linewidth}
+  {\fontsize{25}{29}\selectfont\bfseries\color{navy}K.M. TOUSIF BIN PARVES\par}
+  \vspace{5pt}
+  {\fontsize{11.2}{14}\selectfont\color{accent}CURRICULUM VITAE\par}
+  \vspace{8pt}
+  {\cvsmall Dhaka, Bangladesh\par}
+  \vspace{2pt}
+  {\cvsmall \cvlink{mailto:tousifbnn@gmail.com}{tousifbnn@gmail.com}\par}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.16\linewidth}
+  \raggedleft\setlength{\fboxsep}{3pt}\setlength{\fboxrule}{0.5pt}
+  {\color{rulegray}\fbox{\includegraphics[width=23mm]{face.png}}}
+\end{minipage}
+\par\vspace{9pt}
+{\cvsmall
+\cvlink{https://tousifo.github.io/}{tousifo.github.io}\quad\textbar\quad
+\cvlink{https://github.com/tousifo}{GitHub}\quad\textbar\quad
+\cvlink{https://www.linkedin.com/in/tousifo/}{LinkedIn}\quad\textbar\quad
+\cvlink{https://www.researchgate.net/profile/Km-Tousif-Bin-Parves}{ResearchGate}\par}
+\vspace{7pt}{\color{accent}\hrule height 1.3pt}
+
+\section{Career Objective}
+Seeking an academic position in Computer Science, Information and Communication Engineering, Information and Communication Technology, or a related discipline, where I can contribute through OBE-based teaching, student mentoring, project supervision, and research in AI, quantum machine learning, IoT, embedded systems, and robotics.
+
+\section{Education}
+\education{2025--Present}{Master of Science (Engineering)}{Information and Communication Technology, Comilla University, Cumilla}{CGPA: \textbf{3.94}\quad\textbar\quad Session: 2023--24\quad\textbar\quad Result published: 2026}
+\education{2020--2025}{Bachelor of Science (Engineering)}{Information and Communication Technology, Comilla University, Cumilla}{CGPA: \textbf{3.67/4.00}\quad\textbar\quad Session: 2019--20\quad\textbar\quad Result published: 2025}
+\education{2017--2019}{Higher Secondary Certificate (Science)}{Govt. Science College, Dhaka}{GPA: \textbf{4.42/5.00}\quad\textbar\quad Passing year: 2019}
+\education{2014--2016}{Secondary School Certificate (Science)}{Motijheel Model School \& College, Dhaka}{GPA: \textbf{5.00/5.00}\quad\textbar\quad Passing year: 2016}
+
+\section{Work Experience}
+\entry{Sep 2025--\\Present}{Lecturer, Department of Computer Science and Engineering}{Port City International University}{Teaching undergraduate courses, preparing assessments, supervising projects, supporting OBE activities, and mentoring students.}
+\entry{Jul 2023--\\Aug 2025}{Research Assistant, Quantum Machine Learning Lab}{Department of ICT, Comilla University}{Researched quantum computing, ML/DL, hybrid models, algorithms, data preparation, and evaluation using Python, PyTorch, PennyLane, Colab, and Kaggle.}
+\entry{2024--2025}{Co-Founder}{RoboICT}{Built a hands-on robotics and programming education platform for school and college students.}
+\entry{2022--2023\\\cvmeta{Part-time}}{Robotics \& Programming Instructor}{School of Robotics, Cumilla}{Taught C, Python, Arduino, embedded systems, and robotics to learners aged 8--50.}
+
+\section{Academic and Teaching Profile}
+\cvrow{Teaching areas}{Data Structures, Algorithms, Database Systems, Web Technologies, AI/ML, Robotics, Embedded Systems, IoT, and Research Methodology.}
+\cvrow{OBE}{Course-outcome design, constructive alignment, learning activities, assessment, evaluation, and feedback.}
+\cvrow{Interdisciplinary}{ICT background spanning computing, intelligent systems, embedded platforms, IoT, robotics, and data-driven engineering.}
+\cvrow{Research interests}{Quantum ML security, medical and explainable AI, backdoor detection and repair, hybrid QNNs, IoT, robotics, and intelligent systems.}
+
+\newpage
+\continuation{Research, projects, and technical expertise}
+\section{Research Publications and Scholarly Outputs}
+\publication{Journal}{Harnessing Artificial Intelligence to Strengthen Green Innovation Capacity in Pursuit of Sustainable Development Goals: Evidence from Taiwan's Manufacturing Sector.}{\textit{Equilibrium: Quarterly Journal of Economics and Economic Policy}.}{SJR Q1 (Economics); ESCI indexed.\quad\cvlink{https://doi.org/10.24136/eq.3748}{DOI: 10.24136/eq.3748}}
+\publication{Journal}{Explainable Stacked Ensemble Learning for Fake News Detection using Text and Metadata.}{\textit{Jurnal The Messenger}, 2026.}{Web of Science indexed.\quad\cvlink{https://doi.org/10.26623/themessenger.v18i1.16007}{DOI: 10.26623/themessenger.v18i1.16007}}
+\publication{Conference}{Garbage Monitoring System with Rewarding Mechanism Using IoT Devices Like ESP32, ESP32CAM, RFID Module.}{\textit{ICMRS 2026}, Comilla University, Bangladesh.}{\textbf{Corresponding Author.}}
+\publication{IEEE\\Conference}{Diabetes Prediction with Explainable AI: A Stacking Ensemble Approach for Better Accuracy and Interpretability.}{\textit{QPAIN 2025}, pp. 1--6.\quad\cvlink{https://doi.org/10.1109/QPAIN66474.2025.11172244}{DOI: 10.1109/QPAIN66474.2025.11172244}}{Supervisor: Md. Rakib Hasan, Comilla University.}
+\publication{Under review}{Academic Assistant: A Robotic System Powered by Retrieval-Augmented Generation and Fine-Tuned LLMs for Interactive Learning.}{Journal manuscript under review.}{Supervisor: Dr. Dulal Chakraborty, Comilla University.}
+\publication{M.Sc. thesis\\\cvmeta{Defended}}{QMedShield: Quantum Measurement-Guided Detection, Explanation, and Repair of Backdoor Attacks in Multiclass Medical Hybrid QNNs.}{M.Sc. (Engineering), Comilla University.}{Supervisor: Dr. Dulal Chakraborty.}
+
+\section{Selected Projects}
+\entry{2022}{Robot Niko -- 3D-Printed Humanoid Robot}{Autonomous navigation, human detection, and conversational interaction.}{\cvlink{https://github.com/tousifo/Robot-Niko}{github.com/tousifo/Robot-Niko}}
+\entry{2024}{CoU Bus Tracker}{Live GPS tracking system for university buses; \textbf{Champion, Innovation Project Showcase 2024}.}{\cvlink{https://github.com/tousifo/University-Bus-Tracking-System}{github.com/tousifo/University-Bus-Tracking-System}}
+
+\section{Technical, Academic, and Professional Skills}
+{\cvsmall\renewcommand{\arraystretch}{1.08}
+\begin{minipage}[t]{0.48\linewidth}\vspace{0pt}
+\begin{tabularx}{\linewidth}{@{}X@{}}
+\skillcell{Programming}{Python, C, C++, SQL, HTML/CSS}\\[5pt]
+\skillcell{AI / ML}{PyTorch, TensorFlow/Keras, Scikit-learn, SHAP}\\[5pt]
+\skillcell{Quantum ML}{PennyLane, Qiskit, VQCs, hybrid QNNs, QXAI}\\[5pt]
+\skillcell{Data / Vision}{Pandas, NumPy, OpenCV, ResNet-based pipelines}
+\end{tabularx}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}\vspace{0pt}
+\begin{tabularx}{\linewidth}{@{}X@{}}
+\skillcell{Embedded / IoT}{Arduino, ESP32, ESP32-CAM, RFID, Raspberry Pi}\\[5pt]
+\skillcell{Tools}{Git, Docker, MLflow, Flask, LangChain, Colab, Kaggle}\\[5pt]
+\skillcell{Academic}{OBE, mentoring, assessment, project supervision}\\[5pt]
+\skillcell{Languages}{Bangla native, English advanced}
+\end{tabularx}
+\end{minipage}\par}
+
+\newpage
+\continuation{Achievements and professional development}
+\section{Scholarships and Achievements}
+\cvrow{Jun 2019}{Recipient of the \textbf{MetLife Foundation Pathways Scholarship Program}.}
+\cvrow{2024}{\textbf{Champion, Innovation Project Showcase} -- University Bus Tracker.}
+\cvrow{2024}{\textbf{Champion, Science Project Showcasing} -- 2nd CoUSC National Science Festival.}
+\cvrow{2023}{\textbf{Runners-up, Line Follower Robot Competition} (BAIUST EEE Day '23).}
+\cvrow{2020--21}{\textbf{1st Runner-up, Hult Prize Comilla University 2020--21} -- South-East Asia Region Finalist.}
+\cvrow{2020}{\textbf{Special Mention, NSTU National MUN 2020} -- Delegate of Spain, Committee of International Energy Agency.}
+
+\section{Training and Certifications}
+\entry{2025}{Training on Outcome-Based Education (OBE) Curriculum}{Port City International University, Chattogram}{Two-day workshop on OBE, outcome design, assessment alignment, and constructive alignment.}
+\entry{2023--2024}{\cvlink{https://drive.google.com/file/d/15CQ0ZDatH_ISjIwuoRs1aH30yCooBsIZ/view}{Data Science, Machine Learning \& MLOps Bootcamp}}{Bongodev}{Six-month bootcamp in ML, deep learning, MLOps, TensorFlow/Keras, MLflow, Docker, and Flask.}
+\entry{2024--25}{Quantum Computing with Machine Learning}{Mahdy's Research Academy}{Six-month course on quantum algorithms, circuits, Qiskit, and hybrid quantum-classical ML.}
+
+\section{Volunteer and Leadership Experience}
+\entry{2023}{Co-organizer, TEDx CoU}{Comilla University}{Co-organized Comilla University's first TEDx-licensed conference.}
+\entry{2024--2025}{General Secretary, CoU IT Society}{Comilla University}{Partnered with DataCamp; organized a national IT Fest and industrial tour.}
+\entry{2024--2025}{President, Rotaract Club of Comilla Shining Star}{Cumilla}{}
+
+\section{References}
+{\cvsmall Available upon request.\par}
+\vspace{6pt}
+
+\label{cvlastpage}
+\end{document}

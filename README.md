@@ -16,10 +16,19 @@ Research profiles: [Google Scholar](https://scholar.google.com/citations?user=N5
 
 ```
 index.html    # The whole site (single page)
-styles.css    # Academic stylesheet (light, print-friendly)
-scripts.js    # Nav highlight + footer year (minimal JS)
-assets/       # Profile photo, CV (PDF), icons
+styles.css    # Academic stylesheet (light & dark themes)
+scripts.js    # Theme toggle, nav highlight + footer year (minimal JS)
+assets/       # Profile photo, public CV (PDF + LaTeX source), icons
 ```
+
+## About the CV
+
+The site links a **web-friendly, redacted CV** (`Curriculum_Vitae_KM_Tousif_Bin_Parves_Public.pdf`):
+no phone number, no home address (city only), no personal-information block,
+references listed as "available upon request", and no declaration/signature.
+The LaTeX source of the redacted version is included
+(`Curriculum_Vitae_Public_source.tex`). The full private CV is distributed
+on request only — it is not hosted in this repository.
 
 ## Updating content
 
