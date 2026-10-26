@@ -714,15 +714,21 @@ strong {
 .press-clip {
     flex-shrink: 0;
     width: 300px;
+    aspect-ratio: 8 / 5;
     display: block;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    box-shadow: var(--photo-shadow);
+    background: var(--bg);
 }
 
 .press-clip img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     display: block;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    box-shadow: var(--photo-shadow);
     transition: transform 0.25s ease;
 }
 
@@ -876,6 +882,7 @@ strong {
     .press-clip {
         width: 100%;
         max-width: 440px;
+        aspect-ratio: 16 / 9;
     }
 
     .projects-grid {
