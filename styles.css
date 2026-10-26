@@ -200,6 +200,48 @@ strong {
     margin: 0 0 18px;
 }
 
+.bio-short {
+    display: none;
+}
+
+/* Research interest chips */
+.interests {
+    margin: 0 0 20px;
+}
+
+.interests-label {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 9px;
+}
+
+.interest-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip {
+    display: inline-block;
+    padding: 4px 13px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--muted);
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.chip:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
 .link-row {
     display: flex;
     flex-wrap: wrap;
@@ -473,6 +515,19 @@ strong {
         grid-template-columns: 1fr;
         gap: 24px;
         padding-top: 36px;
+    }
+
+    /* Condensed bio on small screens */
+    .bio-full {
+        display: none;
+    }
+
+    .bio-short {
+        display: block;
+    }
+
+    .bio {
+        margin-bottom: 16px;
     }
 
     .about-photo {
