@@ -8,7 +8,7 @@ A clean, single-column academic homepage in plain HTML/CSS — no framework, no 
 
 ## Sections
 
-About (with CV & profiles) · Updates · **Publications** (journals, conferences, under review, thesis) · Selected Projects · Experience · Education · Teaching & Training · Skills · Achievements & Leadership · Contact
+About (with CV & profiles) · Updates · **Publications** (journals, conferences, under review, thesis) · Selected Projects · Experience · Education · Teaching & student resources · Achievements & Leadership · Contact
 
 Research profiles: [Google Scholar](https://scholar.google.com/citations?user=N545a-3c6VUC&hl=en) · [ORCID](https://orcid.org/0009-0006-9309-879X)
 
