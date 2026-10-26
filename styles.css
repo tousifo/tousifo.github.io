@@ -181,8 +181,8 @@ strong {
 .about {
     display: grid;
     grid-template-columns: 1fr 170px;
-    gap: 48px;
-    align-items: start;
+    gap: 44px;
+    align-items: center;
     padding: 56px 0 8px;
 }
 
@@ -259,18 +259,31 @@ strong {
 }
 
 .about-photo {
-    margin: 10px 0 0;
+    position: relative;
+    z-index: 0;
+    margin: 0;
     justify-self: end;
 }
 
+/* Soft accent circle offset behind the portrait */
+.about-photo::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: -11px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+}
+
 .about-photo img {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
     object-position: center 20%;
     border-radius: 50%;
     border: 1px solid var(--border);
     box-shadow: var(--photo-shadow);
+    display: block;
 }
 
 /* ---------- Sections ---------- */
@@ -568,13 +581,13 @@ strong {
     }
 
     .about-photo {
-        justify-self: start;
+        justify-self: center;
         order: -1;
     }
 
     .about-photo img {
-        width: 128px;
-        height: 128px;
+        width: 140px;
+        height: 140px;
     }
 
     .updates li,
