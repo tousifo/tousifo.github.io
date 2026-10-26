@@ -707,6 +707,10 @@ strong {
     box-shadow: 0 10px 28px rgba(64, 52, 32, 0.10);
 }
 
+.press-entry + .press-entry {
+    margin-top: 20px;
+}
+
 .press-clip {
     flex-shrink: 0;
     width: 300px;
