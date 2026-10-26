@@ -179,11 +179,19 @@ strong {
 
 /* ---------- About / header ---------- */
 .about {
-    display: grid;
-    grid-template-columns: 1fr 170px;
-    gap: 44px;
-    align-items: center;
     padding: 56px 0 8px;
+}
+
+/* Two-column intro: text left, photo right, vertically centered */
+.about-main {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 0;
 }
 
 .about h1 {
@@ -251,6 +259,7 @@ strong {
     flex-wrap: wrap;
     gap: 9px;
     align-items: center;
+    margin-top: 30px;
 }
 
 .link-row a {
@@ -304,8 +313,8 @@ strong {
 .about-photo {
     position: relative;
     z-index: 0;
+    flex-shrink: 0;
     margin: 0;
-    justify-self: end;
 }
 
 /* Soft accent circle offset behind the portrait */
@@ -743,9 +752,12 @@ strong {
 /* ---------- Responsive ---------- */
 @media (max-width: 720px) {
     .about {
-        grid-template-columns: 1fr;
-        gap: 24px;
         padding-top: 36px;
+    }
+
+    .about-main {
+        flex-direction: column;
+        gap: 26px;
     }
 
     /* Condensed bio on small screens */
@@ -762,13 +774,18 @@ strong {
     }
 
     .about-photo {
-        justify-self: center;
         order: -1;
+        align-self: center;
     }
 
     .about-photo img {
         width: 140px;
         height: 140px;
+    }
+
+    .link-row {
+        margin-top: 24px;
+        justify-content: center;
     }
 
     .updates li,
