@@ -249,13 +249,56 @@ strong {
 .link-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 10px;
-    align-items: baseline;
-    font-size: 0.95rem;
+    gap: 9px;
+    align-items: center;
 }
 
-.link-row span[aria-hidden] {
-    color: var(--muted);
+.link-row a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 15px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link-row a svg {
+    flex-shrink: 0;
+    opacity: 0.75;
+}
+
+.link-row a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.link-row a:hover svg {
+    opacity: 1;
+}
+
+.link-row a.link-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.link-row a.link-primary svg {
+    opacity: 1;
+}
+
+.link-row a.link-primary:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(15, 118, 110, 0.28);
 }
 
 .about-photo {
