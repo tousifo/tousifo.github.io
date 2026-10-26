@@ -4,16 +4,17 @@
    ========================================================================== */
 
 :root {
-    --bg: #ffffff;
-    --bg-soft: #f7f9f9;
-    --text: #1f2937;
-    --heading: #111827;
-    --muted: #5b6472;
-    --border: #e5e7eb;
+    --bg: #f7f2e9;
+    --bg-soft: #efe8d9;
+    --text: #322d25;
+    --heading: #241f17;
+    --muted: #6f6555;
+    --border: #e2d7c3;
     --accent: #0f766e;
     --accent-dark: #0b5951;
-    --nav-bg: rgba(255, 255, 255, 0.94);
-    --photo-shadow: 0 2px 10px rgba(17, 24, 39, 0.10);
+    --accent-soft: rgba(15, 118, 110, 0.10);
+    --nav-bg: rgba(247, 242, 233, 0.94);
+    --photo-shadow: 0 2px 12px rgba(64, 52, 32, 0.16);
     --maxw: 1100px;
 }
 
@@ -26,6 +27,7 @@
     --border: #242f33;
     --accent: #2fd3b5;
     --accent-dark: #7ee6d2;
+    --accent-soft: rgba(47, 211, 181, 0.12);
     --nav-bg: rgba(15, 19, 21, 0.92);
     --photo-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
 }
@@ -109,9 +111,10 @@ strong {
 .brand {
     font-family: 'Source Serif 4', Georgia, serif;
     font-weight: 600;
-    font-size: 1.02rem;
+    font-size: 1.06rem;
     color: var(--heading);
     white-space: nowrap;
+    letter-spacing: -0.01em;
 }
 
 .brand:hover {
@@ -130,13 +133,14 @@ strong {
 .topnav-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 2px 18px;
+    gap: 2px 20px;
 }
 
 .topnav-links a {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     font-weight: 500;
     color: var(--muted);
+    letter-spacing: 0.005em;
 }
 
 .topnav-links a:hover {
@@ -183,17 +187,17 @@ strong {
 }
 
 .about h1 {
-    font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+    font-size: clamp(1.85rem, 3.6vw, 2.5rem);
     font-weight: 700;
-    margin: 0 0 10px;
-    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
 }
 
 .position {
     color: var(--muted);
-    font-size: 1.02rem;
-    margin: 0 0 18px;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    margin: 0 0 20px;
+    line-height: 1.65;
 }
 
 .bio {
@@ -251,7 +255,7 @@ strong {
 }
 
 .link-row span[aria-hidden] {
-    color: var(--border);
+    color: var(--muted);
 }
 
 .about-photo {
@@ -271,14 +275,15 @@ strong {
 
 /* ---------- Sections ---------- */
 .sec {
-    padding: 34px 0 6px;
+    padding: 44px 0 8px;
 }
 
 .sec h2 {
-    font-size: 1.45rem;
+    font-size: 1.52rem;
     font-weight: 600;
-    margin: 0 0 18px;
-    padding-bottom: 10px;
+    letter-spacing: -0.01em;
+    margin: 0 0 22px;
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--border);
     position: relative;
 }
@@ -288,7 +293,7 @@ strong {
     position: absolute;
     left: 0;
     bottom: -1px;
-    width: 56px;
+    width: 64px;
     height: 2px;
     background: var(--accent);
 }
@@ -305,9 +310,16 @@ strong {
 }
 
 .updates li {
-    padding: 7px 0 7px 96px;
+    padding: 9px 14px 9px 112px;
+    margin: 0 -14px;
     position: relative;
     border-bottom: 1px dashed var(--border);
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.updates li:hover {
+    background: var(--bg-soft);
 }
 
 .updates li:last-child {
@@ -316,13 +328,16 @@ strong {
 
 .upd-date {
     position: absolute;
-    left: 0;
-    top: 8px;
+    left: 14px;
+    top: 11px;
     font-family: 'Inter', sans-serif;
     font-variant-numeric: tabular-nums;
-    font-size: 0.82rem;
+    font-size: 0.76rem;
     font-weight: 600;
     color: var(--accent);
+    background: var(--accent-soft);
+    padding: 2px 10px;
+    border-radius: 999px;
     white-space: nowrap;
 }
 
@@ -349,10 +364,17 @@ strong {
 .publist li {
     counter-increment: pub;
     position: relative;
-    padding: 12px 0 12px 44px;
+    padding: 13px 14px 13px 58px;
+    margin: 0 -14px;
     font-size: 0.95rem;
-    line-height: 1.65;
+    line-height: 1.7;
     border-bottom: 1px dashed var(--border);
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.publist li:hover {
+    background: var(--bg-soft);
 }
 
 .publist li:last-child {
@@ -362,8 +384,8 @@ strong {
 .publist li::before {
     content: "[" counter(pub) "]";
     position: absolute;
-    left: 0;
-    top: 13px;
+    left: 14px;
+    top: 14px;
     font-variant-numeric: tabular-nums;
     color: var(--muted);
     font-size: 0.88rem;
@@ -371,6 +393,7 @@ strong {
 
 .pub-title {
     font-weight: 600;
+    font-size: 1rem;
     color: var(--heading);
 }
 
@@ -405,8 +428,15 @@ strong {
 }
 
 .entries li {
-    padding: 12px 0;
+    padding: 13px 14px;
+    margin: 0 -14px;
     border-bottom: 1px dashed var(--border);
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.entries li:hover {
+    background: var(--bg-soft);
 }
 
 .entries li:last-child {
@@ -466,9 +496,16 @@ strong {
 
 .plainlist li {
     position: relative;
-    padding: 6px 0 6px 96px;
+    padding: 7px 14px 7px 112px;
+    margin: 0 -14px;
     border-bottom: 1px dashed var(--border);
+    border-radius: 10px;
     font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.plainlist li:hover {
+    background: var(--bg-soft);
 }
 
 .plainlist li:last-child {
@@ -481,8 +518,8 @@ strong {
 }
 
 .footer {
-    margin-top: 48px;
-    padding: 22px 0 30px;
+    margin-top: 56px;
+    padding: 26px 0 34px;
     border-top: 1px solid var(--border);
     font-size: 0.9rem;
     color: var(--muted);
@@ -542,14 +579,13 @@ strong {
 
     .updates li,
     .plainlist li {
-        padding-left: 0;
-        padding-top: 4px;
+        padding: 6px 14px 8px;
     }
 
     .upd-date {
         position: static;
-        display: block;
-        margin-bottom: 2px;
+        display: inline-block;
+        margin-bottom: 4px;
     }
 
     .kv {
@@ -562,7 +598,7 @@ strong {
     }
 
     .publist li {
-        padding-left: 38px;
+        padding: 12px 12px 12px 46px;
     }
 }
 
