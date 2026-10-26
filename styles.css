@@ -500,6 +500,69 @@ strong {
     padding-top: 2px;
 }
 
+/* ---------- Student resources callout ---------- */
+.resource-callout {
+    margin: 28px 0 4px;
+    padding: 22px 24px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+}
+
+.resource-callout-head {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.resource-callout-icon {
+    font-size: 1.45rem;
+    line-height: 1.3;
+}
+
+.resource-callout-title {
+    margin: 0;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.08rem;
+    color: var(--heading);
+}
+
+.resource-callout-sub {
+    margin: 3px 0 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.resource-callout-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.resource-callout-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.resource-callout-links a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
 /* ---------- Plain lists (achievements) ---------- */
 .plainlist {
     list-style: none;
