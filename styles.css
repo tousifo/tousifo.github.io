@@ -12,7 +12,22 @@
     --border: #e5e7eb;
     --accent: #0f766e;
     --accent-dark: #0b5951;
+    --nav-bg: rgba(255, 255, 255, 0.94);
+    --photo-shadow: 0 2px 10px rgba(17, 24, 39, 0.10);
     --maxw: 1100px;
+}
+
+[data-theme="dark"] {
+    --bg: #0f1315;
+    --bg-soft: #161d20;
+    --text: #c7d0d2;
+    --heading: #eef3f2;
+    --muted: #8fa0a4;
+    --border: #242f33;
+    --accent: #2fd3b5;
+    --accent-dark: #7ee6d2;
+    --nav-bg: rgba(15, 19, 21, 0.92);
+    --photo-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
 }
 
 *,
@@ -34,6 +49,7 @@ body {
     color: var(--text);
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 h1, h2, h3 {
@@ -73,7 +89,7 @@ strong {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.94);
+    background: var(--nav-bg);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
@@ -103,6 +119,14 @@ strong {
     color: var(--accent);
 }
 
+.topnav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
 .topnav-links {
     display: flex;
     flex-wrap: wrap;
@@ -118,6 +142,35 @@ strong {
 .topnav-links a:hover {
     color: var(--accent);
     text-decoration: none;
+}
+
+/* ---------- Theme toggle ---------- */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+[data-theme="light"] .icon-sun {
+    display: none;
+}
+
+[data-theme="dark"] .icon-moon {
+    display: none;
 }
 
 /* ---------- About / header ---------- */
@@ -171,7 +224,7 @@ strong {
     object-position: center 20%;
     border-radius: 50%;
     border: 1px solid var(--border);
-    box-shadow: 0 2px 10px rgba(17, 24, 39, 0.10);
+    box-shadow: var(--photo-shadow);
 }
 
 /* ---------- Sections ---------- */

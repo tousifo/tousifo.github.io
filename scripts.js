@@ -1,10 +1,25 @@
 /* K.M. Tousif Bin Parves — academic portfolio (minimal JS) */
 
-// Footer year
+// ---------- Theme (light / dark) ----------
+const themeToggle = document.getElementById('themeToggle');
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+}
+
+// ---------- Footer year ----------
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Highlight the nav link of the section currently in view
+// ---------- Highlight the nav link of the section currently in view ----------
 const links = document.querySelectorAll('.topnav-links a');
 
 if (links.length) {
