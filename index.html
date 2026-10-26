@@ -1,21 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" class="scroll-smooth">
+<html lang="en" data-theme="light">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>K.M. Tousif Bin Parves — AI & Robotics Researcher</title>
+        <meta name="description" content="Portfolio of K.M. Tousif Bin Parves — AI & Robotics researcher working on Large Language Models, Retrieval-Augmented Generation, AI Safety, Medical Image Classification and Quantum Computing.">
+        <meta name="author" content="K.M. Tousif Bin Parves">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="K.M. Tousif Bin Parves — AI & Robotics Researcher">
+        <meta property="og:description" content="AI & Robotics researcher working on LLMs, RAG, AI Safety, Medical Image Classification and Quantum Computing.">
+        <meta property="og:url" content="https://tousifo.github.io/">
+        <meta property="og:image" content="https://tousifo.github.io/assets/images/img-profile.jpg">
+        <link rel="icon" href="./assets/images/navbar/img-home.png" type="image/png">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
-              rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
         <link rel="stylesheet" href="./styles.css">
-        <title>K.M. Tousif Bin Parves - AI & Robotics Researcher</title>
-        <link rel="icon" href="./assets/images/navbar/img-home.png" type="image/png">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <!-- Set theme before first paint to avoid flashing -->
+        <script>
+            (function () {
+                const saved = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+            })();
+        </script>
+
+        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js" defer></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+        <script src="./scripts.js" defer></script>
     </head>
 
     <!-- Google tag (gtag.js) -->
@@ -29,419 +45,474 @@
     </script>
 
     <body>
-        <!-- Dark Mode Toggle -->
-        <button class="theme-toggle" id="themeToggle" data-aos="fade-left">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"/>
-                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-            </svg>
-        </button>
+        <!-- Scroll progress -->
+        <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
         <!-- Navigation -->
-        <nav class="navbar" data-aos="fade-down">
-            <!-- Hamburger Menu Button -->
-            <button class="hamburger-menu" id="hamburgerMenu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 12h18M3 6h18M3 18h18"/>
-                </svg>
-            </button>
-            
-            <!-- Navigation Links -->
+        <nav class="navbar" id="navbar">
+            <a href="#about" class="nav-logo">tousif<span class="logo-dot">.</span></a>
+
             <div class="nav-links" id="navLinks">
-                <button onclick="scrollToSection('home')">Home</button>
-                <button onclick="scrollToSection('education')">Education</button>
-                <button onclick="scrollToSection('experience')">Experience</button>
-                <button onclick="scrollToSection('projects')">Projects</button>
-                <button onclick="scrollToSection('achievements')">Achievements</button>
-                <button onclick="scrollToSection('volunteering')">Volunteering</button>
-                <button onclick="scrollToSection('lab')">Tousif Lab</button>
-                <button onclick="scrollToSection('contact')">Contact</button>
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#volunteering">Volunteering</a>
+                <a href="#lab">Lab</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+
+                <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M3 12h18M3 6h18M3 18h18"/>
+                    </svg>
+                </button>
             </div>
         </nav>
 
         <main>
-            <section id="about" class="min-h-screen pt-32 pb-20 bg-white dark:bg-[#0F172A] text-black dark:text-white flex flex-col items-center justify-between gap-10 max-w-6xl mx-auto px-6 md:px-20">
-              
-              <!-- Text Block -->
-              <div class="w-full md:w-2/3 flex flex-col justify-center items-start">
-                <h1 class="about-name">K.M. Tousif Bin Parves</h1>
-                <h2 class="text-2xl text-blue-600 font-medium mb-4">
-                  <span id="typingText" class="typing-text"></span>
-                </h2>
-                <p class="text-lg leading-relaxed mb-8">
-                  I am a recent ICT graduate from Comilla University, deeply passionate about advancing AI, Robotics, and their transformative applications in education and healthcare. My research explores cutting-edge areas such as Large Language Models, Retrieval-Augmented Generation, AI Safety, Medical Image Classification, and Quantum Computing, aiming to bridge theoretical advancements with practical, real-world impact.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                  <a href="./assets/documents/cv/Resume_tousif_bin_parves.pdf" class="cool-btn resume-btn"><span>📄</span> <span>Resume</span></a>
-                  <!-- <a href="./assets/documents/ielts/IELTS.pdf" class="cool-btn ielts-btn"><span>✍️</span> <span>IELTS</span></a> -->
-                </div>
-              </div>
+            <!-- ============ Hero / About ============ -->
+            <section id="about" class="hero">
+                <div class="hero-inner">
+                    <div class="hero-text" data-aos="fade-up">
+                        <p class="hero-eyebrow">Hi there 👋, I'm</p>
+                        <h1 class="hero-name">K.M. Tousif <span class="gradient-text">Bin Parves</span></h1>
+                        <h2 class="hero-roles">
+                            <span id="typingText" class="typing-text"></span>
+                        </h2>
+                        <p class="hero-bio">
+                            Recent ICT graduate from <strong>Comilla University</strong>, deeply passionate about advancing
+                            AI and Robotics and their transformative applications in education and healthcare.
+                            My research explores Large Language Models, Retrieval-Augmented Generation, AI Safety,
+                            Medical Image Classification, and Quantum Computing — bridging theoretical advancements
+                            with practical, real-world impact.
+                        </p>
 
-            </section>
+                        <div class="hero-chips">
+                            <span class="chip">🧠 Large Language Models</span>
+                            <span class="chip">📚 RAG</span>
+                            <span class="chip">🛡️ AI Safety</span>
+                            <span class="chip">🩺 Medical Imaging</span>
+                            <span class="chip">⚛️ Quantum Computing</span>
+                            <span class="chip">🤖 Robotics</span>
+                        </div>
 
-            <section id="education" class="section bg-gray-50 dark:bg-[#0f1117] py-20">
-                <div class="container">
-                    <h2 class="text-center text-3xl font-bold text-slate-800 dark:text-white mb-12">Education</h2>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <h3>🎓 BSc in Information & Communication Technology</h3>
-                            <p class="project-date">Comilla University, Bangladesh | 2020 – 2024</p>
-                            <ul>
-                                <li><strong>CGPA:</strong> 3.7/4.0</li>
-                                <li><strong>Thesis:</strong> Academic Assistant — RAG & fine‑tuned LLMs for interactive learning.</li>
-                            </ul>
+                        <div class="hero-cta">
+                            <a href="./assets/documents/cv/Resume_tousif_bin_parves.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/>
+                                </svg>
+                                Resume
+                            </a>
+                            <a href="#contact" class="btn btn-outline">
+                                Get in Touch
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="hero-socials">
+                            <a href="https://github.com/tousifo" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/tousifo" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                            </a>
+                            <a href="https://www.researchgate.net/profile/Km-Tousif-Bin-Parves" target="_blank" aria-label="ResearchGate" rel="noopener noreferrer">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0c.545 0 .975.478.975.998v22.02c0 .516-.43.982-.975.982H.977c-.55 0-.977-.466-.977-.982V.998C0 .478.427 0 .977 0h18.609zM8.495 18.091h2.397c.5 0 .977.079 1.435.157a15.5 15.5 0 0 1-.37-2.055 25.6 25.6 0 0 1-.157-2.606v-2.443c0-.754.022-1.517.079-2.28.06-.762.205-1.486.448-2.171a3.505 3.505 0 0 1 1.2-1.705 3.596 3.596 0 0 1 2.17-.622 3.8 3.8 0 0 1 1.42.26l-.406 1.806a2.008 2.008 0 0 0-.83-.164 1.75 1.75 0 0 0-1.066.311 2.12 2.12 0 0 0-.678.82 3.97 3.97 0 0 0-.33 1.176c-.05.437-.078.854-.078 1.267h2.99v1.895h-2.99v6.447c.89.24 1.777.52 2.635.873l-.495 1.855a18.8 18.8 0 0 0-2.29-.71 12.5 12.5 0 0 0-2.99-.352 22.4 22.4 0 0 0-3.07.235l.011-2.243z"/></svg>
+                            </a>
+                            <a href="mailto:tousifbnn@gmail.com" aria-label="Email">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                            </a>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <section id="experience" class="section bg-[#f5f6fa] dark:bg-[#0F172A] py-20">
-                <div class="container">
-                    <h2 class="text-center text-3xl font-bold text-slate-800 dark:text-white mb-12">Work Experience</h2>
-                    <div class="projects-grid">
-                        <div class="project-card">
-                            <h3>AI Lead</h3>
-                            <p class="project-date">NSDC — CoU Chapter | Apr 2024 – Present</p>
-                            <ul>
-                                <li>Lead NSDC chapter affiliated with Columbia University</li>
-                                <li>Empower students in data science & AI</li>
-                                <li>Skills: Data Science, Teaching, Chapter Management</li>
-                            </ul>
+                    <div class="hero-photo" data-aos="fade-left" data-aos-delay="150">
+                        <div class="photo-frame">
+                            <img src="./assets/images/img-profile.jpg" alt="K.M. Tousif Bin Parves" class="profile-photo">
                         </div>
-                        <div class="project-card">
-                            <h3>Co-Founder</h3>
-                            <p class="project-date">RoboICT | Dec 2023 – Present</p>
-                            <ul>
-                                <li>Built a robotics education lab</li>
-                                <li>Completed 500+ student projects</li>
-                            </ul>
-                        </div>
-                        <div class="project-card">
-                            <h3>Programming & Robotics Instructor</h3>
-                            <p class="project-date">Comilla DC Office | 2022 – 2023</p>
-                            <ul>
-                                <li>Trained 300+ students in Python and robotics across 13 institutions</li>
-                                <li>Developed comprehensive curriculum for Arduino and programming basics</li>
-                            </ul>
-                        </div>
-                        <div class="project-card">
-                            <h3>General Secretary</h3>
-                            <p class="project-date">CoU IT Society | 2024 – Present</p>
-                            <ul>
-                                <li>Secured 600 DataCamp scholarships for 100 students</li>
-                                <li>Organized national IT events and workshops</li>
-                            </ul>
-                        </div>
-                        <div class="project-card">
-                            <h3>Co-Organizer</h3>
-                            <p class="project-date">TEDx Comilla University | Apr 2023 – Sep 2023</p>
-                            <ul>
-                                <li>Co-organized the first TEDx event at Comilla University</li>
-                                <li>Oversaw team coordination, sponsorship, and event execution</li>
-                                <li>Built relationships with corporate professionals</li>
-                                <li>Skills: Project Coordination, Sponsorship Management, Team Leadership</li>
-                            </ul>
-                        </div>
+                        <div class="float-badge badge-1">🤖 Robotics</div>
+                        <div class="float-badge badge-2">🧠 AI Research</div>
                     </div>
                 </div>
+
+                <a href="#education" class="scroll-hint" aria-label="Scroll down">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                </a>
             </section>
 
-            <section id="projects" class="section" data-aos="fade-up">
+            <!-- ============ Education ============ -->
+            <section id="education" class="section">
                 <div class="container">
-                    <h2 data-aos="fade-down">Featured Projects</h2>
-                    <div class="content-wrapper">
-                        <div class="projects-grid">
-                            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                                <h3>🤖 Robot NIKO</h3>
-                                <p class="project-date">2022-2023</p>
-                                <p>A 3D-printed humanoid robot with advanced capabilities:</p>
-                                <ul>
-                                    <li>Built using ROS2, MoveIt, and Raspberry Pi</li>
-                                    <li>Implemented joint planning and navigation</li>
-                                    <li>Voice interaction powered by RAG</li>
-                                </ul>
-                                <div class="project-links">
-                                    <a href="https://github.com/tousifo/Robot-Niko" target="_blank" class="project-link" rel="noopener noreferrer">View Code</a>
+                    <div class="section-header" data-aos="fade-up">
+                        <span class="section-eyebrow">Where I studied</span>
+                        <h2>Education</h2>
+                    </div>
+
+                    <div class="edu-card" data-aos="fade-up">
+                        <div class="edu-icon">🎓</div>
+                        <div class="edu-body">
+                            <div class="edu-top">
+                                <h3>BSc in Information & Communication Technology</h3>
+                                <span class="edu-date">2020 – 2024</span>
+                            </div>
+                            <p class="edu-org">Comilla University, Bangladesh</p>
+                            <div class="edu-meta">
+                                <span class="meta-pill"><strong>CGPA</strong> 3.7 / 4.0</span>
+                            </div>
+                            <div class="edu-thesis">
+                                <p class="edu-thesis-label">Undergraduate Thesis</p>
+                                <p class="edu-thesis-title">Academic Assistant — RAG & fine-tuned LLMs for interactive learning</p>
+                                <div class="tag-row">
+                                    <span class="tag">RAG</span>
+                                    <span class="tag">LLMs</span>
+                                    <span class="tag">Fine-tuning</span>
+                                    <span class="tag">NLP</span>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                                <h3>📚 AI Academic Assistant</h3>
-                                <p class="project-date">2023-2024</p>
-                                <p>An intelligent academic assistant system:</p>
+            <!-- ============ Experience ============ -->
+            <section id="experience" class="section section-alt">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up">
+                        <span class="section-eyebrow">Where I've worked</span>
+                        <h2>Experience</h2>
+                    </div>
+
+                    <div class="timeline">
+                        <article class="timeline-item" data-aos="fade-up">
+                            <div class="timeline-dot"></div>
+                            <div class="card">
+                                <span class="card-date">Apr 2024 – Present</span>
+                                <h3>AI Lead</h3>
+                                <p class="card-org">NSDC — CoU Chapter · affiliated with Columbia University</p>
                                 <ul>
-                                    <li>Integrated DeepSeek 1.5B with LangChain</li>
-                                    <li>Focus on cultural relevance and Q&A personalization</li>
-                                    <li>Voice-interactive academic Q&A with reinforcement learning</li>
+                                    <li>Lead the NSDC chapter, empowering students in data science & AI</li>
+                                    <li>Design hands-on curriculum and mentor chapter members</li>
                                 </ul>
-                                <div class="project-links">
-                                    <a href="https://github.com/tousifo/academic_assistant" target="_blank" class="project-link" rel="noopener noreferrer">View Code</a>
-                                </div>
                             </div>
+                        </article>
 
-                            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                                <h3>📦 AI Inventory Management</h3>
-                                <p class="project-date">2023</p>
-                                <p>Real-time inventory management system:</p>
+                        <article class="timeline-item" data-aos="fade-up">
+                            <div class="timeline-dot"></div>
+                            <div class="card">
+                                <span class="card-date">Dec 2023 – Present</span>
+                                <h3>Co-Founder</h3>
+                                <p class="card-org">RoboICT</p>
                                 <ul>
-                                    <li>Implemented YOLOv8 for real-time object detection</li>
-                                    <li>Achieved 82% mAP on Daraz inventory</li>
-                                    <li>Python, OpenCV, TensorFlow implementation</li>
+                                    <li>Built a robotics education lab from the ground up</li>
+                                    <li>Completed 500+ student projects</li>
                                 </ul>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item" data-aos="fade-up">
+                            <div class="timeline-dot"></div>
+                            <div class="card">
+                                <span class="card-date">2024 – Present</span>
+                                <h3>General Secretary</h3>
+                                <p class="card-org">CoU IT Society</p>
+                                <ul>
+                                    <li>Secured 600 DataCamp scholarships for 100 students</li>
+                                    <li>Organized national IT events and workshops</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item" data-aos="fade-up">
+                            <div class="timeline-dot"></div>
+                            <div class="card">
+                                <span class="card-date">2022 – 2023</span>
+                                <h3>Programming & Robotics Instructor</h3>
+                                <p class="card-org">Comilla DC Office</p>
+                                <ul>
+                                    <li>Trained 300+ students in Python and robotics across 13 institutions</li>
+                                    <li>Developed a comprehensive Arduino & programming curriculum</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item" data-aos="fade-up">
+                            <div class="timeline-dot"></div>
+                            <div class="card">
+                                <span class="card-date">Apr 2023 – Sep 2023</span>
+                                <h3>Co-Organizer</h3>
+                                <p class="card-org">TEDx Comilla University</p>
+                                <ul>
+                                    <li>Co-organized the first TEDx event at Comilla University</li>
+                                    <li>Oversaw team coordination, sponsorship, and event execution</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ Projects ============ -->
+            <section id="projects" class="section">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up">
+                        <span class="section-eyebrow">What I've built</span>
+                        <h2>Featured Projects</h2>
+                    </div>
+
+                    <div class="projects-grid">
+                        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="project-icon">🤖</div>
+                            <h3>Robot NIKO</h3>
+                            <span class="project-date">2022 – 2023</span>
+                            <p>A 3D-printed humanoid robot with advanced capabilities — joint planning, autonomous navigation, and voice interaction powered by RAG.</p>
+                            <ul>
+                                <li>Built using ROS2, MoveIt, and Raspberry Pi</li>
+                                <li>Implemented joint planning and navigation</li>
+                                <li>Voice interaction powered by RAG</li>
+                            </ul>
+                            <div class="tag-row">
+                                <span class="tag">ROS2</span>
+                                <span class="tag">MoveIt</span>
+                                <span class="tag">Raspberry Pi</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/tousifo/Robot-Niko" target="_blank" class="btn-link" rel="noopener noreferrer">
+                                    View Code
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="project-icon">📚</div>
+                            <h3>AI Academic Assistant</h3>
+                            <span class="project-date">2023 – 2024</span>
+                            <p>An intelligent, voice-interactive academic assistant focused on cultural relevance and personalized Q&amp;A for learners.</p>
+                            <ul>
+                                <li>Integrated DeepSeek 1.5B with LangChain</li>
+                                <li>Focus on cultural relevance and Q&A personalization</li>
+                                <li>Voice-interactive Q&A with reinforcement learning</li>
+                            </ul>
+                            <div class="tag-row">
+                                <span class="tag">LangChain</span>
+                                <span class="tag">DeepSeek</span>
+                                <span class="tag">Voice AI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/tousifo/academic_assistant" target="_blank" class="btn-link" rel="noopener noreferrer">
+                                    View Code
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="project-icon">📦</div>
+                            <h3>AI Inventory Management</h3>
+                            <span class="project-date">2023</span>
+                            <p>Real-time inventory management system using computer vision, achieving 82% mAP on Daraz inventory data.</p>
+                            <ul>
+                                <li>YOLOv8 for real-time object detection</li>
+                                <li>Achieved 82% mAP on Daraz inventory</li>
+                                <li>Python, OpenCV, TensorFlow implementation</li>
+                            </ul>
+                            <div class="tag-row">
+                                <span class="tag">YOLOv8</span>
+                                <span class="tag">OpenCV</span>
+                                <span class="tag">TensorFlow</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="achievements" class="section" data-aos="fade-up">
+            <!-- ============ Achievements ============ -->
+            <section id="achievements" class="section section-alt">
                 <div class="container">
-                    <h2 data-aos="fade-down">Awards & Achievements</h2>
-                    <div class="content-wrapper">
-                        <div class="achievements-grid">
-                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="100">
-                                <h3>🏆 Innovation Project Showcase Winner</h3>
-                                <p>UGC & Comilla University, 2024</p>
-                                <p>GPS Tracking System</p>
-                            </div>
-                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="200">
-                                <h3>🥈 Hult Prize Runner-up</h3>
-                                <p>Hult Prize CoU, 2020-21</p>
-                                <p>Runner-up for "Team Roofket" - proposed a food security solution</p>
-                            </div>
-                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="300">
-                                <h3>🎖️ Special Mention - Model United Nations</h3>
-                                <p>NSTU MUN, 2020</p>
-                                <p>Represented Spain at IEA Committee</p>
-                            </div>
-                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="400">
-                                <h3>🎓 METLIFE Foundation Pathways Scholarship</h3>
-                                <p>METLIFE, 2019</p>
-                                <p>Merit-based scholarship for academic excellence</p>
-                            </div>
-                            <div class="achievement-card" data-aos="zoom-in" data-aos-delay="500">
-                                <h3>🤖 Line Follower Robot Competition</h3>
-                                <p>BAIUST, 2023</p>
-                                <p>Runner-up</p>
-                            </div>
+                    <div class="section-header" data-aos="fade-up">
+                        <span class="section-eyebrow">Milestones</span>
+                        <h2>Awards & Achievements</h2>
+                    </div>
+
+                    <div class="achievements-grid">
+                        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="achievement-icon">🏆</div>
+                            <h3>Innovation Project Showcase Winner</h3>
+                            <p class="achievement-org">UGC & Comilla University · 2024</p>
+                            <p>GPS Tracking System</p>
+                        </div>
+                        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="achievement-icon">🥈</div>
+                            <h3>Hult Prize Runner-up</h3>
+                            <p class="achievement-org">Hult Prize CoU · 2020-21</p>
+                            <p>Runner-up with "Team Roofket" — a proposed food security solution</p>
+                        </div>
+                        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="achievement-icon">🎖️</div>
+                            <h3>Special Mention — Model United Nations</h3>
+                            <p class="achievement-org">NSTU MUN · 2020</p>
+                            <p>Represented Spain at the IEA Committee</p>
+                        </div>
+                        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="achievement-icon">🎓</div>
+                            <h3>METLIFE Foundation Pathways Scholarship</h3>
+                            <p class="achievement-org">METLIFE · 2019</p>
+                            <p>Merit-based scholarship for academic excellence</p>
+                        </div>
+                        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="500">
+                            <div class="achievement-icon">🤖</div>
+                            <h3>Line Follower Robot Competition</h3>
+                            <p class="achievement-org">BAIUST · 2023</p>
+                            <p>Runner-up</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="volunteering" class="section" data-aos="fade-up">
+            <!-- ============ Volunteering ============ -->
+            <section id="volunteering" class="section">
                 <div class="container">
-                    <h2 data-aos="fade-down">Volunteering & Leadership</h2>
-                    <div class="content-wrapper">
-                        <div class="experience-card" data-aos="fade-up">
-                            <h3>President</h3>
-                            <p><strong>Rotaract Club of Cumilla Shining Star</strong> | Jul 2024 — Present</p>
+                    <div class="section-header" data-aos="fade-up">
+                        <span class="section-eyebrow">Giving back</span>
+                        <h2>Volunteering & Leadership</h2>
+                    </div>
+
+                    <div class="volunteer-card" data-aos="fade-up">
+                        <div class="volunteer-icon">🌏</div>
+                        <div class="volunteer-body">
+                            <div class="edu-top">
+                                <h3>President</h3>
+                                <span class="edu-date">Jul 2024 – Present</span>
+                            </div>
+                            <p class="card-org">Rotaract Club of Cumilla Shining Star</p>
                             <ul>
                                 <li>Lead the club in organizing community service projects and leadership initiatives</li>
-                                <li>Manage club operations and coordinate with international Rotaract network</li>
+                                <li>Manage club operations and coordinate with the international Rotaract network</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="lab" class="lab-section" data-aos="fade-up">
-                <div class="lab-container">
-                    <div class="lab-header">
-                        <h2 data-aos="fade-down">Tousif Lab</h2>
-                        <div class="lab-divider"></div>
+            <!-- ============ Tousif Lab ============ -->
+            <section id="lab" class="section section-alt">
+                <div class="container">
+                    <div class="section-header" data-aos="fade-up">
+                        <span class="section-eyebrow">Tousif Lab</span>
+                        <h2>Learning Resources</h2>
+                        <p class="section-sub">A curated collection of guides and roadmaps I put together for students starting their journey.</p>
                     </div>
-                    
+
                     <div class="resources-grid">
-                        <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
+                        <a href="https://tousifo.notion.site/Understanding-Git-and-GitHub-A-Comprehensive-Guide-0db63b7b13e541a598faf5f3572e34e7?pvs=4" target="_blank" class="resource-card" data-aos="fade-up" data-aos-delay="100" rel="noopener noreferrer">
+                            <span class="resource-icon">🌿</span>
                             <h3>Git and GitHub</h3>
                             <p>Master version control and collaborative development with our comprehensive guide.</p>
-                            <a href="https://tousifo.notion.site/Understanding-Git-and-GitHub-A-Comprehensive-Guide-0db63b7b13e541a598faf5f3572e34e7?pvs=4" target="_blank" class="resource-link" rel="noopener noreferrer">
-                                View Resource
-                            </a>
-                        </div>
+                            <span class="resource-link">View Resource
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </span>
+                        </a>
 
-                        <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
+                        <a href="https://tousifo.notion.site/IELTS-6360fc0ebe3e4a4886a98b4c1e9dfd75?pvs=4" target="_blank" class="resource-card" data-aos="fade-up" data-aos-delay="200" rel="noopener noreferrer">
+                            <span class="resource-icon">✍️</span>
                             <h3>IELTS Preparation</h3>
-                            <p>Access our curated resources and strategies for IELTS success.</p>
-                            <a href="https://tousifo.notion.site/IELTS-6360fc0ebe3e4a4886a98b4c1e9dfd75?pvs=4" target="_blank" class="resource-link" rel="noopener noreferrer">
-                                View Resource
-                            </a>
-                        </div>
+                            <p>Curated resources and strategies for IELTS success.</p>
+                            <span class="resource-link">View Resource
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </span>
+                        </a>
 
-                        <div class="resource-card" data-aos="fade-up" data-aos-delay="300">
+                        <a href="https://tousifo.notion.site/Machine-Learning-RoadMap-61b2823402df4dbdac416ca4dcc89b88?pvs=4" target="_blank" class="resource-card" data-aos="fade-up" data-aos-delay="300" rel="noopener noreferrer">
+                            <span class="resource-icon">🧠</span>
                             <h3>Machine Learning</h3>
                             <p>Explore practical ML concepts and implementation guides.</p>
-                            <a href="https://tousifo.notion.site/Machine-Learning-RoadMap-61b2823402df4dbdac416ca4dcc89b88?pvs=4" target="_blank" class="resource-link" rel="noopener noreferrer">
-                                View Resource
-                            </a>
-                        </div>
+                            <span class="resource-link">View Resource
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </span>
+                        </a>
 
-                        <div class="resource-card" data-aos="fade-up" data-aos-delay="400">
+                        <a href="https://tousifo.notion.site/Arduino-from-Basics-31f1f0252afd4bd7a4f81c36157b8baf?pvs=4" target="_blank" class="resource-card" data-aos="fade-up" data-aos-delay="400" rel="noopener noreferrer">
+                            <span class="resource-icon">🔌</span>
                             <h3>Arduino Programming</h3>
                             <p>Learn embedded systems and IoT development with Arduino.</p>
-                            <a href="https://tousifo.notion.site/Arduino-from-Basics-31f1f0252afd4bd7a4f81c36157b8baf?pvs=4" target="_blank" class="resource-link" rel="noopener noreferrer">
-                                View Resource
-                            </a>
-                        </div>
+                            <span class="resource-link">View Resource
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </span>
+                        </a>
 
-                        <div class="resource-card" data-aos="fade-up" data-aos-delay="500">
+                        <a href="https://tousifo.notion.site/C-programming-1aeb4b406f0280c28596fb903418315d?pvs=4" target="_blank" class="resource-card" data-aos="fade-up" data-aos-delay="500" rel="noopener noreferrer">
+                            <span class="resource-icon">💻</span>
                             <h3>C Programming</h3>
-                            <p>Master the fundamentals of C programming language.</p>
-                            <a href="https://tousifo.notion.site/C-programming-1aeb4b406f0280c28596fb903418315d?pvs=4" target="_blank" class="resource-link" rel="noopener noreferrer">
-                                View Resource
-                            </a>
-                        </div>
+                            <p>Master the fundamentals of the C programming language.</p>
+                            <span class="resource-link">View Resource
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </span>
+                        </a>
                     </div>
                 </div>
             </section>
 
-            <section id="contact" class="section" data-aos="fade-up">
+            <!-- ============ Contact ============ -->
+            <section id="contact" class="section contact-section">
                 <div class="container">
-                    <h2 data-aos="fade-down">Contact</h2>
-                    <div class="content-wrapper">
-                        <div class="contact-info" data-aos="fade-up">
-                            <p class="home-email">tousifbnn@gmail.com</p>
-                            <p>Phone: +880-162-096-2987</p>
-                            <div class="social-links">
-                                <a href="https://github.com/tousifo" target="_blank">
-                                    <div>
-                                        <img class="img-link" src="./assets/images/img-github.png">
-                                        <span class="src-link">GitHub</span>
-                                    </div>
-                                </a>
-                                <a href="https://www.linkedin.com/in/tousifo" target="_blank">
-                                    <div>
-                                        <img class="img-link" src="./assets/images/img-linkedin.png">
-                                        <span class="src-link">LinkedIn</span>
-                                    </div>
-                                </a>
-                                <a href="https://www.researchgate.net/profile/Km-Tousif-Bin-Parves" target="_blank">
-                                    <div>
-                                        <img class="img-link" src="./assets/images/researchgate.png">
-                                        <span class="src-link">ResearchGate</span>
-                                    </div>
-                                </a>
-                            </div>
+                    <div class="contact-inner" data-aos="fade-up">
+                        <span class="section-eyebrow">What's next?</span>
+                        <h2>Let's Build Something <span class="gradient-text">Meaningful</span></h2>
+                        <p class="section-sub">
+                            I'm always open to discussing research, collaborations, or new opportunities.
+                            Whether you have a question or just want to say hi — my inbox is always open.
+                        </p>
+
+                        <a href="mailto:tousifbnn@gmail.com" class="btn btn-primary btn-lg">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                            tousifbnn@gmail.com
+                        </a>
+
+                        <p class="contact-phone">📞 +880-162-096-2987</p>
+
+                        <div class="social-links">
+                            <a href="https://github.com/tousifo" target="_blank" aria-label="GitHub" rel="noopener noreferrer">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/tousifo" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://www.researchgate.net/profile/Km-Tousif-Bin-Parves" target="_blank" aria-label="ResearchGate" rel="noopener noreferrer">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0c.545 0 .975.478.975.998v22.02c0 .516-.43.982-.975.982H.977c-.55 0-.977-.466-.977-.982V.998C0 .478.427 0 .977 0h18.609zM8.495 18.091h2.397c.5 0 .977.079 1.435.157a15.5 15.5 0 0 1-.37-2.055 25.6 25.6 0 0 1-.157-2.606v-2.443c0-.754.022-1.517.079-2.28.06-.762.205-1.486.448-2.171a3.505 3.505 0 0 1 1.2-1.705 3.596 3.596 0 0 1 2.17-.622 3.8 3.8 0 0 1 1.42.26l-.406 1.806a2.008 2.008 0 0 0-.83-.164 1.75 1.75 0 0 0-1.066.311 2.12 2.12 0 0 0-.678.82 3.97 3.97 0 0 0-.33 1.176c-.05.437-.078.854-.078 1.267h2.99v1.895h-2.99v6.447c.89.24 1.777.52 2.635.873l-.495 1.855a18.8 18.8 0 0 0-2.29-.71 12.5 12.5 0 0 0-2.99-.352 22.4 22.4 0 0 0-3.07.235l.011-2.243z"/></svg>
+                                <span>ResearchGate</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
 
-        <div class="footer" data-aos="fade-up">
-            <div class="copyright">
-                <p>© 2024 K.M. Tousif Bin Parves | All Rights Reserved</p>
-            </div>
-        </div>
+        <footer class="footer">
+            <p>Designed & built with ❤️ by <span class="gradient-text">K.M. Tousif Bin Parves</span></p>
+            <p class="footer-copy">© <span id="year">2026</span> · All Rights Reserved</p>
+        </footer>
 
-        <script>
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                once: true,
-                easing: 'ease-in-out'
-            });
-
-            // Typing Animation
-            new Typed('#typingText', {
-                strings: ['AI Researcher', 'LLM Enthusiast', 'Robotics Developer'],
-                typeSpeed: 50,
-                backSpeed: 30,
-                loop: true
-            });
-
-            // Dark Mode Toggle
-            const themeToggle = document.getElementById('themeToggle');
-            themeToggle.addEventListener('click', () => {
-                const html = document.documentElement;
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                html.setAttribute('data-theme', newTheme);
-            });
-
-            // Smooth Scroll
-            function scrollToSection(sectionId) {
-                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-                // Close mobile menu after clicking a link
-                if (window.innerWidth <= 768) {
-                    document.getElementById('navLinks').classList.remove('active');
-                }
-            }
-
-            // Timeline Scroll Animation
-            window.addEventListener('scroll', () => {
-                const items = document.querySelectorAll('.timeline-item');
-                items.forEach(item => {
-                    const top = item.getBoundingClientRect().top;
-                    if (top < window.innerHeight - 50) {
-                        item.classList.add('show');
-                    }
-                });
-            });
-
-            // Mobile Menu Toggle
-            const hamburgerMenu = document.getElementById('hamburgerMenu');
-            const navLinks = document.getElementById('navLinks');
-            
-            hamburgerMenu.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                }
-            });
-        </script>
-
-        <!-- Add custom CSS for the buttons and name -->
-        <style>
-        .about-name {
-          font-size: 3rem;
-          font-weight: 900;
-          letter-spacing: -1px;
-          margin-bottom: 0.5rem;
-          color: #22223b;
-          text-shadow: 0 2px 8px rgba(60,60,120,0.08);
-        }
-        .cool-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 0.85em 2.2em;
-          font-size: 1.1rem;
-          font-weight: 600;
-          border: none;
-          border-radius: 2em;
-          background: linear-gradient(90deg, #4f8cff 0%, #6a82fb 100%);
-          color: #fff;
-          box-shadow: 0 4px 16px 0 rgba(80,120,255,0.13);
-          cursor: pointer;
-          transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
-          text-decoration: none;
-          position: relative;
-          overflow: hidden;
-        }
-        .cool-btn:hover {
-          transform: translateY(-2px) scale(1.04);
-          box-shadow: 0 8px 24px 0 rgba(80,120,255,0.18);
-          background: linear-gradient(90deg, #6a82fb 0%, #4f8cff 100%);
-        }
-        .resume-btn {
-          background: linear-gradient(90deg, #4f8cff 0%, #6a82fb 100%);
-        }
-        .resume-btn:hover {
-          background: linear-gradient(90deg, #6a82fb 0%, #4f8cff 100%);
-        }
-        .ielts-btn {
-          background: linear-gradient(90deg, #ff758c 0%, #ff7eb3 100%);
-        }
-        .ielts-btn:hover {
-          background: linear-gradient(90deg, #ff7eb3 0%, #ff758c 100%);
-        }
-        </style>
+        <!-- Back to top -->
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
     </body>
 
 </html>
