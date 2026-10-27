@@ -1019,6 +1019,15 @@ strong {
     margin: 0;
 }
 
+.achv-card h3 a {
+    color: inherit;
+}
+
+.achv-card h3 a:hover {
+    color: var(--accent);
+    text-decoration: none;
+}
+
 .achv-card p {
     margin: 0;
     font-size: 0.87rem;
