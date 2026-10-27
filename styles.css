@@ -387,6 +387,54 @@ strong {
     background: var(--bg-soft);
 }
 
+/* Contained, scrollable updates feed (shows ~3 items, page height fixed) */
+.updates-panel {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 6px 8px 8px 10px;
+}
+
+.updates-scroll {
+    max-height: 220px; /* refined to exactly 3 items by scripts.js */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding-right: 10px;
+    -webkit-mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.updates-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.updates-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.updates-scroll::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 999px;
+}
+
+.updates-scroll .updates li {
+    margin: 0;
+}
+
+/* Items fade in as they enter the container viewport (JS adds .fade + .in-view) */
+.updates-scroll.fade .updates li {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.2s ease;
+}
+
+.updates-scroll.fade .updates li.in-view {
+    opacity: 1;
+    transform: none;
+}
+
 .updates li:last-child {
     border-bottom: none;
 }
@@ -846,6 +894,18 @@ strong {
     .topnav,
     .footer a {
         display: none;
+    }
+
+    .updates-panel {
+        border: none;
+        padding: 0;
+    }
+
+    .updates-scroll {
+        max-height: none;
+        overflow: visible;
+        -webkit-mask-image: none;
+        mask-image: none;
     }
 
     body {

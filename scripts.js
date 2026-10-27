@@ -15,6 +15,44 @@ if (themeToggle) {
     });
 }
 
+// ---------- Updates: contained scrollable feed ----------
+const updatesScroll = document.getElementById('updatesScroll');
+
+if (updatesScroll) {
+    const items = updatesScroll.querySelectorAll('.updates li');
+
+    // Fixed height = exactly the first 3 items (re-measured on resize),
+    // so the page length never grows as updates scroll inside.
+    function sizeUpdatesFeed() {
+        if (items.length < 3) {
+            updatesScroll.style.maxHeight = '';
+            return;
+        }
+        const third = items[2];
+        const height = third.offsetTop + third.offsetHeight - items[0].offsetTop + 2;
+        updatesScroll.style.maxHeight = height + 'px';
+    }
+
+    sizeUpdatesFeed();
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(sizeUpdatesFeed, 150);
+    });
+
+    // Subtle fade-in as items enter the container's viewport
+    updatesScroll.classList.add('fade');
+    const feedObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+            });
+        },
+        { root: updatesScroll, rootMargin: '0px 0px -4% 0px' }
+    );
+    items.forEach((li) => feedObserver.observe(li));
+}
+
 // ---------- Footer year ----------
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
