@@ -17,8 +17,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./styles.css?v=14">
-        <script src="./scripts.js?v=14" defer></script>
+        <link rel="stylesheet" href="./styles.css?v=17">
+        <script src="./scripts.js?v=17" defer></script>
 
         <!-- Set saved/system theme before first paint to avoid flashing -->
         <script>
@@ -50,7 +50,7 @@
                         <a href="#publications">Publications</a>
                         <a href="#projects">Projects</a>
                         <a href="#teaching">Teaching</a>
-                        <a href="#experience">About</a>
+                        <a href="#experience">Experience</a>
                         <a href="#contact">Contact</a>
                     </div>
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -59,7 +59,7 @@
                         </svg>
                         <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="5"/>
-                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42 1.42"/>
                         </svg>
                     </button>
                 </div>
@@ -151,20 +151,26 @@
                 </figure>
 
                 <div class="updates-panel">
-                    <p class="updates-label">Latest updates</p>
-                    <div class="updates-scroll" id="updatesScroll" tabindex="0" aria-label="Latest updates, scroll for more">
+                    <div class="updates-head">
+                        <p class="updates-label">Latest updates</p>
+                        <button class="updates-toggle" id="updatesToggle" type="button" aria-expanded="false" aria-controls="updatesScroll">
+                            <span class="disclosure-label">View all</span>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                    </div>
+                    <div class="updates-scroll" id="updatesScroll" tabindex="0" aria-label="Latest updates">
                         <ul class="updates">
-                            <li><span class="upd-date">May 2026</span> Essay on <strong>the four years that transformed Bangladesh</strong> published in <em>The Gist</em> (Opinions).</li>
                             <li><span class="upd-date">Oct 2026</span> <strong>CrossEcomPack: Cross-Domain Package Localization for Low-Resource E-Commerce Logistics</strong> presented at <strong>MIET 2026</strong> (first author).</li>
                             <li><span class="upd-date">Oct 2026</span> Paper on <strong>explainable ML for industrial machinery failure detection</strong> accepted for presentation at <strong>SSIM 2026</strong>.</li>
-                            <li><span class="upd-date">2026</span> Paper on <strong>occupancy-aware smart stair lighting with piezoelectric energy harvesting</strong> accepted for presentation at <strong>ICSDEHE 2026</strong> (corresponding author).</li>
-                            <li><span class="upd-date">2026</span> Essay on <strong>madrasa education and our historical amnesia</strong> published in <em>The Gist</em>.</li>
+                            <li><span class="upd-date">May 2026</span> Essay on <strong>the four years that transformed Bangladesh</strong> published in <em>The Gist</em> (Opinions).</li>
                             <li><span class="upd-date">Feb 2026</span> Op-ed on the draft <strong>National AI Policy (2026&ndash;30)</strong> published in <em>The Daily Ittefaq</em> (Page 8).</li>
                             <li><span class="upd-date">Jan 2026</span> Column on the gap between <strong>&ldquo;Digital Health&rdquo;</strong> promises and ground reality published in <em>Bonik Barta</em>.</li>
-                            <li><span class="upd-date">Sep 2025</span> Joined <strong>Port City International University</strong> as a Lecturer in the Department of Computer Science and Engineering.</li>
+                            <li><span class="upd-date">2026</span> Paper on <strong>occupancy-aware smart stair lighting with piezoelectric energy harvesting</strong> accepted for presentation at <strong>ICSDEHE 2026</strong> (corresponding author).</li>
+                            <li><span class="upd-date">2026</span> Essay on <strong>madrasa education and our historical amnesia</strong> published in <em>The Gist</em>.</li>
                             <li><span class="upd-date">2026</span> M.Sc. (Engineering) in ICT result published — <strong>Comilla University</strong>.</li>
                             <li><span class="upd-date">2026</span> Journal paper on explainable stacked-ensemble fake news detection accepted in <em>Jurnal The Messenger</em> (Web of Science indexed).</li>
                             <li><span class="upd-date">2026</span> IoT paper accepted at <strong>ICMRS 2026</strong>, Comilla University (Corresponding Author).</li>
+                            <li><span class="upd-date">Sep 2025</span> Joined <strong>Port City International University</strong> as a Lecturer in the Department of Computer Science and Engineering.</li>
                             <li><span class="upd-date">2025</span> IEEE <strong>QPAIN 2025</strong> paper on explainable diabetes prediction published (DOI: 10.1109/QPAIN66474.2025.11172244).</li>
                             <li><span class="upd-date">Dec 2023</span> <strong>CoU Bots</strong> finished runners-up in the Line Follower Robot Competition at <strong>BAIUST EEE Day &rsquo;23</strong> — the university&rsquo;s first robotics delegation.</li>
                         </ul>
@@ -287,23 +293,13 @@
                 </button>
             </section>
 
-            <!-- ============ Selected Projects (carousel) ============ -->
+            <!-- ============ Selected Projects (grid) ============ -->
             <section class="sec" id="projects">
                 <h2>Selected Projects</h2>
-                <div class="carousel-head">
-                    <div class="carousel-dots" id="projectDots"></div>
-                    <div class="carousel-arrows">
-                        <button class="carousel-btn" id="projectsPrev" aria-label="Previous project">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                        </button>
-                        <button class="carousel-btn" id="projectsNext" aria-label="Next project">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </button>
-                    </div>
-                </div>
+                <p class="section-sub">Robotics, AI, and embedded systems builds — selected work from my labs and collaborations.</p>
 
-                <div class="projects-scroll" id="projectsScroll" tabindex="0" aria-label="Selected projects, scroll horizontally to browse">
-                    <article class="project-card">
+                <div class="projects-grid">
+                    <article class="project-card" id="proj-academic-assistant">
                         <p class="project-card-date">2023 – 2024</p>
                         <h3>AI Academic Assistant</h3>
                         <p class="project-card-desc">Voice-interactive robotic academic Q&amp;A system with Retrieval-Augmented Generation and fine-tuned LLMs, focused on culturally relevant, personalized learning.</p>
@@ -318,25 +314,7 @@
                         </a>
                     </article>
 
-                    <article class="project-card">
-                        <p class="project-card-date">2022</p>
-                        <h3>Robot Niko — 3D-Printed Humanoid Robot</h3>
-                        <p class="project-card-desc">Autonomous navigation, human detection, and conversational interaction. Voice interaction is powered by Retrieval-Augmented Generation.</p>
-                        <div class="tag-row">
-                            <span class="tag">ROS2</span>
-                            <span class="tag">MoveIt</span>
-                            <span class="tag">Raspberry Pi</span>
-                            <span class="tag">RAG</span>
-                        </div>
-                        <a class="project-card-link" href="#niko">See the full build story
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-                        </a>
-                        <a class="project-card-link" href="https://github.com/tousifo/Robot-Niko" target="_blank" rel="noopener noreferrer">github.com/tousifo/Robot-Niko
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                        </a>
-                    </article>
-
-                    <article class="project-card">
+                    <article class="project-card" id="proj-bus-tracker">
                         <p class="project-card-date">2024</p>
                         <h3>CoU Bus Tracker</h3>
                         <p class="project-card-desc">Live GPS tracking system for university buses. <strong>Champion, Innovation Project Showcase 2024.</strong></p>
@@ -350,7 +328,7 @@
                         </a>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card" id="proj-ai-inventory">
                         <p class="project-card-date">2023</p>
                         <h3>AI Inventory Management</h3>
                         <p class="project-card-desc">Real-time inventory management with YOLOv8 object detection — 82% mAP on Daraz inventory data.</p>
@@ -360,9 +338,48 @@
                             <span class="tag">TensorFlow</span>
                         </div>
                     </article>
+
+                    <!-- Featured build: full story opens in the detail dialog -->
+                    <article class="project-card project-featured" id="niko">
+                        <button class="project-featured-media" type="button" data-detail="niko-detail" aria-label="Open the full NiKO build story">
+                            <img loading="lazy" decoding="async" src="./assets/images/projects/niko-completion.jpg" alt="Team NiKO with the completed robot after 11 months of work">
+                        </button>
+                        <div class="project-featured-body">
+                            <p class="project-card-date">2022 · Featured Build</p>
+                            <h3>NiKO — First 3D-Printed AI Humanoid Robot in Bangladesh</h3>
+                            <p class="project-card-desc">
+                                A fully homegrown, Raspberry&nbsp;Pi-based humanoid — the first fully 3D-printed, AI-based
+                                robot built in Bangladesh, with autonomous navigation, human detection, and conversational
+                                interaction powered by Retrieval-Augmented Generation.
+                            </p>
+                            <ul class="niko-points">
+                                <li>Body printed over <strong>11 months</strong> — 329+ pieces from 25&nbsp;kg of filament</li>
+                                <li>Knowledge-base Q&amp;A with live internet fallback; face &amp; object detection</li>
+                                <li><strong>27 degrees of freedom</strong> for precise grasping</li>
+                            </ul>
+                            <div class="tag-row">
+                                <span class="tag">ROS2</span>
+                                <span class="tag">MoveIt</span>
+                                <span class="tag">Raspberry Pi</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">OpenCV</span>
+                                <span class="tag">NLP</span>
+                                <span class="tag">3D Printing</span>
+                            </div>
+                            <div class="project-card-link-group">
+                                <button class="project-card-link niko-open" type="button" data-detail="niko-detail">View full build story
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                                </button>
+                                <a class="project-card-link" href="https://github.com/tousifo/Robot-Niko" target="_blank" rel="noopener noreferrer">github.com/tousifo/Robot-Niko
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
 
-                <div class="event-block" id="niko">
+                <!-- Full NiKO build story (opened in the detail dialog) -->
+                <div class="detail-source" id="niko-detail" hidden>
                     <div class="event-gallery">
                         <button class="event-photo" type="button" aria-label="View photo: Team NiKO with the completed robot">
                             <img loading="lazy" decoding="async" src="./assets/images/projects/niko-completion.jpg" alt="Team NiKO with the completed robot after 11 months of work">
@@ -417,9 +434,11 @@
                 </div>
             </section>
 
-            <!-- ============ Experience ============ -->
+            <!-- ============ Experience & Education ============ -->
             <section class="sec" id="experience">
-                <h2>Experience</h2>
+                <h2>Experience &amp; Education</h2>
+
+                <h3 class="pub-group">Experience</h3>
                 <ul class="entries">
                     <li>
                         <p class="entry-head"><span class="entry-title"><strong>Lecturer</strong>, Department of Computer Science and Engineering </span><span class="entry-date">Sep 2025 – Present</span></p>
@@ -442,6 +461,27 @@
                         <p class="entry-desc">Taught C, Python, Arduino, embedded systems, and robotics to learners aged 8–50.</p>
                     </li>
                 </ul>
+
+                <h3 class="pub-group" id="education">Education</h3>
+                <ul class="entries">
+                    <li>
+                        <p class="entry-head"><span class="entry-title"><strong>M.Sc. (Engineering), Information and Communication Technology</strong> </span><span class="entry-date">2025 – 2026</span></p>
+                        <p class="entry-desc">Comilla University, Cumilla. Session: 2023–24 · Result published: 2026.<br>
+                        Thesis: <em>QMedShield</em> — quantum measurement-guided backdoor detection and repair in medical hybrid QNNs.</p>
+                    </li>
+                    <li>
+                        <p class="entry-head"><span class="entry-title"><strong>B.Sc. (Engineering), Information and Communication Technology</strong> </span><span class="entry-date">2020 – 2025</span></p>
+                        <p class="entry-desc">Comilla University, Cumilla. Session: 2019–20 · Result published: 2025.</p>
+                    </li>
+                    <li>
+                        <p class="entry-head"><span class="entry-title"><strong>Higher Secondary Certificate (Science)</strong> </span><span class="entry-date">2017 – 2019</span></p>
+                        <p class="entry-desc">Govt. Science College, Dhaka.</p>
+                    </li>
+                    <li>
+                        <p class="entry-head"><span class="entry-title"><strong>Secondary School Certificate (Science)</strong> </span><span class="entry-date">2014 – 2016</span></p>
+                        <p class="entry-desc">Motijheel Model School &amp; College, Dhaka.</p>
+                    </li>
+                </ul>
             </section>
 
             <!-- ============ Teaching & Student Resources ============ -->
@@ -452,6 +492,7 @@
                 <p class="kv"><span class="kv-key">Teaching areas</span> Data Structures, Algorithms, Database Systems, Web Technologies, AI/ML, Robotics, Embedded Systems, IoT, and Research Methodology.</p>
                 <p class="kv"><span class="kv-key">OBE practice</span> Course-outcome design, constructive alignment, learning activities, assessment, evaluation, and feedback.</p>
 
+                <h3 class="pub-group">Professional Development &amp; Training</h3>
                 <ul class="entries">
                     <li>
                         <p class="entry-head"><span class="entry-title"><strong>Training on Outcome-Based Education (OBE) Curriculum</strong> </span><span class="entry-date">2025</span></p>
@@ -486,30 +527,6 @@
                 </div>
             </section>
 
-            <!-- ============ Education ============ -->
-            <section class="sec" id="education">
-                <h2>Education</h2>
-                <ul class="entries">
-                    <li>
-                        <p class="entry-head"><span class="entry-title"><strong>M.Sc. (Engineering), Information and Communication Technology</strong> </span><span class="entry-date">2025 – 2026</span></p>
-                        <p class="entry-desc">Comilla University, Cumilla. Session: 2023–24 · Result published: 2026.<br>
-                        Thesis: <em>QMedShield</em> — quantum measurement-guided backdoor detection and repair in medical hybrid QNNs.</p>
-                    </li>
-                    <li>
-                        <p class="entry-head"><span class="entry-title"><strong>B.Sc. (Engineering), Information and Communication Technology</strong> </span><span class="entry-date">2020 – 2025</span></p>
-                        <p class="entry-desc">Comilla University, Cumilla. Session: 2019–20 · Result published: 2025.</p>
-                    </li>
-                    <li>
-                        <p class="entry-head"><span class="entry-title"><strong>Higher Secondary Certificate (Science)</strong> </span><span class="entry-date">2017 – 2019</span></p>
-                        <p class="entry-desc">Govt. Science College, Dhaka.</p>
-                    </li>
-                    <li>
-                        <p class="entry-head"><span class="entry-title"><strong>Secondary School Certificate (Science)</strong> </span><span class="entry-date">2014 – 2016</span></p>
-                        <p class="entry-desc">Motijheel Model School &amp; College, Dhaka.</p>
-                    </li>
-                </ul>
-            </section>
-
             <!-- ============ Achievements & Leadership ============ -->
             <section class="sec" id="achievements">
                 <h2>Achievements &amp; Leadership</h2>
@@ -522,21 +539,21 @@
                                 <h3>Champion — Innovation Project Showcase</h3>
                                 <span class="achv-date">2024</span>
                             </div>
-                            <p>University Bus Tracker · UGC &amp; Comilla University</p>
+                            <p>University Bus Tracker · UGC &amp; Comilla University · <a href="#events">Event photos</a></p>
                         </div>
                         <div class="achv-card">
                             <div class="achv-top">
                                 <h3>Champion — Science Project Showcasing</h3>
                                 <span class="achv-date">2024</span>
                             </div>
-                            <p>2nd CoUSC National Science Festival</p>
+                            <p>2nd CoUSC National Science Festival · <a href="#events">Event photos</a></p>
                         </div>
                         <div class="achv-card">
                             <div class="achv-top">
                                 <h3>Runners-up — Line Follower Robot Competition</h3>
                                 <span class="achv-date">2023</span>
                             </div>
-                            <p>BAIUST EEE Day &rsquo;23</p>
+                            <p>BAIUST EEE Day &rsquo;23 · <a href="#events">Event photos</a></p>
                         </div>
                         <div class="achv-card">
                             <div class="achv-top">
@@ -569,7 +586,7 @@
                         <div class="achv-grid">
                             <div class="achv-card">
                                 <div class="achv-top">
-                                    <h3>President — Rotaract Club of Comilla Shining Star</h3>
+                                    <h3><a href="https://my.rotary.org/en/domui/profile/a808d70d-5480-474f-8d01-8f6397dcb6bd" target="_blank" rel="noopener noreferrer">President — Rotaract Club of Comilla Shining Star</a></h3>
                                     <span class="achv-date">2024–25</span>
                                 </div>
                                 <p>Leading community service and leadership initiatives</p>
@@ -583,7 +600,7 @@
                             </div>
                             <div class="achv-card">
                                 <div class="achv-top">
-                                    <h3>Co-organizer — TEDx CoU</h3>
+                                    <h3><a href="https://www.ted.com/tedx/events/54414" target="_blank" rel="noopener noreferrer">Co-organizer — TEDx CoU</a></h3>
                                     <span class="achv-date">2023</span>
                                 </div>
                                 <p>Comilla University&rsquo;s first TEDx-licensed conference</p>
@@ -598,12 +615,121 @@
                 </div>
             </section>
 
-            <!-- ============ Event Highlights (photo gallery) ============ -->
+            <!-- ============ Event Highlights (carousel) ============ -->
             <section class="sec" id="events">
                 <h2>Event Highlights</h2>
-                <p class="section-sub">Competitions and showcases where our teams finished on top.</p>
+                <p class="section-sub">Competitions, conferences, and showcases — select an event for the full story and photos.</p>
 
-                <article class="event-block">
+                <div class="carousel-head">
+                    <div class="carousel-arrows">
+                        <button class="carousel-btn" type="button" data-dir="prev" aria-label="Previous events">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="carousel-btn" type="button" data-dir="next" aria-label="Next events">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="h-scroll" id="eventsScroll" tabindex="0" aria-label="Event highlights, scroll horizontally to browse">
+                    <article class="event-card">
+                        <button class="event-card-media" type="button" data-detail="evt-uddami" aria-label="Open details: Leadership and Youth Session — Uddami Youth Network Bangladesh">
+                            <img loading="lazy" decoding="async" src="./assets/images/events/uddami-2025-recognition.jpg" alt="Framed recognition from Uddami Youth Network Bangladesh">
+                        </button>
+                        <div class="event-card-body">
+                            <span class="event-result">Invited Speaker</span>
+                            <h3>&ldquo;Leadership &amp; Youth&rdquo; — Uddami Youth Network</h3>
+                            <p class="event-card-desc">An inspiring evening with Uddami Youth Network Bangladesh, sharing thoughts on leadership and youth.</p>
+                            <p class="event-meta">Uddami Youth Network Bangladesh · January 2025</p>
+                            <button class="event-card-btn" type="button" data-detail="evt-uddami">View details
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="event-card">
+                        <button class="event-card-media" type="button" data-detail="evt-itfest" aria-label="Open details: Comilla University IT Fest 2024">
+                            <img loading="lazy" decoding="async" src="./assets/images/events/itfest-2024-tousif.jpg" alt="At the Comilla University IT Fest 2024">
+                        </button>
+                        <div class="event-card-body">
+                            <span class="event-result">Organizer &middot; General Secretary</span>
+                            <h3>Comilla University IT Fest 2024</h3>
+                            <p class="event-card-desc">Organized the university&rsquo;s IT Fest — bringing students, sponsors, and guests together on campus.</p>
+                            <p class="event-meta">CoU IT Society · November 2024</p>
+                            <button class="event-card-btn" type="button" data-detail="evt-itfest">View details
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="event-card">
+                        <button class="event-card-media" type="button" data-detail="evt-innovation" aria-label="Open details: Innovation Project Showcase 2024">
+                            <img loading="lazy" decoding="async" src="./assets/images/events/innovation-2024-champion-award.jpg" alt="Receiving the Innovation Showcasing 2024 Champion crest">
+                        </button>
+                        <div class="event-card-body">
+                            <span class="event-result">Champion &middot; 1st Place</span>
+                            <h3>Innovation Project Showcase 2024</h3>
+                            <p class="event-card-desc">Live GPS tracking for university buses — crowned champion from all competing teams.</p>
+                            <p class="event-meta">Comilla University &amp; UGC · 2024</p>
+                            <button class="event-card-btn" type="button" data-detail="evt-innovation">View details
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="event-card">
+                        <button class="event-card-media" type="button" data-detail="evt-sciencefest" aria-label="Open details: 2nd National Science Festival '24">
+                            <img loading="lazy" decoding="async" src="./assets/images/events/sciencefest-2024-team.jpg" alt="Team CRIS of the CoU RoboICT Society with their robots at the science festival">
+                        </button>
+                        <div class="event-card-body">
+                            <span class="event-result">Champion</span>
+                            <h3>2nd National Science Festival &rsquo;24</h3>
+                            <p class="event-card-desc">Team CRIS of the CoU RoboICT Society on the festival&rsquo;s robotics arena — champion in Science Project Showcasing.</p>
+                            <p class="event-meta">CoUSC · 2024</p>
+                            <button class="event-card-btn" type="button" data-detail="evt-sciencefest">View details
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="event-card">
+                        <button class="event-card-media" type="button" data-detail="evt-baiust" aria-label="Open details: Line Follower Robot Competition — BAIUST EEE Day '23">
+                            <img loading="lazy" decoding="async" src="./assets/images/events/baiust-2023-team-prize.jpg" alt="The CoU Bots team with the runners-up prize at BAIUST EEE Day '23">
+                        </button>
+                        <div class="event-card-body">
+                            <span class="event-result">Runners-up</span>
+                            <h3>Line Follower Robot — BAIUST EEE Day &rsquo;23</h3>
+                            <p class="event-card-desc">CoU Bots finished runners-up on debut — the university&rsquo;s first robotics delegation.</p>
+                            <p class="event-meta">BAIUST EEE Club · December 2023</p>
+                            <button class="event-card-btn" type="button" data-detail="evt-baiust">View details
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="event-card">
+                        <button class="event-card-media" type="button" data-detail="evt-tedx" aria-label="Open details: TEDx CoU — Vision to Reality">
+                            <img loading="lazy" decoding="async" src="./assets/images/events/tedx-2023-onstage.jpg" alt="Speaking on stage at TEDx CoU">
+                        </button>
+                        <div class="event-card-body">
+                            <span class="event-result">Co-organizer</span>
+                            <h3>TEDx CoU — Vision to Reality</h3>
+                            <p class="event-card-desc">Comilla University&rsquo;s first TEDx-licensed conference — part of the founding organizing team.</p>
+                            <p class="event-meta">Comilla University · September 2023</p>
+                            <button class="event-card-btn" type="button" data-detail="evt-tedx">View details
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+
+                <button class="disclosure-btn disclosure-center" data-view-toggle type="button" aria-expanded="false" aria-controls="eventsScroll" data-show-text="View all events" data-hide-text="View as carousel">
+                    <span class="disclosure-label">View all events</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+
+                <!-- Full event details (opened in the detail dialog) -->
+                <div class="detail-source" id="evt-uddami" hidden>
                     <div class="event-gallery">
                         <button class="event-photo" type="button" aria-label="View photo: the framed recognition from Uddami Youth Network Bangladesh">
                             <img loading="lazy" decoding="async" src="./assets/images/events/uddami-2025-recognition.jpg" alt="Framed recognition from Uddami Youth Network Bangladesh — Thank You Tousif Bin Parves for Empowering Our Journey, Leadership & Youth Session, 1 January 2025">
@@ -623,9 +749,9 @@
                         </p>
                         <p class="event-meta">Uddami Youth Network Bangladesh · January 2025</p>
                     </div>
-                </article>
+                </div>
 
-                <article class="event-block">
+                <div class="detail-source" id="evt-itfest" hidden>
                     <div class="event-gallery">
                         <button class="event-photo" type="button" aria-label="View photo: Comilla University IT Society">
                             <img loading="lazy" decoding="async" src="./assets/images/events/itfest-2024-society-logo.jpg" alt="Comilla University IT Society branding">
@@ -649,9 +775,9 @@
                         </p>
                         <p class="event-meta">CoU IT Society · Comilla University · November 2024</p>
                     </div>
-                </article>
+                </div>
 
-                <article class="event-block">
+                <div class="detail-source" id="evt-innovation" hidden>
                     <div class="event-gallery">
                         <button class="event-photo" type="button" aria-label="View photo: receiving the Champion crest at Innovation Showcasing 2024">
                             <img loading="lazy" decoding="async" src="./assets/images/events/innovation-2024-champion-award.jpg" alt="Receiving the Innovation Showcasing 2024 Champion crest at Comilla University">
@@ -673,9 +799,9 @@
                         </p>
                         <p class="event-meta">Innovation Team · Comilla University &amp; UGC · 2024</p>
                     </div>
-                </article>
+                </div>
 
-                <article class="event-block">
+                <div class="detail-source" id="evt-sciencefest" hidden>
                     <div class="event-gallery">
                         <button class="event-photo" type="button" aria-label="View photo: Team CRIS of the CoU RoboICT Society with their robots">
                             <img loading="lazy" decoding="async" src="./assets/images/events/sciencefest-2024-team.jpg" alt="Team CRIS of the CoU RoboICT Society with their robots at the 2nd National Science Festival &rsquo;24">
@@ -685,18 +811,19 @@
                         </button>
                     </div>
                     <div class="event-info">
-                        <span class="event-result">Team CRIS &middot; CoU RoboICT Society</span>
+                        <span class="event-result">Champion &middot; Science Project Showcasing</span>
                         <h3>2nd National Science Festival &rsquo;24</h3>
                         <p>
                             Represented Team CRIS of the CoU RoboICT Society at the 2nd National Science Festival
                             presented by CoUSC — the Comilla University Science Club — joining the festival&rsquo;s
-                            robotics arena with our team builds.
+                            robotics arena with our team builds, and finishing champion in the Science Project
+                            Showcasing.
                         </p>
-                        <p class="event-meta">CoUSC · Comilla University · 2024</p>
+                        <p class="event-meta">Team CRIS · CoU RoboICT Society · CoUSC · 2024</p>
                     </div>
-                </article>
+                </div>
 
-                <article class="event-block">
+                <div class="detail-source" id="evt-baiust" hidden>
                     <div class="event-gallery">
                         <button class="event-photo" type="button" aria-label="View photo: the CoU Bots team with the runners-up prize at BAIUST EEE Day '23">
                             <img loading="lazy" decoding="async" src="./assets/images/events/baiust-2023-team-prize.jpg" alt="The CoU Bots team receiving the runners-up prize cheque and trophy at BAIUST EEE Day '23">
@@ -719,9 +846,9 @@
                         </p>
                         <p class="event-meta">CoU Bots · BAIUST EEE Club, BAIUST · December 2023</p>
                     </div>
-                </article>
+                </div>
 
-                <article class="event-block">
+                <div class="detail-source" id="evt-tedx" hidden>
                     <div class="event-gallery">
                         <button class="event-photo" type="button" aria-label="View photo: speaking on stage at TEDx CoU">
                             <img loading="lazy" decoding="async" src="./assets/images/events/tedx-2023-onstage.jpg" alt="Speaking on stage at TEDx CoU, Comilla University&rsquo;s first TEDx-licensed conference">
@@ -742,90 +869,108 @@
                         </p>
                         <p class="event-meta">TEDx CoU · Comilla University · September 2023</p>
                     </div>
-                </article>
+                </div>
             </section>
 
-            <!-- ============ Op-eds & Columns ============ -->
+            <!-- ============ Op-eds & Columns (carousel) ============ -->
             <section class="sec" id="opeds">
                 <h2>Op-eds &amp; Columns</h2>
-                <p class="pub-note">Commentary and analysis published in the Bangladeshi press (in Bangla).</p>
+                <p class="section-sub">Commentary and analysis published in the Bangladeshi press (in Bangla).</p>
 
-                <article class="press-entry">
-                    <a class="press-clip" href="https://epaper.ittefaq.com.bd/edition/2574/1st-edition/page/8" target="_blank" rel="noopener noreferrer">
-                        <img loading="lazy" decoding="async" src="./assets/images/press/ittefaq-ai-policy-column-2026-02-12.png" alt="Clipping of the op-ed on Bangladesh's draft National AI Policy, The Daily Ittefaq, Page 8, 12 February 2026">
-                    </a>
-                    <div class="press-body">
-                        <span class="press-meta">The Daily Ittefaq · 12 February 2026 · Page 8</span>
-                        <h3>Analyzing Bangladesh&rsquo;s draft National AI Policy (2026&ndash;30)</h3>
-                        <p>
-                            Published as the nation headed to the polls, this op-ed examines the draft National AI
-                            Policy: while it officially recognizes the risk of automation-driven displacement of the
-                            RMG workforce, it offers no realistic budget or upskilling roadmap for creating new
-                            opportunities — a gap I argue is dangerous for the economy.
-                        </p>
-                        <a class="project-card-link" href="https://epaper.ittefaq.com.bd/edition/2574/1st-edition/page/8" target="_blank" rel="noopener noreferrer">Read the e-paper clipping
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                        </a>
+                <div class="carousel-head">
+                    <div class="carousel-arrows">
+                        <button class="carousel-btn" type="button" data-dir="prev" aria-label="Previous columns">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="carousel-btn" type="button" data-dir="next" aria-label="Next columns">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
                     </div>
-                </article>
+                </div>
 
-                <article class="press-entry">
-                    <a class="press-clip" href="https://bonikbarta.com/editorial/XtH6NqQcGKDBDsry" target="_blank" rel="noopener noreferrer">
-                        <img loading="lazy" decoding="async" src="./assets/images/press/bonikbarta-digital-health-column-2026-01-22.png" alt="Clipping of the Bonik Barta column on digital health promises versus ground reality, 22 January 2026">
-                    </a>
-                    <div class="press-body">
-                        <span class="press-meta">Bonik Barta · 22 January 2026 · Editorial</span>
-                        <h3 lang="bn">অ্যানালগ ফাইলে ডিজিটাল স্বাস্থ্যের স্বপ্ন: ইশতাহার ও বাস্তবতার ফারাক</h3>
-                        <p>
-                            This column looks past the &ldquo;Digital Health&rdquo; manifestos to the crumbling state
-                            of the country&rsquo;s healthcare system, analyzing the stark contrast between the
-                            promises of digitization and the analog reality patients face on the ground.
-                        </p>
-                        <a class="project-card-link" href="https://bonikbarta.com/editorial/XtH6NqQcGKDBDsry" target="_blank" rel="noopener noreferrer">Read on Bonik Barta
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                <div class="h-scroll" id="opedsScroll" tabindex="0" aria-label="Op-eds and columns, scroll horizontally to browse">
+                    <article class="press-card" id="col-ittefaq-ai-policy">
+                        <a class="press-clip" href="https://epaper.ittefaq.com.bd/edition/2574/1st-edition/page/8" target="_blank" rel="noopener noreferrer" aria-label="Read the e-paper clipping on The Daily Ittefaq">
+                            <img loading="lazy" decoding="async" src="./assets/images/press/ittefaq-ai-policy-column-2026-02-12.png" alt="Clipping of the op-ed on Bangladesh's draft National AI Policy, The Daily Ittefaq, Page 8, 12 February 2026">
                         </a>
-                    </div>
-                </article>
+                        <div class="press-body">
+                            <span class="press-meta">The Daily Ittefaq · 12 February 2026 · Page 8</span>
+                            <h3>Analyzing Bangladesh&rsquo;s draft National AI Policy (2026&ndash;30)</h3>
+                            <p class="press-excerpt">
+                                Published as the nation headed to the polls, this op-ed examines the draft National AI
+                                Policy: while it officially recognizes the risk of automation-driven displacement of the
+                                RMG workforce, it offers no realistic budget or upskilling roadmap for creating new
+                                opportunities — a gap I argue is dangerous for the economy.
+                            </p>
+                            <a class="project-card-link" href="https://epaper.ittefaq.com.bd/edition/2574/1st-edition/page/8" target="_blank" rel="noopener noreferrer">Read the e-paper clipping
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
+                        </div>
+                    </article>
 
-                <article class="press-entry">
-                    <a class="press-clip" href="https://www.facebook.com/photo/?fbid=122202388310938865&set=a.122103960662938865" target="_blank" rel="noopener noreferrer">
-                        <img loading="lazy" decoding="async" src="./assets/images/press/gist-madrasa-education-column.png" style="object-position: top;" alt="Promo card of The Gist opinion column 'হারানো গৌরবের খোঁজে' (In search of lost glory: madrasa education and our historical amnesia), by K.M. Tousif Bin Parves">
-                    </a>
-                    <div class="press-body">
-                        <span class="press-meta">The Gist · Opinion</span>
-                        <h3 lang="bn">হারানো গৌরবের খোঁজেঃ মাদ্রাসা শিক্ষা ও আমাদের ঐতিহাসিক বিস্মৃতি</h3>
-                        <p>
-                            From Ibn Khaldun and Imam Ghazzali to Sonargaon&rsquo;s Abu Tawama madrasa, this essay
-                            traces how Islamic education once wove religious and worldly knowledge into one fabric —
-                            and how colonial disruption, followed by a defensive isolation, narrowed it into a
-                            religious-only curriculum. It argues that teaching mathematics, science, and livelihood
-                            skills alongside theology is not a deviation but a revival of that thousand-year tradition.
-                        </p>
-                        <a class="project-card-link" href="https://www.facebook.com/photo/?fbid=122202388310938865&set=a.122103960662938865" target="_blank" rel="noopener noreferrer">Read on Facebook
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    <article class="press-card" id="col-bonikbarta-digital-health">
+                        <a class="press-clip" href="https://bonikbarta.com/editorial/XtH6NqQcGKDBDsry" target="_blank" rel="noopener noreferrer" aria-label="Read the column on Bonik Barta">
+                            <img loading="lazy" decoding="async" src="./assets/images/press/bonikbarta-digital-health-column-2026-01-22.png" alt="Clipping of the Bonik Barta column on digital health promises versus ground reality, 22 January 2026">
                         </a>
-                    </div>
-                </article>
+                        <div class="press-body">
+                            <span class="press-meta">Bonik Barta · 22 January 2026 · Editorial</span>
+                            <h3 lang="bn">অ্যানালগ ফাইলে ডিজিটাল স্বাস্থ্যের স্বপ্ন: ইশতাহার ও বাস্তবতার ফারাক</h3>
+                            <p class="press-excerpt">
+                                This column looks past the &ldquo;Digital Health&rdquo; manifestos to the crumbling state
+                                of the country&rsquo;s healthcare system, analyzing the stark contrast between the
+                                promises of digitization and the analog reality patients face on the ground.
+                            </p>
+                            <a class="project-card-link" href="https://bonikbarta.com/editorial/XtH6NqQcGKDBDsry" target="_blank" rel="noopener noreferrer">Read on Bonik Barta
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
+                        </div>
+                    </article>
 
-                <article class="press-entry">
-                    <a class="press-clip" href="https://www.facebook.com/photo/?fbid=122178506996938865&set=a.122103960662938865" target="_blank" rel="noopener noreferrer">
-                        <img loading="lazy" decoding="async" src="./assets/images/press/thegist-ziaur-rahman-column-2026-05-30.png" alt="Opinion card from The Gist — যে চার বছরে বাংলাদেশ বদলে গিয়েছিল, by Tousif Bin Parves, 30 May 2026">
-                    </a>
-                    <div class="press-body">
-                        <span class="press-meta">The Gist · Opinions · 30 May 2026</span>
-                        <h3 lang="bn">যে চার বছরে বাংলাদেশ বদলে গিয়েছিল</h3>
-                        <p>
-                            Marking Ziaur Rahman&rsquo;s 45th death anniversary, this essay examines the four years
-                            that reshaped Bangladesh — the turn to a market economy, the seed of the garments
-                            industry that now employs over four million people, the opening of the Middle East
-                            labor market, and a foreign policy that won a UN Security Council seat — while also
-                            confronting the controversies of his rule.
-                        </p>
-                        <a class="project-card-link" href="https://www.facebook.com/photo/?fbid=122178506996938865&set=a.122103960662938865" target="_blank" rel="noopener noreferrer">Read on Facebook
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    <article class="press-card" id="col-gist-madrasa">
+                        <a class="press-clip" href="https://www.facebook.com/photo/?fbid=122202388310938865&set=a.122103960662938865" target="_blank" rel="noopener noreferrer" aria-label="Read the opinion column on Facebook">
+                            <img loading="lazy" decoding="async" src="./assets/images/press/gist-madrasa-education-column.png" style="object-position: top;" alt="Promo card of The Gist opinion column 'হারানো গৌরবের খোঁজে' (In search of lost glory: madrasa education and our historical amnesia), by K.M. Tousif Bin Parves">
                         </a>
-                    </div>
-                </article>
+                        <div class="press-body">
+                            <span class="press-meta">The Gist · Opinion</span>
+                            <h3 lang="bn">হারানো গৌরবের খোঁজেঃ মাদ্রাসা শিক্ষা ও আমাদের ঐতিহাসিক বিস্মৃতি</h3>
+                            <p class="press-excerpt">
+                                From Ibn Khaldun and Imam Ghazzali to Sonargaon&rsquo;s Abu Tawama madrasa, this essay
+                                traces how Islamic education once wove religious and worldly knowledge into one fabric —
+                                and how colonial disruption, followed by a defensive isolation, narrowed it into a
+                                religious-only curriculum. It argues that teaching mathematics, science, and livelihood
+                                skills alongside theology is not a deviation but a revival of that thousand-year tradition.
+                            </p>
+                            <a class="project-card-link" href="https://www.facebook.com/photo/?fbid=122202388310938865&set=a.122103960662938865" target="_blank" rel="noopener noreferrer">Read on Facebook
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="press-card" id="col-gist-ziaur-rahman">
+                        <a class="press-clip" href="https://www.facebook.com/photo/?fbid=122178506996938865&set=a.122103960662938865" target="_blank" rel="noopener noreferrer" aria-label="Read the opinion column on Facebook">
+                            <img loading="lazy" decoding="async" src="./assets/images/press/thegist-ziaur-rahman-column-2026-05-30.png" alt="Opinion card from The Gist — যে চার বছরে বাংলাদেশ বদলে গিয়েছিল, by Tousif Bin Parves, 30 May 2026">
+                        </a>
+                        <div class="press-body">
+                            <span class="press-meta">The Gist · Opinions · 30 May 2026</span>
+                            <h3 lang="bn">যে চার বছরে বাংলাদেশ বদলে গিয়েছিল</h3>
+                            <p class="press-excerpt">
+                                Marking Ziaur Rahman&rsquo;s 45th death anniversary, this essay examines the four years
+                                that reshaped Bangladesh — the turn to a market economy, the seed of the garments
+                                industry that now employs over four million people, the opening of the Middle East
+                                labor market, and a foreign policy that won a UN Security Council seat — while also
+                                confronting the controversies of his rule.
+                            </p>
+                            <a class="project-card-link" href="https://www.facebook.com/photo/?fbid=122178506996938865&set=a.122103960662938865" target="_blank" rel="noopener noreferrer">Read on Facebook
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <button class="disclosure-btn disclosure-center" data-view-toggle type="button" aria-expanded="false" aria-controls="opedsScroll" data-show-text="View all columns" data-hide-text="View as carousel">
+                    <span class="disclosure-label">View all columns</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
             </section>
 
             <!-- ============ Contact ============ -->
@@ -842,6 +987,17 @@
                 <p>© <span id="year">2026</span> K.M. Tousif Bin Parves</p>
             </div>
         </footer>
+
+        <!-- Shared detail dialog (events + featured build story) -->
+        <dialog class="detail-dialog" id="detailDialog" aria-labelledby="detailDialogTitle">
+            <div class="detail-dialog-head">
+                <h3 id="detailDialogTitle"></h3>
+                <button class="detail-dialog-close" id="detailDialogClose" type="button" aria-label="Close dialog">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="detail-dialog-body" id="detailDialogBody"></div>
+        </dialog>
 
         <button class="back-to-top" id="backToTop" aria-label="Back to top">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>

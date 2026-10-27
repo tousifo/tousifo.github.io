@@ -1,4 +1,4 @@
-/* K.M. Tousif Bin Parves — academic portfolio (minimal JS) */
+/* K.M. Tousif Bin Parves — academic portfolio (v15) */
 
 // ---------- Theme (light / dark) ----------
 const themeToggle = document.getElementById('themeToggle');
@@ -15,29 +15,50 @@ if (themeToggle) {
     });
 }
 
-// ---------- Updates: contained scrollable feed ----------
-const updatesScroll = document.getElementById('updatesScroll');
+// ---------- Page scroll lock while any modal dialog is open ----------
+function lockScroll() {
+    document.documentElement.style.overflow = 'hidden';
+}
 
-if (updatesScroll) {
-    const items = updatesScroll.querySelectorAll('.updates li');
-
-    // Fixed height = exactly the first 3 items (re-measured on resize),
-    // so the page length never grows as updates scroll inside.
-    function sizeUpdatesFeed() {
-        if (items.length < 3) {
-            updatesScroll.style.maxHeight = '';
-            return;
-        }
-        const third = items[2];
-        const height = third.offsetTop + third.offsetHeight - items[0].offsetTop + 2;
-        updatesScroll.style.maxHeight = height + 'px';
+function unlockScrollIfIdle() {
+    if (!document.querySelector('dialog[open]')) {
+        document.documentElement.style.overflow = '';
     }
+}
 
-    sizeUpdatesFeed();
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(sizeUpdatesFeed, 150);
+// ---------- Updates: 3 items visible, "View all" expands the feed ----------
+const updatesScroll = document.getElementById('updatesScroll');
+const updatesToggle = document.getElementById('updatesToggle');
+let updatesExpanded = false;
+
+function sizeUpdatesFeed() {
+    if (!updatesScroll || updatesExpanded) return;
+    const items = updatesScroll.querySelectorAll('.updates li');
+    if (items.length < 3) {
+        updatesScroll.style.maxHeight = '';
+        return;
+    }
+    // Fixed height = exactly the first 3 items, so the page length stays constant
+    const third = items[2];
+    updatesScroll.style.maxHeight = (third.offsetTop + third.offsetHeight - items[0].offsetTop + 2) + 'px';
+}
+
+sizeUpdatesFeed();
+window.addEventListener('load', sizeUpdatesFeed);
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(sizeUpdatesFeed, 150);
+});
+
+if (updatesToggle && updatesScroll) {
+    updatesToggle.addEventListener('click', () => {
+        updatesExpanded = !updatesExpanded;
+        updatesScroll.classList.toggle('expanded', updatesExpanded);
+        updatesToggle.setAttribute('aria-expanded', String(updatesExpanded));
+        const label = updatesToggle.querySelector('.disclosure-label');
+        if (label) label.textContent = updatesExpanded ? 'Show less' : 'View all';
+        if (!updatesExpanded) sizeUpdatesFeed();
     });
 
     // Subtle fade-in as items enter the container's viewport
@@ -50,7 +71,7 @@ if (updatesScroll) {
         },
         { root: updatesScroll, rootMargin: '0px 0px -4% 0px' }
     );
-    items.forEach((li) => feedObserver.observe(li));
+    updatesScroll.querySelectorAll('.updates li').forEach((li) => feedObserver.observe(li));
 }
 
 // ---------- Disclosures (Show more / details) ----------
@@ -94,17 +115,102 @@ if (profilesToggle && contactSecondary) {
     syncProfiles();
 }
 
-// ---------- Event photo lightbox ----------
-const galleryButtons = Array.from(document.querySelectorAll('.event-photo'));
+// ---------- Horizontal carousels (Event Highlights, Op-eds) ----------
+document.querySelectorAll('.h-scroll').forEach((scroller) => {
+    const section = scroller.closest('.sec');
+    if (!section) return;
+    const prev = section.querySelector('.carousel-btn[data-dir="prev"]');
+    const next = section.querySelector('.carousel-btn[data-dir="next"]');
+    if (!prev && !next) return;
 
-if (galleryButtons.length) {
-    const lightbox = document.createElement('div');
+    function step() {
+        const card = scroller.firstElementChild;
+        if (!card) return scroller.clientWidth * 0.8;
+        const gap = parseFloat(getComputedStyle(scroller).columnGap) || 20;
+        return card.getBoundingClientRect().width + gap;
+    }
+
+    function updateArrows() {
+        const max = scroller.scrollWidth - scroller.clientWidth - 1;
+        if (prev) prev.disabled = scroller.scrollLeft <= 0;
+        if (next) next.disabled = scroller.scrollLeft >= max;
+    }
+
+    if (prev) prev.addEventListener('click', () => scroller.scrollBy({ left: -step(), behavior: 'smooth' }));
+    if (next) next.addEventListener('click', () => scroller.scrollBy({ left: step(), behavior: 'smooth' }));
+    scroller.addEventListener('scroll', () => requestAnimationFrame(updateArrows), { passive: true });
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
+});
+
+// ---------- "View all" toggles: carousel <-> grid ----------
+document.querySelectorAll('[data-view-toggle]').forEach((btn) => {
+    const scroller = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!scroller) return;
+    btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        scroller.classList.toggle('as-grid', !expanded);
+        scroller.scrollTo({ left: 0 });
+        const label = btn.querySelector('.disclosure-label');
+        if (label && btn.dataset.showText && btn.dataset.hideText) {
+            label.textContent = expanded ? btn.dataset.showText : btn.dataset.hideText;
+        }
+        scroller.dispatchEvent(new Event('scroll'));
+    });
+});
+
+// ---------- Detail dialog (event galleries + NiKO build story) ----------
+const detailDialog = document.getElementById('detailDialog');
+
+if (detailDialog) {
+    const dTitle = document.getElementById('detailDialogTitle');
+    const dBody = document.getElementById('detailDialogBody');
+    let opener = null;
+
+    function openDetail(sourceId, trigger) {
+        const source = document.getElementById(sourceId);
+        if (!source || typeof detailDialog.showModal !== 'function') return;
+        const titleEl = source.querySelector('h3');
+        if (dTitle && titleEl) dTitle.textContent = titleEl.textContent;
+        if (dBody) {
+            dBody.innerHTML = source.innerHTML;
+            // The title already sits in the dialog header — don't repeat it in the body
+            const innerTitle = dBody.querySelector('h3');
+            if (innerTitle) innerTitle.remove();
+        }
+        opener = trigger || null;
+        detailDialog.showModal();
+        lockScroll();
+        if (dBody) dBody.scrollTop = 0;
+    }
+
+    document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('[data-detail]');
+        if (trigger) openDetail(trigger.getAttribute('data-detail'), trigger);
+    });
+
+    const closeBtn = document.getElementById('detailDialogClose');
+    if (closeBtn) closeBtn.addEventListener('click', () => detailDialog.close());
+
+    // Click on the backdrop closes the dialog
+    detailDialog.addEventListener('click', (e) => {
+        if (e.target === detailDialog) detailDialog.close();
+    });
+
+    detailDialog.addEventListener('close', () => {
+        unlockScrollIfIdle();
+        if (opener) opener.focus();
+        opener = null;
+    });
+}
+
+// ---------- Event photo lightbox (delegated; works inside dialogs too) ----------
+(function () {
+    const lightbox = document.createElement('dialog');
     lightbox.className = 'lightbox';
-    lightbox.id = 'lightbox';
-    lightbox.setAttribute('role', 'dialog');
-    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.id = 'lightboxDialog';
     lightbox.setAttribute('aria-label', 'Photo viewer');
-    lightbox.hidden = true;
     lightbox.innerHTML =
         '<button class="lightbox-close" type="button" aria-label="Close photo viewer">' +
         '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>' +
@@ -118,46 +224,65 @@ if (galleryButtons.length) {
     const lbImg = lightbox.querySelector('#lightboxImg');
     const lbCaption = lightbox.querySelector('#lightboxCaption');
     const closeBtn = lightbox.querySelector('.lightbox-close');
+    let group = [];
     let current = 0;
     let opener = null;
 
     function showPhoto(i) {
-        current = (i + galleryButtons.length) % galleryButtons.length;
-        const img = galleryButtons[current].querySelector('img');
-        lbImg.src = img.src;
+        if (!group.length) return;
+        current = (i + group.length) % group.length;
+        const img = group[current].querySelector('img');
+        if (!img) return;
+        lbImg.src = img.currentSrc || img.src;
         lbImg.alt = img.alt;
         lbCaption.textContent = img.alt;
     }
 
-    function openLightbox(i, trigger) {
-        opener = trigger || null;
-        showPhoto(i);
-        lightbox.hidden = false;
-        document.body.style.overflow = 'hidden';
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.event-photo');
+        if (!btn) return;
+        const container = btn.closest('.event-gallery') || btn.parentElement;
+        group = Array.from(container.querySelectorAll('.event-photo'));
+        opener = btn;
+        showPhoto(group.indexOf(btn));
+        if (typeof lightbox.showModal === 'function') lightbox.showModal();
+        else lightbox.setAttribute('open', '');
+        lockScroll();
         closeBtn.focus();
-    }
-
-    function closeLightbox() {
-        lightbox.hidden = true;
-        document.body.style.overflow = '';
-        if (opener) opener.focus();
-    }
-
-    galleryButtons.forEach((btn, i) => {
-        btn.addEventListener('click', () => openLightbox(i, btn));
     });
 
-    closeBtn.addEventListener('click', closeLightbox);
+    closeBtn.addEventListener('click', () => lightbox.close());
     lightbox.querySelector('.lightbox-prev').addEventListener('click', () => showPhoto(current - 1));
     lightbox.querySelector('.lightbox-next').addEventListener('click', () => showPhoto(current + 1));
+
+    // Click on the dark backdrop closes the viewer
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
+        if (e.target === lightbox) lightbox.close();
     });
+
     document.addEventListener('keydown', (e) => {
-        if (lightbox.hidden) return;
-        if (e.key === 'Escape') closeLightbox();
-        else if (e.key === 'ArrowLeft') showPhoto(current - 1);
+        if (!lightbox.open) return;
+        if (e.key === 'ArrowLeft') showPhoto(current - 1);
         else if (e.key === 'ArrowRight') showPhoto(current + 1);
+    });
+
+    lightbox.addEventListener('close', () => {
+        unlockScrollIfIdle();
+        if (opener) opener.focus();
+        opener = null;
+    });
+})();
+
+// ---------- Back to top ----------
+const backToTop = document.getElementById('backToTop');
+
+if (backToTop) {
+    window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 

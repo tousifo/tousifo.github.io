@@ -938,28 +938,80 @@ strong {
     cursor: default;
 }
 
-.projects-scroll {
-    display: flex;
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 4px 2px 12px;
-    scrollbar-width: none;
 }
 
-.projects-scroll::-webkit-scrollbar {
-    display: none;
-}
-
-.projects-scroll .project-card {
-    flex: 0 0 min(380px, 86%);
-    scroll-snap-align: start;
+.projects-grid .project-card {
     display: flex;
     flex-direction: column;
 }
 
-.projects-scroll .project-card-link {
-    margin-top: auto;
+/* Featured build card (NiKO) — full-width, media left / body right */
+.project-featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    padding: 0;
+    overflow: hidden;
+}
+
+.project-featured-media {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background: var(--bg);
+}
+
+.project-featured-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.project-featured-media:hover img {
+    transform: scale(1.02);
+}
+
+.project-featured-body {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 26px;
+}
+
+.niko-points {
+    margin: 0 0 16px;
+    padding-left: 18px;
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.niko-points li {
+    margin-bottom: 4px;
+}
+
+.niko-points li::marker {
+    color: var(--accent);
+}
+
+@media (max-width: 1100px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 719px) {
+    .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 .project-card {
@@ -1023,6 +1075,7 @@ strong {
     font-size: 0.88rem;
     font-weight: 500;
     color: var(--accent);
+    overflow-wrap: anywhere;
 }
 
 .project-card-link:hover {
@@ -1037,36 +1090,31 @@ strong {
     align-items: center;
 }
 
-/* ---------- Op-eds & press columns ---------- */
-.press-entry {
+/* ---------- Op-eds & press columns (cards) ---------- */
+.press-card {
     display: flex;
-    align-items: flex-start;
-    gap: 26px;
-    padding: 18px;
+    flex-direction: column;
     background: var(--bg-soft);
     border: 1px solid var(--border);
     border-radius: 14px;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-.press-entry:hover {
+.press-card:hover {
     border-color: var(--accent);
     box-shadow: 0 10px 28px rgba(64, 52, 32, 0.10);
-}
-
-.press-entry + .press-entry {
-    margin-top: 20px;
+    transform: translateY(-4px);
 }
 
 .press-clip {
-    flex-shrink: 0;
-    width: 300px;
-    aspect-ratio: 8 / 5;
     display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    box-shadow: var(--photo-shadow);
+    border: none;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
     background: var(--bg);
 }
 
@@ -1086,6 +1134,9 @@ strong {
 .press-body {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 18px 18px;
 }
 
 .press-meta {
@@ -1101,21 +1152,29 @@ strong {
 }
 
 .press-body h3 {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 600;
     margin: 0 0 8px;
 }
 
-.press-body p {
+.press-excerpt {
     margin: 0 0 14px;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     color: var(--text);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.press-body .project-card-link {
+    margin-top: auto;
 }
 
 /* ---------- Achievements & Leadership cards ---------- */
 .achv-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
     gap: 14px;
     margin-bottom: 8px;
 }
@@ -1265,20 +1324,26 @@ strong {
     font-size: 0.88rem;
 }
 
-/* Lightbox photo viewer */
+/* Lightbox photo viewer (native dialog — stacks above the detail dialog) */
 .lightbox {
     position: fixed;
     inset: 0;
-    z-index: 1200;
+    width: 100%;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    border: none;
+    margin: 0;
+    padding: 24px;
     background: rgba(22, 17, 10, 0.93);
-    display: flex;
+    color: #f3ebd9;
+    display: none;
     align-items: center;
     justify-content: center;
-    padding: 24px;
 }
 
-.lightbox[hidden] {
-    display: none;
+.lightbox[open] {
+    display: flex;
 }
 
 .lightbox figure {
@@ -1440,7 +1505,7 @@ strong {
 /* ---------- Responsive ---------- */
 @media (max-width: 720px) {
     .about {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         grid-template-areas:
             "photo"
             "text"
@@ -1490,15 +1555,39 @@ strong {
         margin-bottom: 4px;
     }
 
-    .press-entry {
-        flex-direction: column;
-        gap: 16px;
+    /* Compact single-row swipeable nav on small screens */
+    .topnav-inner {
+        flex-wrap: nowrap;
     }
 
-    .press-clip {
-        width: 100%;
-        max-width: 440px;
+    .topnav-right {
+        flex-wrap: nowrap;
+        min-width: 0;
+    }
+
+    .topnav-links {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .topnav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .topnav-links a {
+        white-space: nowrap;
+    }
+
+    .project-featured {
+        grid-template-columns: 1fr;
+    }
+
+    .project-featured-media {
         aspect-ratio: 16 / 9;
+        height: auto;
+        min-height: 0;
     }
 
     .carousel-head {
@@ -1635,5 +1724,319 @@ strong {
     *::after {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================================================
+   v15 — Horizontal card carousels, event cards, detail dialog, updates toggle
+   ========================================================================== */
+
+/* Horizontal card collections (Event Highlights, Op-eds) */
+.h-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 4px 2px 14px;
+    scrollbar-width: none;
+}
+
+.h-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.h-scroll > * {
+    scroll-snap-align: start;
+}
+
+.h-scroll > .event-card,
+.h-scroll > .press-card {
+    flex: 0 0 calc((100% - 40px) / 3);
+}
+
+.h-scroll.as-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-bottom: 4px;
+}
+
+@media (max-width: 1100px) {
+    .h-scroll > .event-card,
+    .h-scroll > .press-card {
+        flex-basis: calc((100% - 20px) / 2);
+    }
+
+    .h-scroll.as-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 719px) {
+    .h-scroll > .event-card,
+    .h-scroll > .press-card {
+        flex-basis: 82%;
+    }
+
+    .h-scroll.as-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Event cards */
+.event-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 28px rgba(64, 52, 32, 0.10);
+}
+
+.event-card-media {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    background: var(--bg);
+}
+
+.event-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.event-card-media:hover img {
+    transform: scale(1.03);
+}
+
+.event-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 16px 18px 18px;
+}
+
+.event-card-body .event-result {
+    align-self: flex-start;
+    font-size: 0.68rem;
+    padding: 3px 11px;
+    margin-bottom: 9px;
+}
+
+.event-card h3 {
+    font-size: 1.02rem;
+    font-weight: 600;
+    margin: 0 0 6px;
+}
+
+.event-card-desc {
+    margin: 0 0 8px;
+    font-size: 0.88rem;
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.event-card .event-meta {
+    font-size: 0.8rem;
+    margin: 0 0 12px;
+}
+
+.event-card-btn {
+    margin-top: auto;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg);
+    color: var(--accent);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.event-card-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+/* Detail dialog (event galleries + NiKO build story) */
+.detail-dialog {
+    width: min(880px, 94vw);
+    max-width: 94vw;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--bg);
+    color: var(--text);
+    padding: 0;
+    box-shadow: 0 24px 80px rgba(15, 10, 0, 0.35);
+    overscroll-behavior: contain;
+}
+
+.detail-dialog::backdrop {
+    background: rgba(22, 17, 10, 0.6);
+}
+
+.detail-dialog[open] {
+    animation: dialog-in 0.22s ease;
+}
+
+@keyframes dialog-in {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.detail-dialog-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 22px 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.detail-dialog-head h3 {
+    margin: 0;
+    font-size: 1.18rem;
+}
+
+.detail-dialog-close {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--bg);
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.detail-dialog-close:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.detail-dialog-body {
+    padding: 20px 22px 26px;
+    overflow-y: auto;
+    max-height: min(70vh, 640px);
+}
+
+@media (max-width: 719px) {
+    .detail-dialog-body {
+        padding: 16px 16px 22px;
+        max-height: 76vh;
+    }
+}
+
+/* Updates panel header + View-all toggle */
+.updates-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 0 8px;
+    padding-right: 6px;
+}
+
+.updates-head .updates-label {
+    margin: 0;
+}
+
+.updates-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    background: none;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.78rem;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.updates-toggle:hover {
+    background: var(--accent-soft);
+}
+
+.updates-toggle svg {
+    transition: transform 0.25s ease;
+}
+
+.updates-toggle[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+.updates-scroll.expanded {
+    max-height: min(60vh, 520px) !important;
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+
+/* Print: carousels wrap into grids, controls disappear */
+@media print {
+    .h-scroll {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        overflow: visible;
+    }
+
+    .h-scroll > .event-card,
+    .h-scroll > .press-card {
+        flex-basis: auto;
+    }
+
+    .event-card,
+    .press-card {
+        break-inside: avoid;
+    }
+
+    .carousel-head {
+        display: none;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .disclosure-btn,
+    .updates-toggle {
+        display: none;
     }
 }
