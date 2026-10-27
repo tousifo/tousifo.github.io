@@ -94,6 +94,73 @@ if (profilesToggle && contactSecondary) {
     syncProfiles();
 }
 
+// ---------- Event photo lightbox ----------
+const galleryButtons = Array.from(document.querySelectorAll('.event-photo'));
+
+if (galleryButtons.length) {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.id = 'lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Photo viewer');
+    lightbox.hidden = true;
+    lightbox.innerHTML =
+        '<button class="lightbox-close" type="button" aria-label="Close photo viewer">' +
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>' +
+        '<button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous photo">' +
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>' +
+        '<figure><img id="lightboxImg" src="" alt=""><figcaption id="lightboxCaption"></figcaption></figure>' +
+        '<button class="lightbox-nav lightbox-next" type="button" aria-label="Next photo">' +
+        '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>';
+    document.body.appendChild(lightbox);
+
+    const lbImg = lightbox.querySelector('#lightboxImg');
+    const lbCaption = lightbox.querySelector('#lightboxCaption');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    let current = 0;
+    let opener = null;
+
+    function showPhoto(i) {
+        current = (i + galleryButtons.length) % galleryButtons.length;
+        const img = galleryButtons[current].querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCaption.textContent = img.alt;
+    }
+
+    function openLightbox(i, trigger) {
+        opener = trigger || null;
+        showPhoto(i);
+        lightbox.hidden = false;
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+    }
+
+    function closeLightbox() {
+        lightbox.hidden = true;
+        document.body.style.overflow = '';
+        if (opener) opener.focus();
+    }
+
+    galleryButtons.forEach((btn, i) => {
+        btn.addEventListener('click', () => openLightbox(i, btn));
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.querySelector('.lightbox-prev').addEventListener('click', () => showPhoto(current - 1));
+    lightbox.querySelector('.lightbox-next').addEventListener('click', () => showPhoto(current + 1));
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.hidden) return;
+        if (e.key === 'Escape') closeLightbox();
+        else if (e.key === 'ArrowLeft') showPhoto(current - 1);
+        else if (e.key === 'ArrowRight') showPhoto(current + 1);
+    });
+}
+
 // ---------- Footer year ----------
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
