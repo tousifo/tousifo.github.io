@@ -837,15 +837,14 @@ strong {
 
 .achv-top {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 8px;
+    gap: 12px;
+    margin-bottom: 2px;
 }
 
-.achv-icon {
-    font-size: 1.2rem;
-    line-height: 1;
+.achv-top h3 {
+    flex: 1;
 }
 
 .achv-date {
@@ -862,13 +861,72 @@ strong {
 .achv-card h3 {
     font-size: 0.98rem;
     font-weight: 600;
-    margin: 0 0 4px;
+    margin: 0;
 }
 
 .achv-card p {
     margin: 0;
     font-size: 0.87rem;
     color: var(--muted);
+}
+
+/* Contained scrollable panel (awards group visible; leadership scrolls in) */
+.achv-panel {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 6px 14px 16px;
+}
+
+.achv-scroll {
+    max-height: 340px; /* refined to the awards group by scripts.js */
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
+    -webkit-mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.achv-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.achv-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.achv-scroll::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 999px;
+}
+
+.achv-scroll .pub-group:first-child {
+    margin-top: 0;
+}
+
+.achv-scroll .achv-grid {
+    margin-bottom: 26px;
+}
+
+.achv-scroll .pub-group + .achv-grid {
+    margin-bottom: 0;
+}
+
+/* Cards fade in as they enter the panel viewport (JS adds .fade + .in-view) */
+.achv-scroll.fade .achv-card {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.achv-scroll.fade .achv-card.in-view {
+    opacity: 1;
+    transform: none;
+}
+
+.achv-scroll.fade .achv-card.in-view:hover {
+    transform: translateY(-2px);
 }
 
 /* ---------- Contact & footer ---------- */
@@ -899,6 +957,18 @@ strong {
     .updates-panel {
         border: none;
         padding: 0;
+    }
+
+    .achv-panel {
+        border: none;
+        padding: 0;
+    }
+
+    .achv-scroll {
+        max-height: none;
+        overflow: visible;
+        -webkit-mask-image: none;
+        mask-image: none;
     }
 
     .updates-scroll {

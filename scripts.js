@@ -53,6 +53,38 @@ if (updatesScroll) {
     items.forEach((li) => feedObserver.observe(li));
 }
 
+// ---------- Achievements: contained scrollable panel ----------
+const achvScroll = document.getElementById('achvScroll');
+
+if (achvScroll) {
+    // Panel height fits the Awards & Competitions group; Leadership scrolls in
+    function sizeAchv() {
+        const grid = achvScroll.querySelector('.achv-grid');
+        if (!grid) return;
+        const height = grid.getBoundingClientRect().bottom - achvScroll.getBoundingClientRect().top + 16;
+        achvScroll.style.maxHeight = Math.min(Math.max(height, 220), 520) + 'px';
+    }
+    sizeAchv();
+    window.addEventListener('load', sizeAchv);
+    let achvTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(achvTimer);
+        achvTimer = setTimeout(sizeAchv, 150);
+    });
+
+    // Subtle fade-in as cards enter the panel's viewport
+    achvScroll.classList.add('fade');
+    const achvObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+            });
+        },
+        { root: achvScroll, rootMargin: '0px 0px -4% 0px' }
+    );
+    achvScroll.querySelectorAll('.achv-card').forEach((card) => achvObserver.observe(card));
+}
+
 // ---------- Footer year ----------
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
