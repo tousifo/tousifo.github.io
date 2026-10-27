@@ -17,8 +17,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./styles.css?v=20">
-        <script src="./scripts.js?v=20" defer></script>
+        <link rel="stylesheet" href="./styles.css?v=21">
+        <script src="./scripts.js?v=21" defer></script>
 
         <!-- Set saved/system theme before first paint to avoid flashing -->
         <script>
@@ -186,14 +186,6 @@
                     measurement-guided defenses for hybrid quantum neural networks — alongside medical and
                     explainable AI, IoT, and intelligent systems.
                 </p>
-
-                <div class="research-areas">
-                    <span class="chip">Quantum Machine Learning</span>
-                    <span class="chip">AI Security &amp; Robustness</span>
-                    <span class="chip">Hybrid Quantum Neural Networks</span>
-                    <span class="chip">Backdoor Detection &amp; Repair</span>
-                    <span class="chip">Medical &amp; Explainable AI</span>
-                </div>
 
                 <h3 class="pub-group">Featured Research</h3>
                 <article class="featured-research">
@@ -536,29 +528,56 @@
                 </ul>
             </section>
 
-            <!-- ============ Teaching & Student Resources ============ -->
+            <!-- ============ Teaching & Academic Development ============ -->
             <section class="sec" id="teaching">
-                <h2>Teaching &amp; Student Resources</h2>
+                <h2>Teaching &amp; Academic Development</h2>
+                <p class="section-sub">Teaching expertise and completed training — at a glance.</p>
 
-                <h3 class="pub-group">Teaching &amp; Academic Practice</h3>
-                <p class="kv"><span class="kv-key">Teaching areas</span> Data Structures, Algorithms, Database Systems, Web Technologies, AI/ML, Robotics, Embedded Systems, IoT, and Research Methodology.</p>
-                <p class="kv"><span class="kv-key">OBE practice</span> Course-outcome design, constructive alignment, learning activities, assessment, evaluation, and feedback.</p>
+                <div class="teach-overview">
+                    <div class="teach-block">
+                        <h3 class="teach-block-title">Teaching Areas</h3>
+                        <p>Data Structures, Algorithms, Database Systems, Web Technologies, AI/ML, Robotics, Embedded Systems, IoT, and Research Methodology.</p>
+                    </div>
+                    <div class="teach-block">
+                        <h3 class="teach-block-title">OBE Practice</h3>
+                        <p>Course-outcome design, constructive alignment, learning activities, assessment, evaluation, and feedback.</p>
+                    </div>
+                </div>
 
-                <h3 class="pub-group">Professional Development &amp; Training</h3>
-                <ul class="entries">
-                    <li>
-                        <p class="entry-head"><span class="entry-title"><strong>Training on Outcome-Based Education (OBE) Curriculum</strong> </span><span class="entry-date">2025</span></p>
-                        <p class="entry-desc">Port City International University, Chattogram. Two-day workshop on OBE, outcome design, assessment alignment, and constructive alignment.</p>
-                    </li>
-                    <li>
-                        <p class="entry-head"><span class="entry-title"><strong>Data Science, Machine Learning &amp; MLOps Bootcamp</strong> </span><span class="entry-date">2023 – 2024</span></p>
-                        <p class="entry-desc">Bongodev. Six-month bootcamp in ML, deep learning, MLOps, TensorFlow/Keras, MLflow, Docker, and Flask.</p>
-                    </li>
-                    <li>
-                        <p class="entry-head"><span class="entry-title"><strong>Quantum Computing with Machine Learning</strong> </span><span class="entry-date">2024 – 25</span></p>
-                        <p class="entry-desc">Mahdy&rsquo;s Research Academy. Six-month course on quantum algorithms, circuits, Qiskit, and hybrid quantum-classical ML.</p>
-                    </li>
-                </ul>
+                <h3 class="pub-group">Professional Development &amp; Completed Training</h3>
+                <div class="carousel-head">
+                    <div class="carousel-arrows">
+                        <button class="carousel-btn" type="button" data-dir="prev" aria-label="Previous training entries">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="carousel-btn" type="button" data-dir="next" aria-label="Next training entries">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="h-scroll training-scroll" id="trainingScroll" tabindex="0" aria-label="Professional development and training timeline, scroll horizontally to browse">
+                    <article class="training-card">
+                        <p class="training-when">2025</p>
+                        <h3>Training on Outcome-Based Education (OBE) Curriculum</h3>
+                        <p class="training-org">Port City International University, Chattogram</p>
+                        <p class="training-desc">Two-day workshop covering OBE, outcome design, assessment alignment, and constructive alignment.</p>
+                    </article>
+
+                    <article class="training-card">
+                        <p class="training-when">2023 – 2024</p>
+                        <h3>Data Science, Machine Learning &amp; MLOps Bootcamp</h3>
+                        <p class="training-org">Bongodev</p>
+                        <p class="training-desc">Six-month bootcamp covering ML, deep learning, MLOps, TensorFlow/Keras, MLflow, Docker, and Flask.</p>
+                    </article>
+
+                    <article class="training-card">
+                        <p class="training-when">2024 – 2025</p>
+                        <h3>Quantum Computing with Machine Learning</h3>
+                        <p class="training-org">Mahdy&rsquo;s Research Academy</p>
+                        <p class="training-desc">Six-month course covering quantum algorithms, circuits, Qiskit, and hybrid quantum-classical ML.</p>
+                    </article>
+                </div>
 
                 <h3 class="pub-group">Student Resources</h3>
                 <div class="resource-callout">

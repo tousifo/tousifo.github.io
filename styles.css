@@ -434,13 +434,6 @@ strong {
     font-size: 1rem;
 }
 
-.research-areas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 0 0 30px;
-}
-
 .featured-research {
     padding: 26px 28px;
     background: var(--bg-soft);
@@ -2140,4 +2133,101 @@ strong {
         text-align: left;
         padding: 0 0 4px 20px;
     }
+}
+
+/* ==========================================================================
+   v21 — Teaching & Academic Development
+   ========================================================================== */
+
+/* Teaching overview: two lightweight blocks (no pills) */
+.teach-overview {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 28px;
+    margin: 0 0 10px;
+}
+
+.teach-block {
+    border-left: 2px solid var(--accent);
+    padding: 2px 0 2px 16px;
+}
+
+.teach-block-title {
+    margin: 0 0 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+}
+
+.teach-block p {
+    margin: 0;
+    font-size: 0.93rem;
+    color: var(--text);
+}
+
+@media (max-width: 720px) {
+    .teach-overview {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+}
+
+/* Training timeline carousel — distinct from project cards:
+   no card background, vertical connector line + teal progression dots */
+.h-scroll > .training-card {
+    flex: 0 0 min(320px, 82%);
+    display: flex;
+    flex-direction: column;
+}
+
+.training-card {
+    position: relative;
+    border-left: 2px solid var(--border);
+    padding: 2px 24px 6px 20px;
+    transition: border-color 0.25s ease;
+}
+
+.training-card::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.training-card:hover {
+    border-left-color: var(--accent);
+}
+
+.training-when {
+    margin: 0 0 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+}
+
+.training-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+}
+
+.training-org {
+    margin: 0 0 6px;
+    font-size: 0.88rem;
+    color: var(--muted);
+}
+
+.training-desc {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text);
 }
