@@ -110,7 +110,7 @@
 
                 <div class="updates-panel">
                     <p class="updates-label">Latest updates</p>
-                    <div class="updates-scroll" id="updatesScroll">
+                    <div class="updates-scroll" id="updatesScroll" tabindex="0" aria-label="Latest updates, scroll for more">
                         <ul class="updates">
                             <li><span class="upd-date">May 2026</span> Essay on <strong>the four years that transformed Bangladesh</strong> published in <em>The Gist</em> (Opinions).</li>
                             <li><span class="upd-date">Oct 2026</span> <strong>CrossEcomPack: Cross-Domain Package Localization for Low-Resource E-Commerce Logistics</strong> presented at <strong>MIET 2026</strong> (first author).</li>
@@ -184,16 +184,21 @@
                     <p>
                         My M.Sc. (Engineering) thesis — a quantum measurement-guided framework for detecting,
                         explaining, and repairing backdoor attacks in multiclass medical hybrid quantum neural
-                        networks. The work combines quantum machine learning with AI security and medical imaging,
-                        targeting trustworthy models for healthcare applications.
+                        networks, at the intersection of quantum machine learning, AI security, and medical imaging.
                     </p>
-                    <p class="featured-supervisor">Supervisor: Dr. Dulal Chakraborty, Comilla University.</p>
-                    <div class="tag-row">
-                        <span class="tag">Quantum ML</span>
-                        <span class="tag">AI Security</span>
-                        <span class="tag">Hybrid QNNs</span>
-                        <span class="tag">Backdoor Defense</span>
-                        <span class="tag">Medical Imaging</span>
+                    <button class="disclosure-btn" data-disclosure type="button" aria-expanded="false" aria-controls="qmedshieldDetails">
+                        <span class="disclosure-label">Research details</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="disclosure-body" id="qmedshieldDetails" hidden>
+                        <p class="featured-supervisor">Supervisor: Dr. Dulal Chakraborty, Comilla University.</p>
+                        <div class="tag-row">
+                            <span class="tag">Quantum ML</span>
+                            <span class="tag">AI Security</span>
+                            <span class="tag">Hybrid QNNs</span>
+                            <span class="tag">Backdoor Defense</span>
+                            <span class="tag">Medical Imaging</span>
+                        </div>
                     </div>
                 </article>
             </section>
@@ -238,6 +243,7 @@
                     </li>
                 </ol>
 
+                <div class="pub-extra" id="pubMore" hidden>
                 <h3 class="pub-group">Conference Presentations</h3>
                 <ol class="publist" style="counter-reset: pub 4">
                     <li>
@@ -265,6 +271,12 @@
                         <span class="pub-meta">2026. Supervisor: Dr. Dulal Chakraborty, Comilla University.</span>
                     </li>
                 </ol>
+                </div>
+
+                <button class="disclosure-btn disclosure-center" data-disclosure type="button" aria-expanded="false" aria-controls="pubMore" data-show-text="Show all publications" data-hide-text="Show fewer publications">
+                    <span class="disclosure-label">Show all publications</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
             </section>
 
             <!-- ============ Selected Projects (carousel) ============ -->
@@ -434,80 +446,88 @@
                 <h2>Achievements &amp; Leadership</h2>
 
                 <div class="achv-panel">
-                    <div class="achv-scroll" id="achvScroll">
-                        <h3 class="pub-group">Awards &amp; Competitions</h3>
-                        <div class="achv-grid">
-                            <div class="achv-card">
-                                <div class="achv-top">
-                                    <h3>Champion — Innovation Project Showcase</h3>
-                                    <span class="achv-date">2024</span>
-                                </div>
-                                <p>University Bus Tracker · UGC &amp; Comilla University</p>
+                    <h3 class="pub-group">Awards &amp; Competitions</h3>
+                    <div class="achv-grid">
+                        <div class="achv-card">
+                            <div class="achv-top">
+                                <h3>Champion — Innovation Project Showcase</h3>
+                                <span class="achv-date">2024</span>
                             </div>
-                            <div class="achv-card">
-                                <div class="achv-top">
-                                    <h3>Champion — Science Project Showcasing</h3>
-                                    <span class="achv-date">2024</span>
-                                </div>
-                                <p>2nd CoUSC National Science Festival</p>
+                            <p>University Bus Tracker · UGC &amp; Comilla University</p>
+                        </div>
+                        <div class="achv-card">
+                            <div class="achv-top">
+                                <h3>Champion — Science Project Showcasing</h3>
+                                <span class="achv-date">2024</span>
                             </div>
-                            <div class="achv-card">
-                                <div class="achv-top">
-                                    <h3>Runners-up — Line Follower Robot Competition</h3>
-                                    <span class="achv-date">2023</span>
-                                </div>
-                                <p>BAIUST EEE Day &rsquo;23</p>
+                            <p>2nd CoUSC National Science Festival</p>
+                        </div>
+                        <div class="achv-card">
+                            <div class="achv-top">
+                                <h3>Runners-up — Line Follower Robot Competition</h3>
+                                <span class="achv-date">2023</span>
                             </div>
-                            <div class="achv-card">
-                                <div class="achv-top">
-                                    <h3>1st Runner-up — Hult Prize CoU</h3>
-                                    <span class="achv-date">2020–21</span>
-                                </div>
-                                <p>South-East Asia Region Finalist</p>
+                            <p>BAIUST EEE Day &rsquo;23</p>
+                        </div>
+                        <div class="achv-card">
+                            <div class="achv-top">
+                                <h3>1st Runner-up — Hult Prize CoU</h3>
+                                <span class="achv-date">2020–21</span>
                             </div>
-                            <div class="achv-card">
-                                <div class="achv-top">
-                                    <h3>Special Mention — NSTU National MUN</h3>
-                                    <span class="achv-date">2020</span>
+                            <p>South-East Asia Region Finalist</p>
+                        </div>
+                    </div>
+
+                    <div class="achv-extra" id="achvMore" hidden>
+                            <div class="achv-grid">
+                                <div class="achv-card">
+                                    <div class="achv-top">
+                                        <h3>Special Mention — NSTU National MUN</h3>
+                                        <span class="achv-date">2020</span>
+                                    </div>
+                                    <p>Delegate of Spain, Committee of International Energy Agency</p>
                                 </div>
-                                <p>Delegate of Spain, Committee of International Energy Agency</p>
+                                <div class="achv-card">
+                                    <div class="achv-top">
+                                        <h3>MetLife Foundation Pathways Scholarship</h3>
+                                        <span class="achv-date">2019</span>
+                                    </div>
+                                    <p>Merit-based scholarship program recipient</p>
+                                </div>
                             </div>
-                            <div class="achv-card">
-                                <div class="achv-top">
-                                    <h3>MetLife Foundation Pathways Scholarship</h3>
-                                    <span class="achv-date">2019</span>
+
+                            <h3 class="pub-group">Leadership &amp; Service</h3>
+                            <div class="achv-grid">
+                                <div class="achv-card">
+                                    <div class="achv-top">
+                                        <h3>President — Rotaract Club of Comilla Shining Star</h3>
+                                        <span class="achv-date">2024–25</span>
+                                    </div>
+                                    <p>Leading community service and leadership initiatives</p>
                                 </div>
-                                <p>Merit-based scholarship program recipient</p>
+                                <div class="achv-card">
+                                    <div class="achv-top">
+                                        <h3>General Secretary — CoU IT Society</h3>
+                                        <span class="achv-date">2024–25</span>
+                                    </div>
+                                    <p>Partnered with DataCamp (600 scholarships for 100 students); organized a national IT Fest and industrial tour</p>
+                                </div>
+                                <div class="achv-card">
+                                    <div class="achv-top">
+                                        <h3>Co-organizer — TEDx CoU</h3>
+                                        <span class="achv-date">2023</span>
+                                    </div>
+                                    <p>Comilla University&rsquo;s first TEDx-licensed conference</p>
+                                </div>
                             </div>
                         </div>
 
-                        <h3 class="pub-group">Leadership &amp; Service</h3>
-                        <div class="achv-grid">
-                            <div class="achv-card">
-                                <div class="achv-top">
-                                    <h3><a href="https://my.rotary.org/en/domui/profile/a808d70d-5480-474f-8d01-8f6397dcb6bd" target="_blank" rel="noopener noreferrer">President — Rotaract Club of Comilla Shining Star</a></h3>
-                                    <span class="achv-date">2024–25</span>
-                                </div>
-                                <p>Leading community service and leadership initiatives</p>
-                            </div>
-                            <div class="achv-card">
-                                <div class="achv-top">
-                                    <h3>General Secretary — CoU IT Society</h3>
-                                    <span class="achv-date">2024–25</span>
-                                </div>
-                                <p>Partnered with DataCamp (600 scholarships for 100 students); organized a national IT Fest and industrial tour</p>
-                            </div>
-                            <div class="achv-card">
-                                <div class="achv-top">
-                                    <h3><a href="https://www.ted.com/tedx/events/54414" target="_blank" rel="noopener noreferrer">Co-organizer — TEDx CoU</a></h3>
-                                    <span class="achv-date">2023</span>
-                                </div>
-                                <p>Comilla University&rsquo;s first TEDx-licensed conference</p>
-                            </div>
-                        </div>
+                        <button class="disclosure-btn disclosure-center" data-disclosure type="button" aria-expanded="false" aria-controls="achvMore" data-show-text="Show more" data-hide-text="Show less">
+                            <span class="disclosure-label">Show more</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
                     </div>
-                </div>
-            </section>
+                </section></section>
 
             <!-- ============ Op-eds & Columns ============ -->
             <section class="sec" id="opeds">
@@ -516,7 +536,7 @@
 
                 <article class="press-entry">
                     <a class="press-clip" href="https://epaper.ittefaq.com.bd/edition/2574/1st-edition/page/8" target="_blank" rel="noopener noreferrer">
-                        <img src="./assets/images/press/ittefaq-ai-policy-column-2026-02-12.png" alt="Clipping of the op-ed on Bangladesh's draft National AI Policy, The Daily Ittefaq, Page 8, 12 February 2026">
+                        <img loading="lazy" decoding="async" src="./assets/images/press/ittefaq-ai-policy-column-2026-02-12.png" alt="Clipping of the op-ed on Bangladesh's draft National AI Policy, The Daily Ittefaq, Page 8, 12 February 2026">
                     </a>
                     <div class="press-body">
                         <span class="press-meta">The Daily Ittefaq · 12 February 2026 · Page 8</span>
@@ -535,7 +555,7 @@
 
                 <article class="press-entry">
                     <a class="press-clip" href="https://bonikbarta.com/editorial/XtH6NqQcGKDBDsry" target="_blank" rel="noopener noreferrer">
-                        <img src="./assets/images/press/bonikbarta-digital-health-column-2026-01-22.png" alt="Clipping of the Bonik Barta column on digital health promises versus ground reality, 22 January 2026">
+                        <img loading="lazy" decoding="async" src="./assets/images/press/bonikbarta-digital-health-column-2026-01-22.png" alt="Clipping of the Bonik Barta column on digital health promises versus ground reality, 22 January 2026">
                     </a>
                     <div class="press-body">
                         <span class="press-meta">Bonik Barta · 22 January 2026 · Editorial</span>
@@ -553,7 +573,7 @@
 
                 <article class="press-entry">
                     <a class="press-clip" href="https://www.facebook.com/photo/?fbid=122202388310938865&set=a.122103960662938865" target="_blank" rel="noopener noreferrer">
-                        <img src="./assets/images/press/gist-madrasa-education-column.png" style="object-position: top;" alt="Promo card of The Gist opinion column 'হারানো গৌরবের খোঁজে' (In search of lost glory: madrasa education and our historical amnesia), by K.M. Tousif Bin Parves">
+                        <img loading="lazy" decoding="async" src="./assets/images/press/gist-madrasa-education-column.png" style="object-position: top;" alt="Promo card of The Gist opinion column 'হারানো গৌরবের খোঁজে' (In search of lost glory: madrasa education and our historical amnesia), by K.M. Tousif Bin Parves">
                     </a>
                     <div class="press-body">
                         <span class="press-meta">The Gist · Opinion</span>
@@ -573,7 +593,7 @@
 
                 <article class="press-entry">
                     <a class="press-clip" href="https://www.facebook.com/photo/?fbid=122178506996938865&set=a.122103960662938865" target="_blank" rel="noopener noreferrer">
-                        <img src="./assets/images/press/thegist-ziaur-rahman-column-2026-05-30.png" alt="Opinion card from The Gist — যে চার বছরে বাংলাদেশ বদলে গিয়েছিল, by Tousif Bin Parves, 30 May 2026">
+                        <img loading="lazy" decoding="async" src="./assets/images/press/thegist-ziaur-rahman-column-2026-05-30.png" alt="Opinion card from The Gist — যে চার বছরে বাংলাদেশ বদলে গিয়েছিল, by Tousif Bin Parves, 30 May 2026">
                     </a>
                     <div class="press-body">
                         <span class="press-meta">The Gist · Opinions · 30 May 2026</span>

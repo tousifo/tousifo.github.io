@@ -153,8 +153,8 @@ strong {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
     border: 1px solid var(--border);
     border-radius: 50%;
@@ -742,6 +742,62 @@ strong {
     text-decoration: none;
 }
 
+/* ---------- Disclosure controls (Show more / details) ---------- */
+.disclosure-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.disclosure-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.disclosure-btn svg {
+    transition: transform 0.25s ease;
+}
+
+.disclosure-btn[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+.disclosure-btn[aria-expanded="true"] {
+    background: var(--accent-soft);
+}
+
+.disclosure-center {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+.pub-extra:not([hidden]),
+.achv-extra:not([hidden]) {
+    animation: disclosure-fade 0.45s ease;
+}
+
+@keyframes disclosure-fade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
 /* ---------- Selected Projects (horizontal carousel) ---------- */
 .carousel-head {
     display: flex;
@@ -757,19 +813,32 @@ strong {
 }
 
 .carousel-dot {
-    width: 8px;
-    height: 8px;
+    width: 24px;
+    height: 24px;
     padding: 0;
     border: none;
     border-radius: 999px;
-    background: var(--border);
+    background: transparent;
     cursor: pointer;
-    transition: background 0.2s ease, width 0.2s ease;
+    position: relative;
 }
 
-.carousel-dot.active {
+.carousel-dot::after {
+    content: '';
+    position: absolute;
+    inset: 8px 7px;
+    border-radius: 999px;
+    background: var(--border);
+    transition: background 0.2s ease, inset 0.2s ease;
+}
+
+.carousel-dot:hover::after {
+    background: var(--muted);
+}
+
+.carousel-dot.active::after {
+    inset: 7px 4px;
     background: var(--accent);
-    width: 22px;
 }
 
 .carousel-arrows {
@@ -778,8 +847,8 @@ strong {
 }
 
 .carousel-btn {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1034,63 +1103,20 @@ strong {
     color: var(--muted);
 }
 
-/* Contained scrollable panel (awards group visible; leadership scrolls in) */
+/* Bordered panel: first 4 highlights visible, rest via Show more */
 .achv-panel {
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 14px 6px 14px 16px;
+    padding: 6px 16px 18px 16px;
 }
 
-.achv-scroll {
-    max-height: 340px; /* refined to the awards group by scripts.js */
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 10px;
-    -webkit-mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
-    mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
+.achv-panel .pub-group:first-child {
+    margin-top: 6px;
 }
 
-.achv-scroll::-webkit-scrollbar {
-    width: 5px;
-}
-
-.achv-scroll::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.achv-scroll::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 999px;
-}
-
-.achv-scroll .pub-group:first-child {
-    margin-top: 0;
-}
-
-.achv-scroll .achv-grid {
-    margin-bottom: 26px;
-}
-
-.achv-scroll .pub-group + .achv-grid {
-    margin-bottom: 0;
-}
-
-/* Cards fade in as they enter the panel viewport (JS adds .fade + .in-view) */
-.achv-scroll.fade .achv-card {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.achv-scroll.fade .achv-card.in-view {
-    opacity: 1;
-    transform: none;
-}
-
-.achv-scroll.fade .achv-card.in-view:hover {
-    transform: translateY(-2px);
+.achv-extra[hidden],
+.pub-extra[hidden] {
+    display: none;
 }
 
 /* ---------- Contact & footer ---------- */
@@ -1243,8 +1269,8 @@ strong {
     right: 22px;
     bottom: 22px;
     z-index: 900;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
