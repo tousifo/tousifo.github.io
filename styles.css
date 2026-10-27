@@ -1030,6 +1030,13 @@ strong {
     text-decoration: none;
 }
 
+.project-card-link-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    align-items: center;
+}
+
 /* ---------- Op-eds & press columns ---------- */
 .press-entry {
     display: flex;
