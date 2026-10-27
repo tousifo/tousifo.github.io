@@ -85,6 +85,78 @@ if (achvScroll) {
     achvScroll.querySelectorAll('.achv-card').forEach((card) => achvObserver.observe(card));
 }
 
+// ---------- Selected Projects: horizontal carousel ----------
+const projectsScroll = document.getElementById('projectsScroll');
+
+if (projectsScroll) {
+    const cards = Array.from(projectsScroll.querySelectorAll('.project-card'));
+    const dotsBox = document.getElementById('projectDots');
+    const prevBtn = document.getElementById('projectsPrev');
+    const nextBtn = document.getElementById('projectsNext');
+
+    const dots = cards.map((_, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'carousel-dot';
+        b.setAttribute('aria-label', 'Go to project ' + (i + 1));
+        b.addEventListener('click', () => {
+            cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        });
+        dotsBox.appendChild(b);
+        return b;
+    });
+
+    function cardStep() {
+        return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : projectsScroll.clientWidth;
+    }
+
+    function updateCarousel() {
+        if (!cards.length) return;
+        const idx = Math.min(cards.length - 1, Math.max(0, Math.round(projectsScroll.scrollLeft / cardStep())));
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        prevBtn.disabled = projectsScroll.scrollLeft <= 4;
+        nextBtn.disabled = projectsScroll.scrollLeft >= projectsScroll.scrollWidth - projectsScroll.clientWidth - 4;
+    }
+
+    projectsScroll.addEventListener('scroll', () => window.requestAnimationFrame(updateCarousel), { passive: true });
+    window.addEventListener('resize', updateCarousel);
+    prevBtn.addEventListener('click', () => projectsScroll.scrollBy({ left: -cardStep(), behavior: 'smooth' }));
+    nextBtn.addEventListener('click', () => projectsScroll.scrollBy({ left: cardStep(), behavior: 'smooth' }));
+    updateCarousel();
+}
+
+// ---------- Back to top ----------
+const backToTop = document.getElementById('backToTop');
+
+if (backToTop) {
+    window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// ---------- Section scroll-reveal (subtle; content visible without JS) ----------
+const revealTargets = document.querySelectorAll('main > section');
+
+if ('IntersectionObserver' in window && revealTargets.length) {
+    revealTargets.forEach((sec) => sec.classList.add('reveal-section'));
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { rootMargin: '0px 0px -6% 0px' }
+    );
+    revealTargets.forEach((sec) => revealObserver.observe(sec));
+}
+
 // ---------- Footer year ----------
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
