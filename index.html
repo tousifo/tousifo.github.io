@@ -17,8 +17,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./styles.css?v=19">
-        <script src="./scripts.js?v=19" defer></script>
+        <link rel="stylesheet" href="./styles.css?v=20">
+        <script src="./scripts.js?v=20" defer></script>
 
         <!-- Set saved/system theme before first paint to avoid flashing -->
         <script>
@@ -230,23 +230,30 @@
                     (32 citations, h-index 2 — as of October 2026).
                 </p>
 
-                <h3 class="pub-group">Journal Articles</h3>
-                <ol class="publist">
-                    <li>
-                        <span class="pub-title">Harnessing Artificial Intelligence to Strengthen Green Innovation Capacity in Pursuit of Sustainable Development Goals: Evidence from Taiwan&rsquo;s Manufacturing Sector.</span><br>
-                        <span class="pub-authors">S. Saiyed, M. Hasan, R. Chowdhury, <strong>K.M.T. Bin Parves</strong>, E. Hariyadi, and V. Kumar.</span><br>
-                        <span class="pub-venue">Equilibrium: Quarterly Journal of Economics and Economic Policy</span>, vol. 20, no. 3, pp. 877–904, 2025.
-                        <span class="pub-meta">SJR Q1 (Economics); ESCI indexed. <a href="https://doi.org/10.24136/eq.3748" target="_blank" rel="noopener noreferrer">DOI: 10.24136/eq.3748</a></span>
-                    </li>
-                    <li>
-                        <span class="pub-title">Explainable Stacked Ensemble Learning for Fake News Detection using Text and Metadata.</span><br>
-                        <span class="pub-authors"><strong>K.M.T.B. Parves</strong> and P.K. Shill.</span><br>
-                        <span class="pub-venue">Jurnal The Messenger</span>, vol. 18, no. 1, pp. 120–136, 2026.
-                        <span class="pub-meta">Web of Science indexed. <a href="https://doi.org/10.26623/themessenger.v18i1.16007" target="_blank" rel="noopener noreferrer">DOI: 10.26623/themessenger.v18i1.16007</a></span>
-                    </li>
-                </ol>
+                <div class="pub-tabs" role="tablist" aria-label="Publication categories">
+                    <button class="pub-tab" id="pubtab-journal" type="button" role="tab" aria-selected="true" aria-controls="pubpanel-journal" data-panels="pubpanel-journal">Journal Articles <span class="pub-count">2</span></button>
+                    <button class="pub-tab" id="pubtab-conf" type="button" role="tab" aria-selected="false" aria-controls="pubpanel-conf" tabindex="-1" data-panels="pubpanel-conf">Conferences <span class="pub-count">5</span></button>
+                    <button class="pub-tab" id="pubtab-all" type="button" role="tab" aria-selected="false" aria-controls="pubpanel-journal" tabindex="-1" data-panels="pubpanel-journal pubpanel-conf pubpanel-under">All Publications <span class="pub-count">8</span></button>
+                </div>
 
-                <div class="pub-extra" id="pubMore" hidden>
+                <div class="pub-panel" id="pubpanel-journal" role="tabpanel" aria-labelledby="pubtab-journal">
+                    <ol class="publist">
+                        <li>
+                            <span class="pub-title">Harnessing Artificial Intelligence to Strengthen Green Innovation Capacity in Pursuit of Sustainable Development Goals: Evidence from Taiwan&rsquo;s Manufacturing Sector.</span><br>
+                            <span class="pub-authors">S. Saiyed, M. Hasan, R. Chowdhury, <strong>K.M.T. Bin Parves</strong>, E. Hariyadi, and V. Kumar.</span><br>
+                            <span class="pub-venue">Equilibrium: Quarterly Journal of Economics and Economic Policy</span>, vol. 20, no. 3, pp. 877–904, 2025.
+                            <span class="pub-meta">SJR Q1 (Economics); ESCI indexed. <a href="https://doi.org/10.24136/eq.3748" target="_blank" rel="noopener noreferrer">DOI: 10.24136/eq.3748</a></span>
+                        </li>
+                        <li>
+                            <span class="pub-title">Explainable Stacked Ensemble Learning for Fake News Detection using Text and Metadata.</span><br>
+                            <span class="pub-authors"><strong>K.M.T.B. Parves</strong> and P.K. Shill.</span><br>
+                            <span class="pub-venue">Jurnal The Messenger</span>, vol. 18, no. 1, pp. 120–136, 2026.
+                            <span class="pub-meta">Web of Science indexed. <a href="https://doi.org/10.26623/themessenger.v18i1.16007" target="_blank" rel="noopener noreferrer">DOI: 10.26623/themessenger.v18i1.16007</a></span>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="pub-panel" id="pubpanel-conf" role="tabpanel" aria-labelledby="pubtab-conf" hidden>
                     <h3 class="pub-group">Conferences</h3>
                     <ol class="publist" style="counter-reset: pub 2">
                         <li>
@@ -277,7 +284,9 @@
                             <span class="pub-meta"><span class="pub-status">Conference Paper</span><a href="https://doi.org/10.1109/QPAIN66474.2025.11172244" target="_blank" rel="noopener noreferrer">DOI: 10.1109/QPAIN66474.2025.11172244</a></span>
                         </li>
                     </ol>
+                </div>
 
+                <div class="pub-panel" id="pubpanel-under" role="tabpanel" aria-labelledby="pubtab-all" hidden>
                     <h3 class="pub-group">Manuscripts Under Review</h3>
                     <ol class="publist" style="counter-reset: pub 7">
                         <li>
@@ -287,10 +296,7 @@
                     </ol>
                 </div>
 
-                <button class="disclosure-btn disclosure-center" data-disclosure type="button" aria-expanded="false" aria-controls="pubMore" data-show-text="Show all publications" data-hide-text="Show fewer publications">
-                    <span class="disclosure-label">Show all publications</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                </button>
+                <noscript><style>.pub-panel[hidden] { display: block; }</style></noscript>
             </section>
 
             <!-- ============ Selected Projects (grid) ============ -->
@@ -298,7 +304,18 @@
                 <h2>Selected Projects</h2>
                 <p class="section-sub">Robotics, AI, and embedded systems builds — selected work from my labs and collaborations.</p>
 
-                <div class="projects-grid">
+                <div class="carousel-head">
+                    <div class="carousel-arrows">
+                        <button class="carousel-btn" type="button" data-dir="prev" aria-label="Previous projects">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button class="carousel-btn" type="button" data-dir="next" aria-label="Next projects">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="h-scroll" id="projectsScroll" tabindex="0" aria-label="Selected projects, scroll horizontally to browse">
                     <article class="project-card" id="proj-academic-assistant">
                         <p class="project-card-date">2023 – 2024</p>
                         <h3>AI Academic Assistant</h3>
@@ -341,35 +358,30 @@
 
                     <!-- Featured build: full story opens in the detail dialog -->
                     <article class="project-card project-featured" id="niko">
-                        <button class="project-featured-media" type="button" data-detail="niko-detail" aria-label="Open the full NiKO build story">
-                            <img loading="lazy" decoding="async" src="./assets/images/projects/niko-completion.jpg" alt="Team NiKO with the completed robot after 11 months of work">
-                        </button>
-                        <div class="project-featured-body">
-                            <p class="project-card-date">2022 · Featured Build</p>
-                            <h3>NiKO — Bangladesh&rsquo;s First 3D-Printed AI Humanoid</h3>
-                            <p class="project-card-desc">
-                                A fully homegrown, Raspberry&nbsp;Pi-based humanoid — designed, printed, and programmed
-                                from scratch, then unveiled publicly at the university.
-                            </p>
-                            <p class="niko-stats">
-                                <span><strong>11 mo</strong> of printing</span>
-                                <span><strong>329+</strong> pieces</span>
-                                <span><strong>27</strong> DOF</span>
-                            </p>
-                            <div class="tag-row">
-                                <span class="tag">Raspberry Pi</span>
-                                <span class="tag">Python</span>
-                                <span class="tag">OpenCV</span>
-                                <span class="tag">3D Printing</span>
-                            </div>
-                            <div class="project-card-link-group">
-                                <button class="project-card-link niko-open" type="button" data-detail="niko-detail">View full build story
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-                                </button>
-                                <a class="project-card-link" href="https://github.com/tousifo/Robot-Niko" target="_blank" rel="noopener noreferrer">github.com/tousifo/Robot-Niko
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                                </a>
-                            </div>
+                        <p class="project-card-date">2022 · <span class="featured-pill">Featured Build</span></p>
+                        <h3>NiKO — Bangladesh&rsquo;s First 3D-Printed AI Humanoid</h3>
+                        <p class="project-card-desc">
+                            A fully homegrown, Raspberry&nbsp;Pi-based humanoid — designed, printed, and programmed
+                            from scratch, then unveiled publicly at the university.
+                        </p>
+                        <p class="niko-stats">
+                            <span><strong>11 mo</strong> of printing</span>
+                            <span><strong>329+</strong> pieces</span>
+                            <span><strong>27</strong> DOF</span>
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">Raspberry Pi</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">3D Printing</span>
+                        </div>
+                        <div class="project-card-link-group">
+                            <button class="project-card-link niko-open" type="button" data-detail="niko-detail">View full build story
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                            </button>
+                            <a class="project-card-link" href="https://github.com/tousifo/Robot-Niko" target="_blank" rel="noopener noreferrer">github.com/tousifo/Robot-Niko
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
                         </div>
                     </article>
                 </div>
@@ -418,6 +430,16 @@
                         <div class="kv"><span class="kv-key">Motion</span> 12 sets of 40&nbsp;kg servos (locks customized for full 360&deg; rotation) plus 31 servos of different sizes, driven by two Adafruit 16-channel servo drivers.</div>
                         <div class="kv"><span class="kv-key">Vision &amp; UI</span> Two cameras — a Logitech camera at the front and a Pi camera at the back — with a Pi display at the front.</div>
 
+                        <div class="tag-row">
+                            <span class="tag">ROS2</span>
+                            <span class="tag">MoveIt</span>
+                            <span class="tag">Raspberry Pi</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">3D Printing</span>
+                        </div>
+
                         <div class="project-card-link-group">
                             <a class="project-card-link" href="https://lnkd.in/gfjdDGNx" target="_blank" rel="noopener noreferrer">Project documentation
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
@@ -433,45 +455,83 @@
             <!-- ============ Experience & Education ============ -->
             <section class="sec" id="experience">
                 <h2>Experience &amp; Education</h2>
+                <p class="section-sub">Academic employment, research, and teaching — newest first.</p>
 
                 <h3 class="pub-group">Experience</h3>
-                <ul class="entries">
+                <ul class="timeline">
                     <li>
-                        <p class="entry-head"><span class="entry-title"><strong>Lecturer</strong>, Department of Computer Science and Engineering </span><span class="entry-date">Sep 2025 – Present</span></p>
-                        <p class="entry-desc"><a href="https://www.portcity.edu.bd/HomePage/SubPageDetailsInfo/6503/Teacher/k-m-tousif-bin-parves" target="_blank" rel="noopener noreferrer"><strong>Port City International University</strong></a>, Chattogram. Teaching undergraduate courses, preparing assessments, supervising projects, supporting OBE activities, and mentoring students.</p>
+                        <p class="tl-when">Sep 2025 – Present</p>
+                        <div class="tl-body">
+                            <p class="tl-role"><strong>Lecturer</strong>, Department of Computer Science and Engineering</p>
+                            <p class="tl-org"><a href="https://www.portcity.edu.bd/HomePage/SubPageDetailsInfo/6503/Teacher/k-m-tousif-bin-parves" target="_blank" rel="noopener noreferrer">Port City International University</a>, Chattogram</p>
+                            <p class="tl-desc">Teaching undergraduate courses, preparing assessments, supervising projects, supporting OBE activities, and mentoring students.</p>
+                        </div>
                     </li>
                     <li>
-                        <p class="entry-head"><span class="entry-title"><strong>Research Assistant</strong>, Quantum Machine Learning Lab </span><span class="entry-date">Jul 2023 – Aug 2025</span></p>
-                        <p class="entry-desc">Department of ICT, Comilla University. Researched quantum computing, ML/DL, hybrid models, algorithms, data preparation, and evaluation using Python, PyTorch, PennyLane, Colab, and Kaggle.</p>
+                        <p class="tl-when">Jul 2023 – Aug 2025</p>
+                        <div class="tl-body">
+                            <p class="tl-role"><strong>Research Assistant</strong>, Quantum Machine Learning Lab</p>
+                            <p class="tl-org">Department of ICT, Comilla University</p>
+                            <p class="tl-desc">Researched quantum computing, ML/DL, hybrid models, algorithms, data preparation, and evaluation using Python, PyTorch, PennyLane, Colab, and Kaggle.</p>
+                        </div>
                     </li>
                     <li>
-                        <p class="entry-head"><span class="entry-title"><strong>Co-Founder</strong>, RoboICT </span><span class="entry-date">2024 – 2025</span></p>
-                        <p class="entry-desc">Built a hands-on robotics and programming education platform for school and college students; 500+ student projects completed.</p>
-                    </li>
-                    <li>
-                        <p class="entry-head"><span class="entry-title"><strong>Robotics &amp; Programming Instructor</strong>, School of Robotics, Cumilla </span><span class="entry-date">2022 – 2023 (Part-time)</span></p>
-                        <p class="entry-desc">Taught C, Python, Arduino, embedded systems, and robotics to learners aged 8–50.</p>
+                        <p class="tl-when">2024 – 2025</p>
+                        <div class="tl-body">
+                            <p class="tl-role"><strong>Co-Founder</strong>, RoboICT</p>
+                            <p class="tl-desc">Built a hands-on robotics and programming education platform for school and college students; 500+ student projects completed.</p>
+                        </div>
                     </li>
                 </ul>
 
+                <div id="expMore" hidden>
+                    <ul class="timeline">
+                        <li>
+                            <p class="tl-when">2022 – 2023 (Part-time)</p>
+                            <div class="tl-body">
+                                <p class="tl-role"><strong>Robotics &amp; Programming Instructor</strong></p>
+                                <p class="tl-org">School of Robotics, Cumilla</p>
+                                <p class="tl-desc">Taught C, Python, Arduino, embedded systems, and robotics to learners aged 8–50.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="disclosure-btn disclosure-center" data-disclosure type="button" aria-expanded="false" aria-controls="expMore" data-show-text="Show all experience" data-hide-text="Show fewer entries">
+                    <span class="disclosure-label">Show all experience</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+
                 <h3 class="pub-group" id="education">Education</h3>
-                <ul class="entries">
+                <ul class="timeline">
                     <li>
-                        <p class="entry-head"><span class="entry-title"><strong>M.Sc. (Engineering), Information and Communication Technology</strong> </span><span class="entry-date">2025 – 2026</span></p>
-                        <p class="entry-desc">Comilla University, Cumilla. Session: 2023–24 · Result published: 2026.<br>
-                        Thesis: <em>QMedShield</em> — quantum measurement-guided backdoor detection and repair in medical hybrid QNNs.</p>
+                        <p class="tl-when">2025 – 2026</p>
+                        <div class="tl-body">
+                            <p class="tl-role"><strong>M.Sc. (Engineering), Information and Communication Technology</strong></p>
+                            <p class="tl-org">Comilla University, Cumilla · Session: 2023–24 · Result published: 2026</p>
+                            <p class="tl-desc">Thesis: <em>QMedShield</em> — quantum measurement-guided backdoor detection and repair in medical hybrid QNNs.</p>
+                        </div>
                     </li>
                     <li>
-                        <p class="entry-head"><span class="entry-title"><strong>B.Sc. (Engineering), Information and Communication Technology</strong> </span><span class="entry-date">2020 – 2025</span></p>
-                        <p class="entry-desc">Comilla University, Cumilla. Session: 2019–20 · Result published: 2025.</p>
+                        <p class="tl-when">2020 – 2025</p>
+                        <div class="tl-body">
+                            <p class="tl-role"><strong>B.Sc. (Engineering), Information and Communication Technology</strong></p>
+                            <p class="tl-org">Comilla University, Cumilla · Session: 2019–20 · Result published: 2025</p>
+                        </div>
                     </li>
                     <li>
-                        <p class="entry-head"><span class="entry-title"><strong>Higher Secondary Certificate (Science)</strong> </span><span class="entry-date">2017 – 2019</span></p>
-                        <p class="entry-desc">Govt. Science College, Dhaka.</p>
+                        <p class="tl-when">2017 – 2019</p>
+                        <div class="tl-body">
+                            <p class="tl-role"><strong>Higher Secondary Certificate (Science)</strong></p>
+                            <p class="tl-org">Govt. Science College, Dhaka</p>
+                        </div>
                     </li>
                     <li>
-                        <p class="entry-head"><span class="entry-title"><strong>Secondary School Certificate (Science)</strong> </span><span class="entry-date">2014 – 2016</span></p>
-                        <p class="entry-desc">Motijheel Model School &amp; College, Dhaka.</p>
+                        <p class="tl-when">2014 – 2016</p>
+                        <div class="tl-body">
+                            <p class="tl-role"><strong>Secondary School Certificate (Science)</strong></p>
+                            <p class="tl-org">Motijheel Model School &amp; College, Dhaka</p>
+                        </div>
                     </li>
                 </ul>
             </section>

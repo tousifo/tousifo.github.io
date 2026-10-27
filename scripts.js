@@ -132,7 +132,8 @@ document.querySelectorAll('.h-scroll').forEach((scroller) => {
 
     function updateArrows() {
         const max = scroller.scrollWidth - scroller.clientWidth - 1;
-        if (prev) prev.disabled = scroller.scrollLeft <= 0;
+        // small tolerance: mandatory scroll-snap can rest the scroller a few px in
+        if (prev) prev.disabled = scroller.scrollLeft <= 4;
         if (next) next.disabled = scroller.scrollLeft >= max;
     }
 
@@ -159,6 +160,38 @@ document.querySelectorAll('[data-view-toggle]').forEach((btn) => {
         scroller.dispatchEvent(new Event('scroll'));
     });
 });
+
+// ---------- Publications category tabs ----------
+(function () {
+    const tabs = Array.from(document.querySelectorAll('.pub-tab'));
+    if (!tabs.length) return;
+    const panels = Array.from(document.querySelectorAll('.pub-panel'));
+
+    function select(tab, moveFocus) {
+        tabs.forEach((t) => {
+            const selected = t === tab;
+            t.setAttribute('aria-selected', String(selected));
+            t.tabIndex = selected ? 0 : -1;
+        });
+        panels.forEach((p) => { p.hidden = true; });
+        (tab.dataset.panels || '').split(/\s+/).filter(Boolean).forEach((id) => {
+            const panel = document.getElementById(id);
+            if (panel) panel.hidden = false;
+        });
+        if (moveFocus) tab.focus();
+    }
+
+    tabs.forEach((tab) => {
+        tab.addEventListener('click', () => select(tab, false));
+        tab.addEventListener('keydown', (e) => {
+            const i = tabs.indexOf(tab);
+            if (e.key === 'ArrowRight') { e.preventDefault(); select(tabs[(i + 1) % tabs.length], true); }
+            else if (e.key === 'ArrowLeft') { e.preventDefault(); select(tabs[(i - 1 + tabs.length) % tabs.length], true); }
+            else if (e.key === 'Home') { e.preventDefault(); select(tabs[0], true); }
+            else if (e.key === 'End') { e.preventDefault(); select(tabs[tabs.length - 1], true); }
+        });
+    });
+})();
 
 // ---------- Detail dialog (event galleries + NiKO build story) ----------
 const detailDialog = document.getElementById('detailDialog');
