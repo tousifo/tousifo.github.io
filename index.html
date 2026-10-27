@@ -17,8 +17,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./styles.css?v=21">
-        <script src="./scripts.js?v=21" defer></script>
+        <link rel="stylesheet" href="./styles.css?v=22">
+        <script src="./scripts.js?v=22" defer></script>
 
         <!-- Set saved/system theme before first paint to avoid flashing -->
         <script>
@@ -73,22 +73,17 @@
                 <div class="about-text">
                     <h1>K.M. Tousif Bin Parves</h1>
                     <p class="position">
-                        Lecturer, Department of Computer Science and Engineering<br>
-                        <a href="https://www.portcity.edu.bd/HomePage/SubPageDetailsInfo/6503/Teacher/k-m-tousif-bin-parves" target="_blank" rel="noopener noreferrer">Port City International University</a>, Chattogram, Bangladesh
+                        <span class="position-role">Lecturer · Department of Computer Science and Engineering</span>
+                        <span class="position-inst"><a href="https://www.portcity.edu.bd/HomePage/SubPageDetailsInfo/6503/Teacher/k-m-tousif-bin-parves" target="_blank" rel="noopener noreferrer">Port City International University</a> · Chattogram, Bangladesh</span>
                     </p>
-                    <p class="bio bio-full">
-                        I am an academic and researcher in ICT, currently teaching at the Department of Computer Science
-                        and Engineering, Port City International University. My research lies at the intersection of
-                        <strong>quantum machine learning</strong> and <strong>AI security</strong> — including backdoor
-                        detection and repair in hybrid quantum neural networks — alongside <strong>medical and
-                        explainable AI</strong>, <strong>IoT</strong>, and <strong>robotics</strong>. I hold an M.Sc. in
-                        ICT from Comilla University, where I worked as a Research Assistant at the Quantum Machine
-                        Learning Lab.
+                    <p class="bio">
+                        My work explores <strong>quantum machine learning</strong> and <strong>AI security</strong>, with a
+                        focus on backdoor detection and defense in hybrid quantum neural networks. My broader interests
+                        include explainable and medical AI, IoT, and robotics.
                     </p>
-                    <p class="bio bio-short">
-                        Lecturer of CSE at Port City International University. My research: <strong>quantum machine
-                        learning</strong> &amp; <strong>AI security</strong> — backdoor defense in hybrid quantum neural
-                        networks, medical &amp; explainable AI, IoT, and robotics. M.Sc. in ICT, Comilla University.
+                    <p class="qual">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12.5V17c0 1.5 2.7 2.5 6 2.5s6-1 6-2.5v-4.5"/></svg>
+                        M.Sc. in ICT · Comilla University
                     </p>
 
                     <div class="interests">
@@ -308,6 +303,35 @@
                 </div>
 
                 <div class="h-scroll" id="projectsScroll" tabindex="0" aria-label="Selected projects, scroll horizontally to browse">
+                    <!-- Featured build: full story opens in the detail dialog -->
+                    <article class="project-card project-featured" id="niko">
+                        <p class="project-card-date">2022 · <span class="featured-pill">Featured Build</span></p>
+                        <h3>NiKO — Bangladesh&rsquo;s First 3D-Printed AI Humanoid</h3>
+                        <p class="project-card-desc">
+                            A fully homegrown, Raspberry&nbsp;Pi-based humanoid — designed, printed, and programmed
+                            from scratch, then unveiled publicly at the university.
+                        </p>
+                        <p class="niko-stats">
+                            <span><strong>11 mo</strong> of printing</span>
+                            <span><strong>329+</strong> pieces</span>
+                            <span><strong>27</strong> DOF</span>
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">Raspberry Pi</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">OpenCV</span>
+                            <span class="tag">3D Printing</span>
+                        </div>
+                        <div class="project-card-link-group">
+                            <button class="project-card-link niko-open" type="button" data-detail="niko-detail">View full build story
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                            </button>
+                            <a class="project-card-link" href="https://github.com/tousifo/Robot-Niko" target="_blank" rel="noopener noreferrer">github.com/tousifo/Robot-Niko
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
                     <article class="project-card" id="proj-academic-assistant">
                         <p class="project-card-date">2023 – 2024</p>
                         <h3>AI Academic Assistant</h3>
@@ -345,35 +369,6 @@
                             <span class="tag">YOLOv8</span>
                             <span class="tag">OpenCV</span>
                             <span class="tag">TensorFlow</span>
-                        </div>
-                    </article>
-
-                    <!-- Featured build: full story opens in the detail dialog -->
-                    <article class="project-card project-featured" id="niko">
-                        <p class="project-card-date">2022 · <span class="featured-pill">Featured Build</span></p>
-                        <h3>NiKO — Bangladesh&rsquo;s First 3D-Printed AI Humanoid</h3>
-                        <p class="project-card-desc">
-                            A fully homegrown, Raspberry&nbsp;Pi-based humanoid — designed, printed, and programmed
-                            from scratch, then unveiled publicly at the university.
-                        </p>
-                        <p class="niko-stats">
-                            <span><strong>11 mo</strong> of printing</span>
-                            <span><strong>329+</strong> pieces</span>
-                            <span><strong>27</strong> DOF</span>
-                        </p>
-                        <div class="tag-row">
-                            <span class="tag">Raspberry Pi</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">OpenCV</span>
-                            <span class="tag">3D Printing</span>
-                        </div>
-                        <div class="project-card-link-group">
-                            <button class="project-card-link niko-open" type="button" data-detail="niko-detail">View full build story
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-                            </button>
-                            <a class="project-card-link" href="https://github.com/tousifo/Robot-Niko" target="_blank" rel="noopener noreferrer">github.com/tousifo/Robot-Niko
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                            </a>
                         </div>
                     </article>
                 </div>
@@ -704,6 +699,36 @@
 
                 <div class="h-scroll" id="eventsScroll" tabindex="0" aria-label="Event highlights, scroll horizontally to browse">
                     <article class="event-card">
+                        <button class="event-card-media" type="button" data-detail="evt-tedx" aria-label="Open details: TEDx CoU — Vision to Reality">
+                            <img loading="lazy" decoding="async" src="./assets/images/events/tedx-2023-onstage.jpg" alt="Speaking on stage at TEDx CoU">
+                        </button>
+                        <div class="event-card-body">
+                            <span class="event-result">Co-organizer</span>
+                            <h3>TEDx CoU — Vision to Reality</h3>
+                            <p class="event-card-desc">Comilla University&rsquo;s first TEDx-licensed conference — part of the founding organizing team.</p>
+                            <p class="event-meta">Comilla University · September 2023</p>
+                            <button class="event-card-btn" type="button" data-detail="evt-tedx">View details
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="event-card">
+                        <button class="event-card-media" type="button" data-detail="evt-innovation" aria-label="Open details: Innovation Project Showcase 2024">
+                            <img loading="lazy" decoding="async" src="./assets/images/events/innovation-2024-champion-award.jpg" alt="Receiving the Innovation Showcasing 2024 Champion crest">
+                        </button>
+                        <div class="event-card-body">
+                            <span class="event-result">Champion &middot; 1st Place</span>
+                            <h3>Innovation Project Showcase 2024</h3>
+                            <p class="event-card-desc">Live GPS tracking for university buses — crowned champion from all competing teams.</p>
+                            <p class="event-meta">Comilla University &amp; UGC · 2024</p>
+                            <button class="event-card-btn" type="button" data-detail="evt-innovation">View details
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="event-card">
                         <button class="event-card-media" type="button" data-detail="evt-uddami" aria-label="Open details: Leadership and Youth Session — Uddami Youth Network Bangladesh">
                             <img loading="lazy" decoding="async" src="./assets/images/events/uddami-2025-recognition.jpg" alt="Framed recognition from Uddami Youth Network Bangladesh">
                         </button>
@@ -734,21 +759,6 @@
                     </article>
 
                     <article class="event-card">
-                        <button class="event-card-media" type="button" data-detail="evt-innovation" aria-label="Open details: Innovation Project Showcase 2024">
-                            <img loading="lazy" decoding="async" src="./assets/images/events/innovation-2024-champion-award.jpg" alt="Receiving the Innovation Showcasing 2024 Champion crest">
-                        </button>
-                        <div class="event-card-body">
-                            <span class="event-result">Champion &middot; 1st Place</span>
-                            <h3>Innovation Project Showcase 2024</h3>
-                            <p class="event-card-desc">Live GPS tracking for university buses — crowned champion from all competing teams.</p>
-                            <p class="event-meta">Comilla University &amp; UGC · 2024</p>
-                            <button class="event-card-btn" type="button" data-detail="evt-innovation">View details
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </button>
-                        </div>
-                    </article>
-
-                    <article class="event-card">
                         <button class="event-card-media" type="button" data-detail="evt-sciencefest" aria-label="Open details: 2nd National Science Festival '24">
                             <img loading="lazy" decoding="async" src="./assets/images/events/sciencefest-2024-team.jpg" alt="Team CRIS of the CoU RoboICT Society with their robots at the science festival">
                         </button>
@@ -773,21 +783,6 @@
                             <p class="event-card-desc">CoU Bots finished runners-up on debut — the university&rsquo;s first robotics delegation.</p>
                             <p class="event-meta">BAIUST EEE Club · December 2023</p>
                             <button class="event-card-btn" type="button" data-detail="evt-baiust">View details
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </button>
-                        </div>
-                    </article>
-
-                    <article class="event-card">
-                        <button class="event-card-media" type="button" data-detail="evt-tedx" aria-label="Open details: TEDx CoU — Vision to Reality">
-                            <img loading="lazy" decoding="async" src="./assets/images/events/tedx-2023-onstage.jpg" alt="Speaking on stage at TEDx CoU">
-                        </button>
-                        <div class="event-card-body">
-                            <span class="event-result">Co-organizer</span>
-                            <h3>TEDx CoU — Vision to Reality</h3>
-                            <p class="event-card-desc">Comilla University&rsquo;s first TEDx-licensed conference — part of the founding organizing team.</p>
-                            <p class="event-meta">Comilla University · September 2023</p>
-                            <button class="event-card-btn" type="button" data-detail="evt-tedx">View details
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </button>
                         </div>

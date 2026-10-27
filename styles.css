@@ -186,7 +186,7 @@ strong {
         "text  updates";
     column-gap: 46px;
     row-gap: 0;
-    padding: 48px 0 8px;
+    padding: 40px 0 8px;
 }
 
 .about-text {
@@ -199,27 +199,50 @@ strong {
     font-size: clamp(1.85rem, 3.6vw, 2.5rem);
     font-weight: 700;
     margin: 0 0 12px;
-    letter-spacing: -0.02em;
+    letter-spacing: normal;
+    text-wrap: balance;
 }
 
 .position {
     color: var(--muted);
-    font-size: 1.05rem;
-    margin: 0 0 20px;
-    line-height: 1.65;
+    font-size: 1.02rem;
+    margin: 0 0 14px;
+    line-height: 1.6;
+}
+
+.position-role,
+.position-inst {
+    display: block;
+}
+
+.position-inst a {
+    font-weight: 500;
 }
 
 .bio {
-    margin: 0 0 18px;
+    margin: 0 0 14px;
+    max-width: 62ch;
+    color: var(--text);
 }
 
-.bio-short {
-    display: none;
+/* Academic qualification as subtle secondary metadata */
+.qual {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 20px;
+    font-size: 0.88rem;
+    color: var(--muted);
+}
+
+.qual svg {
+    flex-shrink: 0;
+    color: var(--accent);
 }
 
 /* Research interest chips */
 .interests {
-    margin: 0 0 20px;
+    margin: 0 0 6px;
 }
 
 .interests-label {
@@ -235,14 +258,14 @@ strong {
 .interest-chips {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 8px 10px;
 }
 
 .chip {
     display: inline-block;
-    padding: 3px 10px;
+    padding: 4px 12px;
     font-size: 0.78rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.5;
     color: var(--muted);
     background: var(--bg-soft);
@@ -1489,19 +1512,6 @@ strong {
 
     .updates-panel {
         margin: 14px 0 6px;
-    }
-
-    /* Condensed bio on small screens */
-    .bio-full {
-        display: none;
-    }
-
-    .bio-short {
-        display: block;
-    }
-
-    .bio {
-        margin-bottom: 16px;
     }
 
     .about-photo img {
