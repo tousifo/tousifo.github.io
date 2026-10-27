@@ -68,6 +68,32 @@ document.querySelectorAll('.disclosure-btn[data-disclosure]').forEach((btn) => {
     });
 });
 
+// ---------- Mobile "More profiles" toggle ----------
+const profilesToggle = document.getElementById('profilesToggle');
+const contactSecondary = document.getElementById('contactSecondary');
+
+if (profilesToggle && contactSecondary) {
+    profilesToggle.addEventListener('click', () => {
+        const open = contactSecondary.classList.toggle('open');
+        profilesToggle.setAttribute('aria-expanded', String(open));
+        const label = profilesToggle.querySelector('.disclosure-label');
+        if (label) label.textContent = open ? 'Fewer profiles' : 'More profiles';
+    });
+
+    // Reset the disclosure when crossing back to desktop widths
+    const desktopMQ = window.matchMedia('(min-width: 768px)');
+    const syncProfiles = () => {
+        if (desktopMQ.matches) {
+            contactSecondary.classList.remove('open');
+            profilesToggle.setAttribute('aria-expanded', 'false');
+            const label = profilesToggle.querySelector('.disclosure-label');
+            if (label) label.textContent = 'More profiles';
+        }
+    };
+    if (desktopMQ.addEventListener) desktopMQ.addEventListener('change', syncProfiles);
+    syncProfiles();
+}
+
 // ---------- Footer year ----------
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
