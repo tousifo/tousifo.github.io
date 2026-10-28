@@ -450,13 +450,6 @@ strong {
     margin: 0 0 14px;
 }
 
-.section-sub {
-    max-width: 780px;
-    margin: -8px 0 20px;
-    color: var(--muted);
-    font-size: 1rem;
-}
-
 .featured-research {
     padding: 26px 28px;
     background: var(--bg-soft);
@@ -550,6 +543,7 @@ strong {
     overflow-x: hidden;
     scroll-behavior: smooth;
     padding-right: 10px;
+    overscroll-behavior: contain;
     -webkit-mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
     mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
     scrollbar-width: thin;
@@ -888,7 +882,7 @@ strong {
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    margin: -12px 0 18px;
+    margin: 0 0 18px;
 }
 
 .carousel-dots {
@@ -1700,7 +1694,7 @@ strong {
    v15 — Horizontal card carousels, event cards, detail dialog, updates toggle
    ========================================================================== */
 
-/* Horizontal card collections (Event Highlights, Op-eds) */
+/* Horizontal card collections (projects, Event Highlights, Op-eds, training) */
 .h-scroll {
     display: flex;
     gap: 20px;
@@ -1708,6 +1702,8 @@ strong {
     scroll-snap-type: x mandatory;
     padding: 4px 2px 14px;
     scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
 }
 
 .h-scroll::-webkit-scrollbar {
@@ -1834,7 +1830,7 @@ strong {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    padding: 7px 14px;
+    padding: 9px 16px;
     border: 1px solid var(--border);
     border-radius: 999px;
     background: var(--bg);
