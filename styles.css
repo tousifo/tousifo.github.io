@@ -100,15 +100,14 @@ strong {
 .topnav-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    min-height: 56px;
-    flex-wrap: wrap;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    height: 66px;
+    gap: 12px;
 }
 
 .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-family: 'Source Serif 4', Georgia, serif;
     font-weight: 600;
     font-size: 1.06rem;
@@ -122,30 +121,70 @@ strong {
     color: var(--accent);
 }
 
-.topnav-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+.brand__mark {
+    width: 28px;
+    height: 28px;
+    flex: none;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--bg);
+    background: var(--accent);
 }
 
 .topnav-links {
+    margin-left: auto;
     display: flex;
-    flex-wrap: wrap;
-    gap: 2px 20px;
+    gap: 2px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg-soft);
 }
 
 .topnav-links a {
-    font-size: 0.92rem;
+    font-size: 14px;
     font-weight: 500;
     color: var(--muted);
-    letter-spacing: 0.005em;
+    padding: 6px 15px;
+    border-radius: 999px;
+    white-space: nowrap;
+    transition: color 0.15s ease, background 0.15s ease;
 }
 
 .topnav-links a:hover {
-    color: var(--accent);
+    color: var(--heading);
     text-decoration: none;
+}
+
+.topnav-links a.on {
+    color: var(--heading);
+    background: var(--accent-soft);
+}
+
+/* Round mobile menu button, styled like .theme-toggle */
+.nav-menu-btn {
+    display: none;
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-menu-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
 }
 
 /* ---------- Theme toggle ---------- */
@@ -180,27 +219,44 @@ strong {
 /* ---------- About / header ---------- */
 .about {
     display: grid;
-    grid-template-columns: 1fr 300px;
-    grid-template-areas:
-        "text  photo"
-        "text  updates";
-    column-gap: 46px;
-    row-gap: 0;
-    padding: 40px 0 8px;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    gap: 44px;
+    padding: 64px 0 72px;
+    align-items: start;
 }
 
 .about-text {
-    grid-area: text;
     min-width: 0;
-    align-self: start;
+}
+
+/* Name + portrait row: photo and name top-aligned with the updates panel */
+.who {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 22px;
 }
 
 .about h1 {
-    font-size: clamp(1.85rem, 3.6vw, 2.5rem);
+    font-size: clamp(34px, 4.6vw, 52px);
+    line-height: 1.08;
     font-weight: 700;
-    margin: 0 0 12px;
+    margin: 0;
     letter-spacing: normal;
     text-wrap: balance;
+}
+
+.place {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 14px;
+    margin: 6px 0 0;
+}
+
+.place svg {
+    flex-shrink: 0;
 }
 
 .position {
@@ -240,9 +296,9 @@ strong {
     color: var(--accent);
 }
 
-/* Research interest chips */
+/* Research interest chips (moved to the bottom of the hero) */
 .interests {
-    margin: 0 0 6px;
+    margin: 26px 0 0;
 }
 
 .interests-label {
@@ -273,14 +329,15 @@ strong {
 }
 
 /* ---------- Contact actions & profile links ---------- */
-.contact-label {
+/* Label above the tier-2 profile chips, same style as .interests-label */
+.profiles-label {
     display: block;
     font-size: 0.74rem;
     font-weight: 600;
     letter-spacing: 0.13em;
     text-transform: uppercase;
     color: var(--muted);
-    margin: 22px 0 10px;
+    margin: 14px 0 10px;
 }
 
 .contact-actions {
@@ -294,10 +351,10 @@ strong {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    min-height: 42px;
-    padding: 0 16px;
-    border-radius: 10px;
-    font-size: 0.9rem;
+    height: 42px;
+    padding: 0 17px;
+    border-radius: 11px;
+    font-size: 14.5px;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -305,10 +362,6 @@ strong {
 
 .cbtn svg {
     flex-shrink: 0;
-}
-
-.cbtn:active {
-    transform: translateY(1px);
 }
 
 /* Level 1 - primary action */
@@ -323,6 +376,7 @@ strong {
     color: #ffffff;
     box-shadow: 0 6px 18px rgba(15, 118, 110, 0.32);
     text-decoration: none;
+    transform: translateY(-1px);
 }
 
 /* Level 2 - secondary actions */
@@ -336,21 +390,29 @@ strong {
     border-color: var(--accent);
     color: var(--accent);
     text-decoration: none;
+    transform: translateY(-1px);
 }
 
-/* Level 2b - quiet profile chips */
+.cbtn:active {
+    transform: translateY(1px);
+}
+
+/* Level 2b - quiet profile chips (tier 2: smaller, calmer, no lift) */
 .cbtn-quiet {
-    min-height: 38px;
-    padding: 0 13px;
-    background: var(--bg-soft);
-    border: 1px solid transparent;
+    gap: 6px;
+    height: 32px;
+    padding: 0 11px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
     color: var(--muted);
     font-weight: 500;
-    font-size: 0.85rem;
+    font-size: 13px;
 }
 
 .cbtn-quiet:hover {
     color: var(--accent);
+    border-color: var(--accent);
     background: var(--accent-soft);
     text-decoration: none;
 }
@@ -362,25 +424,28 @@ strong {
     gap: 8px;
 }
 
-/* Mobile-only expandable control */
+/* Mobile-only expandable control, sized like a tier-2 chip */
 .profiles-toggle {
     display: none;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
-    min-height: 46px;
-    border: 1px dashed var(--border);
-    border-radius: 10px;
+    gap: 6px;
+    height: 32px;
+    padding: 0 11px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
     background: transparent;
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 13px;
+    font-family: inherit;
     cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .profiles-toggle:hover {
+    color: var(--accent);
     border-color: var(--accent);
+    background: var(--accent-soft);
 }
 
 .profiles-toggle svg {
@@ -391,33 +456,25 @@ strong {
     transform: rotate(180deg);
 }
 
+/* Accent-ring portrait beside the name */
 .about-photo {
-    grid-area: photo;
-    position: relative;
-    z-index: 0;
-    margin: 6px 0 0;
-    justify-self: end;
-    align-self: start;
-}
-
-/* Soft accent circle offset behind the portrait */
-.about-photo::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    inset: -11px;
+    flex: none;
+    width: 124px;
+    height: 124px;
+    margin: 0;
+    padding: 4px;
     border-radius: 50%;
-    background: var(--accent-soft);
+    background: var(--accent);
+    box-shadow: var(--photo-shadow);
 }
 
 .about-photo img {
-    width: 160px;
-    height: 160px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center 20%;
     border-radius: 50%;
-    border: 1px solid var(--border);
-    box-shadow: var(--photo-shadow);
+    border: 3px solid var(--bg);
     display: block;
 }
 
@@ -493,27 +550,32 @@ strong {
     padding: 0;
 }
 
+/* Each row: date pill in a fixed column, text with a clean left edge */
 .updates li {
-    padding: 9px 14px 9px 112px;
-    margin: 0 -14px;
-    position: relative;
-    border-bottom: 1px dashed var(--border);
-    border-radius: 10px;
-    transition: background-color 0.2s ease;
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+    font-size: 14.5px;
+    line-height: 1.55;
 }
 
-.updates li:hover {
-    background: var(--bg-soft);
+.updates li:first-child {
+    border-top: none;
 }
 
-/* Contained, scrollable updates feed (shows ~3 items, page height fixed) */
+/* Panel: the only element in the hero's right column */
 .updates-panel {
-    grid-area: updates;
     align-self: start;
-    margin-top: 20px;
+    background: var(--bg-soft);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 8px 8px 14px;
+    border-radius: 16px;
+    padding: 22px 22px 14px;
+}
+
+.updates-panel:hover {
+    border-color: var(--accent);
 }
 
 .updates-label {
@@ -526,75 +588,22 @@ strong {
     margin: 0 0 8px;
 }
 
-.updates-panel .updates li {
-    margin: 0 0 2px;
-    padding: 7px 4px 8px 0;
-}
-
-.updates-panel .upd-date {
-    position: static;
-    display: inline-block;
-    margin: 0 0 3px;
-}
-
-.updates-scroll {
-    max-height: 220px; /* refined to exactly 3 items by scripts.js */
-    overflow-y: auto;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    padding-right: 10px;
-    overscroll-behavior: contain;
-    -webkit-mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
-    mask-image: linear-gradient(180deg, #000 86%, transparent 100%);
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
-}
-
-.updates-scroll::-webkit-scrollbar {
-    width: 5px;
-}
-
-.updates-scroll::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.updates-scroll::-webkit-scrollbar-thumb {
-    background: var(--border);
-    border-radius: 999px;
-}
-
-.updates-scroll .updates li {
-    margin: 0;
-}
-
-/* Items fade in as they enter the container viewport (JS adds .fade + .in-view) */
-.updates-scroll.fade .updates li {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.2s ease;
-}
-
-.updates-scroll.fade .updates li.in-view {
-    opacity: 1;
-    transform: none;
-}
-
-.updates li:last-child {
-    border-bottom: none;
+/* First 5 items visible; "View all" adds the .expanded class */
+.updates-scroll:not(.expanded) .updates li:nth-child(n+6) {
+    display: none;
 }
 
 .upd-date {
-    position: absolute;
-    left: 14px;
-    top: 11px;
+    align-self: start;
+    justify-self: start;
     font-family: 'Inter', sans-serif;
     font-variant-numeric: tabular-nums;
-    font-size: 0.76rem;
+    font-size: 12px;
     font-weight: 600;
     color: var(--accent);
     background: var(--accent-soft);
-    padding: 2px 10px;
-    border-radius: 999px;
+    padding: 2px 9px;
+    border-radius: 7px;
     white-space: nowrap;
 }
 
@@ -1468,11 +1477,9 @@ strong {
         mask-image: none;
     }
 
-    .updates-scroll {
-        max-height: none;
-        overflow: visible;
-        -webkit-mask-image: none;
-        mask-image: none;
+    /* Print shows the full updates feed regardless of the expanded state */
+    .updates-scroll:not(.expanded) .updates li:nth-child(n+6) {
+        display: block;
     }
 
     .back-to-top {
@@ -1489,70 +1496,60 @@ strong {
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 720px) {
-    .about {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-areas:
-            "photo"
-            "text"
-            "updates";
-        padding-top: 36px;
+/* Compact pill links before the mobile menu takes over */
+@media (max-width: 1080px) {
+    .topnav-links a {
+        padding: 6px 11px;
     }
+}
 
-    .about-photo {
-        justify-self: center;
-        margin: 0 0 10px;
-    }
-
-    .updates-panel {
-        margin: 14px 0 6px;
-    }
-
-    .about-photo img {
-        width: 140px;
-        height: 140px;
-    }
-
-    .link-row {
-        margin-top: 24px;
-        justify-content: center;
-    }
-
-    .updates li {
-        padding: 6px 14px 8px;
-    }
-
-    .upd-date {
-        position: static;
-        display: inline-block;
-        margin-bottom: 4px;
-    }
-
-    /* Compact single-row swipeable nav on small screens */
-    .topnav-inner {
-        flex-wrap: nowrap;
-    }
-
-    .topnav-right {
-        flex-wrap: nowrap;
-        min-width: 0;
-    }
-
+/* Nav collapses to a round menu button + dropdown panel; hero stacks */
+@media (max-width: 980px) {
     .topnav-links {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .topnav-links::-webkit-scrollbar {
         display: none;
     }
 
-    .topnav-links a {
-        white-space: nowrap;
+    .topnav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 74px;
+        left: 16px;
+        right: 16px;
+        padding: 8px;
+        border-radius: 18px;
+        background: var(--bg);
+        border: 1px solid var(--border);
     }
 
+    .topnav-links.open a {
+        font-size: 16px;
+        padding: 12px 14px;
+    }
+
+    .nav-menu-btn {
+        display: inline-flex;
+    }
+
+    .about {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 36px;
+        padding: 32px 0 52px;
+    }
+
+    .who {
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+
+    .about-photo {
+        width: 84px;
+        height: 84px;
+        padding: 3px;
+    }
+}
+
+@media (max-width: 720px) {
     .carousel-head {
         flex-wrap: wrap;
     }
@@ -1628,8 +1625,9 @@ strong {
     }
 
     .contact-actions .cbtn {
-        min-height: 46px;
+        height: 46px;
         width: 100%;
+        justify-content: center;
     }
 
     .cbtn-primary {
@@ -1639,12 +1637,10 @@ strong {
 
     .profiles-toggle {
         display: inline-flex;
-        grid-column: 1 / -1;
     }
 
     .contact-secondary {
         display: none;
-        grid-column: 1 / -1;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
     }
@@ -1655,7 +1651,8 @@ strong {
 
     .contact-secondary .cbtn-quiet {
         width: 100%;
-        min-height: 44px;
+        height: 44px;
+        justify-content: center;
     }
 }
 
@@ -1671,7 +1668,6 @@ strong {
     }
 
     .reveal-section,
-    .updates-scroll.fade .updates li,
     .achv-scroll.fade .achv-card {
         opacity: 1;
         transform: none;
@@ -1933,7 +1929,6 @@ strong {
     justify-content: space-between;
     gap: 10px;
     margin: 0 0 8px;
-    padding-right: 6px;
 }
 
 .updates-head .updates-label {
@@ -1966,12 +1961,6 @@ strong {
 
 .updates-toggle[aria-expanded="true"] svg {
     transform: rotate(180deg);
-}
-
-.updates-scroll.expanded {
-    max-height: min(60vh, 520px) !important;
-    -webkit-mask-image: none;
-    mask-image: none;
 }
 
 /* Print: carousels wrap into grids, controls disappear */
@@ -2236,4 +2225,36 @@ strong {
     margin: 0;
     font-size: 0.9rem;
     color: var(--text);
+}
+
+/* ==========================================================================
+   v25 — jewelnath.dev-style layout pass (pill nav, hero rebuild, tiered
+   buttons, static updates panel) + pointer-following card glow
+   ========================================================================== */
+
+/* Soft radial light that follows the pointer (--mx/--my set by scripts.js);
+   accent hover borders already exist on the card rules above */
+.glow {
+    position: relative;
+    isolation: isolate;
+}
+
+.glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), var(--accent-soft), transparent 65%);
+}
+
+.glow:hover::before {
+    opacity: 1;
+}
+
+.featured-research:hover {
+    border-color: var(--accent);
 }

@@ -1,4 +1,4 @@
-/* K.M. Tousif Bin Parves — academic portfolio (v15) */
+/* K.M. Tousif Bin Parves — academic portfolio (v25) */
 
 // ---------- Theme (light / dark) ----------
 const themeToggle = document.getElementById('themeToggle');
@@ -26,52 +26,18 @@ function unlockScrollIfIdle() {
     }
 }
 
-// ---------- Updates: 3 items visible, "View all" expands the feed ----------
-const updatesScroll = document.getElementById('updatesScroll');
+// ---------- Updates: first 5 items visible, "View all" expands the feed ----------
+const updatesFeed = document.getElementById('updatesScroll');
 const updatesToggle = document.getElementById('updatesToggle');
-let updatesExpanded = false;
 
-function sizeUpdatesFeed() {
-    if (!updatesScroll || updatesExpanded) return;
-    const items = updatesScroll.querySelectorAll('.updates li');
-    if (items.length < 3) {
-        updatesScroll.style.maxHeight = '';
-        return;
-    }
-    // Fixed height = exactly the first 3 items, so the page length stays constant
-    const third = items[2];
-    updatesScroll.style.maxHeight = (third.offsetTop + third.offsetHeight - items[0].offsetTop + 2) + 'px';
-}
-
-sizeUpdatesFeed();
-window.addEventListener('load', sizeUpdatesFeed);
-let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(sizeUpdatesFeed, 150);
-});
-
-if (updatesToggle && updatesScroll) {
+if (updatesToggle && updatesFeed) {
     updatesToggle.addEventListener('click', () => {
-        updatesExpanded = !updatesExpanded;
-        updatesScroll.classList.toggle('expanded', updatesExpanded);
-        updatesToggle.setAttribute('aria-expanded', String(updatesExpanded));
+        const expanded = updatesToggle.getAttribute('aria-expanded') === 'true';
+        updatesToggle.setAttribute('aria-expanded', String(!expanded));
+        updatesFeed.classList.toggle('expanded', !expanded);
         const label = updatesToggle.querySelector('.disclosure-label');
-        if (label) label.textContent = updatesExpanded ? 'Show less' : 'View all';
-        if (!updatesExpanded) sizeUpdatesFeed();
+        if (label) label.textContent = !expanded ? 'Show less' : 'View all';
     });
-
-    // Subtle fade-in as items enter the container's viewport
-    updatesScroll.classList.add('fade');
-    const feedObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) entry.target.classList.add('in-view');
-            });
-        },
-        { root: updatesScroll, rootMargin: '0px 0px -4% 0px' }
-    );
-    updatesScroll.querySelectorAll('.updates li').forEach((li) => feedObserver.observe(li));
 }
 
 // ---------- Disclosures (Show more / details) ----------
@@ -323,28 +289,64 @@ if (backToTop) {
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ---------- Highlight the nav link of the section currently in view ----------
-const links = document.querySelectorAll('.topnav-links a');
+// ---------- Mobile nav menu (the pill collapses into a dropdown panel) ----------
+const navMenuBtn = document.getElementById('navMenuBtn');
+const topnavLinks = document.getElementById('topnavLinks');
 
-if (links.length) {
+if (navMenuBtn && topnavLinks) {
+    const setMenu = (open) => {
+        topnavLinks.classList.toggle('open', open);
+        navMenuBtn.setAttribute('aria-expanded', String(open));
+    };
+
+    navMenuBtn.addEventListener('click', () => setMenu(!topnavLinks.classList.contains('open')));
+    topnavLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setMenu(false);
+    });
+
+    // Reset the disclosure when crossing back to desktop widths
+    const desktopNavMQ = window.matchMedia('(min-width: 981px)');
+    const syncMenu = () => {
+        if (desktopNavMQ.matches) setMenu(false);
+    };
+    if (desktopNavMQ.addEventListener) desktopNavMQ.addEventListener('change', syncMenu);
+    syncMenu();
+}
+
+// ---------- Pointer-following glow on cards ----------
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.glow').forEach((card) => {
+        card.addEventListener('pointermove', (e) => {
+            const r = card.getBoundingClientRect();
+            card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+            card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+        });
+    });
+}
+
+// ---------- Highlight the nav link of the section currently in view ----------
+const navLinks = document.querySelectorAll('.topnav-links a');
+
+if (navLinks.length && 'IntersectionObserver' in window) {
     const byId = {};
-    links.forEach((link) => {
+    navLinks.forEach((link) => {
         const id = (link.getAttribute('href') || '').slice(1);
         const target = document.getElementById(id);
         if (target) byId[id] = link;
     });
 
-    const observer = new IntersectionObserver(
+    let currentId = null;
+    const spy = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                links.forEach((l) => (l.style.color = ''));
-                const active = byId[entry.target.id];
-                if (active) active.style.color = 'var(--accent)';
+                if (entry.isIntersecting) currentId = entry.target.id;
+                else if (currentId === entry.target.id) currentId = null;
             });
+            navLinks.forEach((l) => l.classList.toggle('on', !!currentId && l === byId[currentId]));
         },
-        { rootMargin: '-20% 0px -70% 0px' }
+        { rootMargin: '-45% 0px -50% 0px' }
     );
 
-    Object.keys(byId).forEach((id) => observer.observe(document.getElementById(id)));
+    Object.keys(byId).forEach((id) => spy.observe(document.getElementById(id)));
 }
