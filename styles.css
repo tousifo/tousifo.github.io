@@ -125,14 +125,8 @@ strong {
     width: 28px;
     height: 28px;
     flex: none;
-    border-radius: 9px;
-    display: grid;
-    place-items: center;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--bg);
-    background: var(--accent);
+    border-radius: 8px;
+    display: block;
 }
 
 .topnav-links {
