@@ -226,7 +226,8 @@
                 <div class="pub-tabs" role="tablist" aria-label="Publication categories">
                     <button class="pub-tab" id="pubtab-journal" type="button" role="tab" aria-selected="true" aria-controls="pubpanel-journal" data-panels="pubpanel-journal">Journal Articles <span class="pub-count">2</span></button>
                     <button class="pub-tab" id="pubtab-conf" type="button" role="tab" aria-selected="false" aria-controls="pubpanel-conf" tabindex="-1" data-panels="pubpanel-conf">Conferences <span class="pub-count">5</span></button>
-                    <button class="pub-tab" id="pubtab-all" type="button" role="tab" aria-selected="false" aria-controls="pubpanel-journal" tabindex="-1" data-panels="pubpanel-journal pubpanel-conf pubpanel-under">All Publications <span class="pub-count">8</span></button>
+                    <button class="pub-tab" id="pubtab-report" type="button" role="tab" aria-selected="false" aria-controls="pubpanel-report" tabindex="-1" data-panels="pubpanel-report">Technical Reports <span class="pub-count">1</span></button>
+                    <button class="pub-tab" id="pubtab-all" type="button" role="tab" aria-selected="false" aria-controls="pubpanel-journal" tabindex="-1" data-panels="pubpanel-journal pubpanel-conf pubpanel-report pubpanel-under">All Publications <span class="pub-count">9</span></button>
                 </div>
 
                 <div class="pub-panel" id="pubpanel-journal" role="tabpanel" aria-labelledby="pubtab-journal">
@@ -279,9 +280,21 @@
                     </ol>
                 </div>
 
+                <div class="pub-panel" id="pubpanel-report" role="tabpanel" aria-labelledby="pubtab-report" hidden>
+                    <h3 class="pub-group">Technical Reports</h3>
+                    <ol class="publist" style="counter-reset: pub 7">
+                        <li>
+                            <span class="pub-title">Robot Niko: A Life-Size 3D-Printed Humanoid Assistant on a Raspberry Pi - System Design and Build.</span><br>
+                            <span class="pub-authors">Jewel Nath; Shanjit Mondol; <strong>Tousif Bin Parves</strong>; Md Mohiuddin Khan Mahin; Anik Chakraborty.</span><br>
+                            <span class="pub-venue">Zenodo</span>, October 28, 2026.
+                            <span class="pub-meta"><span class="pub-status">Report</span><a href="https://doi.org/10.5281/ZENODO.23719561" target="_blank" rel="noopener noreferrer">DOI: 10.5281/ZENODO.23719561</a></span>
+                        </li>
+                    </ol>
+                </div>
+
                 <div class="pub-panel" id="pubpanel-under" role="tabpanel" aria-labelledby="pubtab-all" hidden>
                     <h3 class="pub-group">Manuscripts Under Review</h3>
-                    <ol class="publist" style="counter-reset: pub 7">
+                    <ol class="publist" style="counter-reset: pub 8">
                         <li>
                             <span class="pub-title">Academic Assistant: A Robotic System Powered by Retrieval-Augmented Generation and Fine-Tuned LLMs for Interactive Learning.</span><br>
                             <span class="pub-meta">2026. Supervisor: Dr. Dulal Chakraborty, Comilla University.</span>
